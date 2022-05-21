@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.top-navigation {
+padding: 16 32;
+flex-direction: row;
+justify-content: space-between;
+}
+
+.side-navigation {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 32;
+}
