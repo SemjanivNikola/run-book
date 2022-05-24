@@ -122,6 +122,16 @@ svg {
 .breadcrumb-item span {
     font-size: 14px;
     text-transform: uppercase;
+    text-decoration: underline;
+    color: blue;
+}
+
+.breadcrumb-item.last span {
+    text-decoration: none;
+    color: gray;
+}
+.breadcrumb-item.last svg {
+display: none;
 }
 
 .bredcrumb-divider {
