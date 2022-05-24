@@ -137,7 +137,6 @@ svg {
     min-height: 55px;
 }
 
-
 /*          STEP OUTCOMES           */
 .outcomes-item {
     align-items: flex-start;
@@ -201,9 +200,17 @@ svg {
 .process-object-inner {
     min-width: 600px;
 }
-.pocess-obj-one {
+.pocess-obj-one, .pocess-obj-two {
     width: 80px;
     overflow: hidden;
     background: rgb(255,0,0);
     background: linear-gradient(145deg, rgba(255,0,0,1) 0%, rgba(255,204,0,1) 100%);
+}
+
+/***************************************/
+/*          STEP 3 ASOCCIATED          */
+/***************************************/
+div.po-header div.step-number-wrapper.pocess-obj-three-bg-color, div.outcomes-item div.pocess-obj-three-bg-color {
+    background: rgb(204, 255, 102);
+    background: linear-gradient(145deg, rgba(0, 255, 255,1) 0%, rgba(204, 255, 102,1) 100%)!important;
 }
