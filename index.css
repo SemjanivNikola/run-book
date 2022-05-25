@@ -138,6 +138,11 @@ svg {
     background-image: linear-gradient(145deg, rgba(0, 255, 255,.5) 0%, rgba(204, 255, 102,.5) 100%);
 }
 
+.action-wrapper .btn-wrapper.btn-wrapper-step-two-color {
+    background: rgb(255,0,0);
+    background: linear-gradient(145deg, rgba(255,0,0,.5) 0%, rgba(255,204,0,.5) 100%);
+}
+
 .action-wrapper .btn-wrapper a {
     text-decoration: none;
 }
