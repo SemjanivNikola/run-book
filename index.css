@@ -97,9 +97,8 @@ svg {
     height: 55px;
     display: block;
     border-radius: 50%;
-    background-color: #670000;
-    background: rgb(255,0,0);
-    background: linear-gradient(145deg, rgba(255,0,0,1) 0%, rgba(255,204,0,1) 100%);
+    background-color: rgb(255,0,0);
+    background-image: linear-gradient(145deg, rgba(255,0,0,1) 0%, rgba(255,204,0,1) 100%);
     padding: 4px;
 }
 
@@ -134,13 +133,13 @@ svg {
 .action-wrapper .btn-wrapper {
     padding: 4px;
     border-radius: 4px;
-    background: rgb(204, 255, 102);
+    background-color: rgb(204, 255, 102);
     background-image: linear-gradient(145deg, rgba(0, 255, 255,.5) 0%, rgba(204, 255, 102,.5) 100%);
 }
 
 .action-wrapper .btn-wrapper.btn-wrapper-step-two-color {
-    background: rgb(255,0,0);
-    background: linear-gradient(145deg, rgba(255,0,0,.5) 0%, rgba(255,204,0,.5) 100%);
+    background-color: rgb(255,0,0);
+    background-image: linear-gradient(145deg, rgba(255,0,0,.5) 0%, rgba(255,204,0,.5) 100%);
 }
 
 .action-wrapper .btn-wrapper a {
@@ -283,17 +282,17 @@ svg {
 .pocess-obj-one {
     width: 80px;
     overflow: hidden;
-    background: rgb(255,0,0);
-    background: linear-gradient(145deg, rgba(255,0,0,.25) 0%, rgba(255,204,0,.25) 100%);
+    background-color: rgb(255,0,0);
+    background-image: linear-gradient(145deg, rgba(255,0,0,.25) 0%, rgba(255,204,0,.25) 100%);
 }
 
 .pocess-obj-two {
     width: 80px;
     overflow: hidden;
-    background: rgb(204, 255, 102);
-    background: linear-gradient(145deg, rgba(0, 255, 255,.25) 0%, rgba(204, 255, 102,.25) 100%)!important;
+    background-color: rgb(204, 255, 102);
+    background-image: linear-gradient(145deg, rgba(0, 255, 255,.25) 0%, rgba(204, 255, 102,.25) 100%)!important;
 }
 div.po-header div.step-number-wrapper.pocess-obj-two-bg-color, div.outcomes-item div.pocess-obj-two-bg-color {
-    background: rgb(204, 255, 102);
-    background: linear-gradient(145deg, rgba(0, 255, 255,1) 0%, rgba(204, 255, 102,1) 100%)!important;
+    background-color: rgb(204, 255, 102);
+    background-image: linear-gradient(145deg, rgba(0, 255, 255,1) 0%, rgba(204, 255, 102,1) 100%)!important;
 }
