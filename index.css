@@ -77,6 +77,7 @@ svg {
 /*           PROCESS OBJECT            */
 /***************************************/
 .process-object {
+    position: relative;
     height: 100%;
     max-width: 75%;
     border-right: 1px solid rgb(210, 210, 210);
@@ -118,6 +119,50 @@ svg {
 .step-number-wrapper-inner span.step-number {
     font-size: 26px;
     font-weight: 500;
+}
+
+/*          ACTION           */
+.action-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    width: 100%;
+}
+
+.action-wrapper .btn-wrapper {
+    padding: 4px;
+    border-radius: 4px;
+    background: rgb(204, 255, 102);
+    background-image: linear-gradient(145deg, rgba(0, 255, 255,.5) 0%, rgba(204, 255, 102,.5) 100%);
+}
+
+.action-wrapper .btn-wrapper a {
+    text-decoration: none;
+}
+
+.action-wrapper .btn-wrapper .action-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 32px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.action-btn span {
+    margin-right: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.action-btn .action-icon {
+    width: 16px;
+    height: 16px;
 }
 
 /*          STEP DESCRIPTION           */
@@ -173,9 +218,39 @@ svg {
     font-size: 12px;
 }
 
+/*      DECORATION RIGHT - INFO       */
+.process-info-right {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 10;
+}
+.process-info-right .right-icon {
+    max-height: 32px;
+}
+.process-info-right .right-icon svg {
+    vertical-align: bottom;
+}
+.process-info-right p {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
 /***************************************/
 /*            COMPONENTS               */
 /***************************************/
+.spacer-sm {
+    height: 8px;
+    width: 8px;
+    min-width: 8px;
+    min-height: 8px;
+}
 .spacer-md {
     height: 16px;
     width: 16px;
