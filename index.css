@@ -12,6 +12,7 @@ svg {
 }
 
 #app {
+    position: relative;
     display: flex;
     flex: 100%;
     height: 100vh;
@@ -90,6 +91,12 @@ svg {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+}
+.po-header-title-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .step-number-wrapper {
@@ -97,7 +104,6 @@ svg {
     height: 55px;
     display: block;
     border-radius: 50%;
-    background-color: rgb(255,0,0);
     background-image: linear-gradient(145deg, rgba(255,0,0,1) 0%, rgba(255,204,0,1) 100%);
     padding: 4px;
 }
@@ -120,6 +126,16 @@ svg {
     font-weight: 500;
 }
 
+/*          TOOLTIP           */
+.tooltip-wrapper {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
 /*          ACTION           */
 .action-wrapper {
     display: flex;
@@ -130,23 +146,21 @@ svg {
     width: 100%;
 }
 
-.action-wrapper .btn-wrapper {
+.action-wrapper .btn-wrapper, .tooltip-footer .btn-wrapper {
     padding: 4px;
     border-radius: 4px;
-    background-color: rgb(204, 255, 102);
     background-image: linear-gradient(145deg, rgba(0, 255, 255,.5) 0%, rgba(204, 255, 102,.5) 100%);
 }
 
-.action-wrapper .btn-wrapper.btn-wrapper-step-two-color {
-    background-color: rgb(255,0,0);
+.action-wrapper .btn-wrapper.btn-wrapper-step-two-color, .tooltip-footer .btn-wrapper.btn-wrapper-step-two-color {
     background-image: linear-gradient(145deg, rgba(255,0,0,.5) 0%, rgba(255,204,0,.5) 100%);
 }
 
-.action-wrapper .btn-wrapper a {
+.action-wrapper .btn-wrapper a, .tooltip-footer .btn-wrapper a {
     text-decoration: none;
 }
 
-.action-wrapper .btn-wrapper .action-btn {
+.action-wrapper .btn-wrapper .action-btn, .tooltip-footer .btn-wrapper .action-btn {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -198,8 +212,7 @@ svg {
 .outcomes-step-number {
     display: block;
     border-radius: 4px;
-    background: rgb(255,0,0);
-    background: linear-gradient(145deg, rgba(255,0,0,1) 0%, rgba(255,204,0,1) 100%);
+    background-image: linear-gradient(145deg, rgba(255,0,0,1) 0%, rgba(255,204,0,1) 100%);
     padding: 2px;
 }
 .outcomes-step-number-inner {
@@ -261,6 +274,46 @@ svg {
     min-width: 16px;
     min-height: 16px;
 }
+.tooltip-popup-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.tooltip-popup-container .tooltip-popup {
+    position: relative;
+    width: 450px;
+    max-width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    padding: 16px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.tooltip-popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.tooltip-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 16px 0;
+}
 
 /***************************************/
 /*          TEXT ATRIBUTES             */
@@ -282,17 +335,14 @@ svg {
 .pocess-obj-one {
     width: 80px;
     overflow: hidden;
-    background-color: rgb(255,0,0);
     background-image: linear-gradient(145deg, rgba(255,0,0,.25) 0%, rgba(255,204,0,.25) 100%);
 }
 
 .pocess-obj-two {
     width: 80px;
     overflow: hidden;
-    background-color: rgb(204, 255, 102);
     background-image: linear-gradient(145deg, rgba(0, 255, 255,.25) 0%, rgba(204, 255, 102,.25) 100%)!important;
 }
 div.po-header div.step-number-wrapper.pocess-obj-two-bg-color, div.outcomes-item div.pocess-obj-two-bg-color {
-    background-color: rgb(204, 255, 102);
     background-image: linear-gradient(145deg, rgba(0, 255, 255,1) 0%, rgba(204, 255, 102,1) 100%)!important;
 }
