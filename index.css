@@ -87,7 +87,7 @@ svg {
 }
 
 /*          HEADER           */
-.po-header {
+.po-header, .process-info-title-wrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
