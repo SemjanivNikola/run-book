@@ -11,6 +11,10 @@ svg {
     height: 100%;
 }
 
+p {
+    text-align: justify;
+}
+
 #app {
     position: relative;
     display: flex;
@@ -110,6 +114,10 @@ svg {
     padding: 4px;
 }
 
+.step-number-wrapper.color-success {
+    background-image: linear-gradient(145deg, rgba(0, 255, 255, 1) 0%, rgba(204, 255, 102, 1) 100%);
+}
+
 .step-number-wrapper-inner {
     width: 100%;
     height: 100%;
@@ -153,12 +161,11 @@ svg {
     padding: 4px;
     border-radius: 4px;
     background-image: linear-gradient(145deg, rgba(255, 0, 0, .5) 0%, rgba(255, 204, 0, .5) 100%);
-    /* background-image: linear-gradient(145deg, rgba(0, 255, 255, .5) 0%, rgba(204, 255, 102, .5) 100%); */
 }
 
-.action-wrapper .btn-wrapper.btn-wrapper-step-two-color,
-.tooltip-footer .btn-wrapper.btn-wrapper-step-two-color {
-    background-image: linear-gradient(145deg, rgba(255, 0, 0, .5) 0%, rgba(255, 204, 0, .5) 100%);
+.action-wrapper .btn-wrapper.color-success,
+.tooltip-footer .btn-wrapper.color-success {
+    background-image: linear-gradient(145deg, rgba(0, 255, 255, .5) 0%, rgba(204, 255, 102, .5) 100%);
 }
 
 .action-wrapper .btn-wrapper a,
@@ -425,10 +432,11 @@ ul.step-list li {
     min-width: 600px;
 }
 
-.pocess-obj-one {
+.pocess-obj-one-done {
     width: 80px;
     overflow: hidden;
-    background-image: linear-gradient(145deg, rgba(255, 0, 0, .25) 0%, rgba(255, 204, 0, .25) 100%);
+    background-image: linear-gradient(145deg, rgba(0, 255, 255, .25) 0%, rgba(204, 255, 102, .25) 100%) !important;
+    /* background-image: linear-gradient(145deg, rgba(255, 0, 0, .25) 0%, rgba(255, 204, 0, .25) 100%); */
 }
 
 .pocess-obj-two {
