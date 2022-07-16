@@ -10,13 +10,38 @@
     <div id="app">
         <!-- Side navigation -->
         <nav id="side-navigation">
+            <div class="top-placeholder">
+                <div class="nav-icon"></div>
+            </div>
             <div class="side-navigator-container">
                 <div class="side-navigator-menu">
-                    <ul>
-                        <li><a href="index.html">Aktivni</a></li>
-                        <li><a href="about.html">Arhiva</a></li>
-                        <li><a href="services.html">Dostupni</a></li>
-                    </ul>
+
+                    <a class="side-navigator-menu-item" href="index.html">
+                        <div class="side-navigator-menu-item-icon">
+                            <img src="icons/home.svg" alt="">
+                        </div>
+                        <div class="side-navigator-menu-item-text">
+                            Početna
+                        </div>
+                    </a>
+
+                    <a class="side-navigator-menu-item active" href="active-process-list.html">
+                        <div class="side-navigator-menu-item-icon">
+                            <img src="icons/active-process.svg" alt="">
+                        </div>
+                        <div class="side-navigator-menu-item-text">
+                            Aktivni procesi
+                        </div>
+                    </a>
+
+                    <a class="side-navigator-menu-item" href="finished-process-list.html">
+                        <div class="side-navigator-menu-item-icon">
+                            <img src="icons/finished-process.svg" alt="">
+                        </div>
+                        <div class="side-navigator-menu-item-text">
+                            Završeni procesi
+                        </div>
+                    </a>
                 </div>
             </div>
         </nav>
@@ -52,7 +77,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             <tr>
                                 <td><span class="table-icon-placeholder"></span></td>
                                 <td>Proces prijave prakse</td>
@@ -80,7 +104,6 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </section>
     </div>
