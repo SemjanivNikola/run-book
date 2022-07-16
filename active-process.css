@@ -99,7 +99,6 @@ padding: 24px 16px;
     width: 28px;
     height: 28px;
     margin-right: 16px;
-    background-color: #000;
 }
 .side-navigator-menu-item-text {
     font-size: 16px;
@@ -162,7 +161,6 @@ padding: 16px 24px;
 .icon-placeholder {
     width: 24px;
     height: 24px;
-    background-color: aquamarine;
 }
 .search-bar input {
     height: 32px;
