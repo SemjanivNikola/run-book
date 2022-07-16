@@ -112,7 +112,6 @@ padding: 24px 16px;
     width: 28px;
     height: 28px;
     margin-bottom: 16px;
-    background-color: #000;
 }
 
 .side-navigator-menu-item.active {
@@ -216,7 +215,6 @@ padding: 16px 24px;
     display: block;
     width: 24px;
     height: 24px;
-    background-color: violet;
 }
 
 .list-table tbody tr:hover {
