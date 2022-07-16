@@ -206,13 +206,14 @@ padding: 16px 24px;
     padding-left: 16px;
 }
 .list-table tbody tr td:last-child {
-    padding-right: 16px;
+    width: 40px;
+    /* padding-right: 16px; */
 }
 .list-table tbody tr td {
     border-bottom: 1px solid #eee;
 }
 .table-icon-placeholder {
-    display: table-cell;
+    display: block;
     width: 24px;
     height: 24px;
     background-color: violet;
@@ -221,6 +222,12 @@ padding: 16px 24px;
 .list-table tbody tr:hover {
     background-color: #FFFFFF;
 }
+tr th.w-100, tr td.w-100 {
+    width: 100px
+}
+/* .table-icon-placeholder:last-child {
+    margin: auto 0 auto auto; // ALIGNING ITEMS RIGHT
+} */
 
 /***************************************/
 /*            COMPONENTS               */
