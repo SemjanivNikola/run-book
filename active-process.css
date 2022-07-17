@@ -224,6 +224,9 @@ p {
     cursor: pointer;
     transition: background-color 400ms ease-out;
 }
+.list-table tbody tr.has-border {
+    border-bottom: 1px solid #eee;
+}
 .list-table tbody tr td {
     padding: 16px 0;
 }
