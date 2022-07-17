@@ -6,6 +6,32 @@
     <title>Dostupni procesi</title>
     <link rel="stylesheet" href="active-process.css">
     <link rel="stylesheet" href="available-process.css">
+
+    <script>
+        const isSideNavigationOpenn = localStorage.getItem('isSideNavigationOpen');
+
+        function saveState(state) {
+            localStorage.setItem('isSideNavigationOpen', state);
+        }
+
+        document.onreadystatechange = function (e) {
+            if (document.readyState === 'interactive') {
+                const sideNavigation = document.getElementById('side-navigation');
+
+                if (isSideNavigationOpenn === "true") {
+                    console.log("OPEN state >> ", isSideNavigationOpenn);
+                    sideNavigation.classList.add('open');
+
+                    saveState(isSideNavigationOpenn);
+                } else {
+                    sideNavigation.classList.add('close');
+                    console.log("CLOSE state >> ", isSideNavigationOpenn);
+
+                    saveState(isSideNavigationOpenn);
+                }
+            }
+        };
+    </script>
 </head>
 
 <body>
@@ -13,18 +39,17 @@
         <!-- Side navigation -->
         <nav id="side-navigation">
             <div class="top-placeholder">
-                <div class="nav-icon">
-                    <!-- MENU IS OPEN-->
-                    <svg viewBox="0 0 24 24">
+                <button type="button" class="nav-icon" onclick="toggleSideNavigation()">
+
+                    <svg class="open" viewBox="0 0 24 24">
                         <path fill="rgb(255, 255, 255)"
                             d="M21,15.61L19.59,17L14.58,12L19.59,7L21,8.39L17.44,12L21,15.61M3,6H16V8H3V6M3,13V11H13V13H3M3,18V16H16V18H3Z" />
                     </svg>
 
-                    <!-- MENU IS CLOSED -->
-                    <!-- <svg viewBox="0 0 24 24">
+                    <svg class="close" viewBox="0 0 24 24">
                         <path fill="rgb(255, 255, 255)" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
-                    </svg> -->
-                </div>
+                    </svg>
+                </button>
             </div>
             <div class="side-navigator-container">
                 <div class="side-navigator-menu">
@@ -186,6 +211,8 @@
             </div>
         </section>
     </div>
+
+    <script src="js/navigation.js"></script>
 </body>
 
 </html>
