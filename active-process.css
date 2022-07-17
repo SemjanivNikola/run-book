@@ -188,9 +188,11 @@ p {
     width: 100%;
     border: none;
     background: transparent;
+    border-bottom: 1px solid transparent;
 }
 .search-bar input:focus {
     outline: none;
+    border-bottom-color: rgb(171, 180, 194);
 }
 
 /***************************************/
