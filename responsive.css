@@ -1,0 +1,114 @@
+@media (max-width: 576px) {
+    #app {
+        flex-direction: column;
+        padding-top: 60px; /* #side-navigation min-width */
+    }
+    #side-navigation {
+        position: fixed;
+        width: 100%;
+    }
+    #side-navigation.close {
+        height: 60px;
+    }
+    #side-navigation.open {
+        height: 100vh;
+    }
+
+    .top-placeholder {
+        display: flex;
+        flex-direction: row;
+        padding: 16px 16px 0;
+    }
+    .top-placeholder .spacer-md {
+        display: inline-flex;
+    }
+    .top-placeholder .title {
+        display: contents;
+        font-size: 24px;
+        font-weight: 700;
+        color: #FFF;
+        letter-spacing: 0.5px;
+    }
+
+    .search-bar {
+        padding: 0 8px;
+    }
+
+    .info-wrapper {
+        display: none;
+    }
+    .list-table thead tr th.show-lg, .list-table tbody tr td.show-lg {
+        display: none;
+    }
+    .list-table tbody tr td:first-child {
+        width: 46px;
+        padding-left: 8px;
+    }
+    .list-table tbody tr td:last-child {
+        width: 32px;
+    }
+    .table-scroll {
+        height: calc(100vh - 124px);
+    }
+
+}
+
+@media (min-width: 576px) {
+    #app {
+        flex-direction: row;
+        padding-left: 72px; /* #side-navigation min-width */
+    }
+
+    #side-navigation {
+        position: absolute;
+        height: 100%;
+    }
+    #side-navigation.close {
+        width: 72px;
+    }
+    #side-navigation.open {
+        width: 240px;
+    }
+
+    .top-placeholder {
+        padding: 24px 16px;
+    }
+    .top-placeholder .spacer-md {
+        display: none;
+    }
+    .top-placeholder .title {
+        display: none;
+    }
+
+    .info-wrapper {
+        display: block;
+    }
+
+    .content {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .search-bar {
+        padding: 0 16px;
+    }
+
+    .list-table tbody tr td {
+        border-bottom: 1px solid #eee;
+    }
+
+    .list-table tbody tr.show-sm, .list-table tbody tr td.show-sm {
+        display: none;
+    }
+    .list-table tbody tr td:first-child {
+        width: 56px;
+        padding-left: 16px;
+    }
+    .list-table tbody tr td:last-child {
+        width: 40px;
+    }
+    .table-scroll {
+        height: calc(100vh - 157px);
+    }
+
+}
