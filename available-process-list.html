@@ -10,25 +10,14 @@
     <script>
         const isSideNavigationOpenn = localStorage.getItem('isSideNavigationOpen');
 
-        function saveState(state) {
-            localStorage.setItem('isSideNavigationOpen', state);
-        }
-
         document.onreadystatechange = function (e) {
             if (document.readyState === 'interactive') {
                 const sideNavigation = document.getElementById('side-navigation');
 
-                if (isSideNavigationOpenn === "true") {
-                    console.log("OPEN state >> ", isSideNavigationOpenn);
+                if (isSideNavigationOpenn === "true")
                     sideNavigation.classList.add('open');
-
-                    saveState(isSideNavigationOpenn);
-                } else {
+                else
                     sideNavigation.classList.add('close');
-                    console.log("CLOSE state >> ", isSideNavigationOpenn);
-
-                    saveState(isSideNavigationOpenn);
-                }
             }
         };
     </script>
