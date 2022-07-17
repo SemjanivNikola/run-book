@@ -2,8 +2,10 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>Aktivni procesi</title>
+    <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="active-process.css">
     <link rel="stylesheet" href="available-process.css">
 
@@ -39,6 +41,8 @@
                         <path fill="rgb(255, 255, 255)" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
                     </svg>
                 </button>
+                <div class="spacer-md"></div>
+                <div class="title">Aktivni procesi</div>
             </div>
             <div class="side-navigator-container">
                 <div class="side-navigator-menu">
@@ -112,93 +116,395 @@
                     </div>
 
                     <!-- TABLE -->
-                    <table class="list-table">
-                        <thead>
-                            <tr>
-                                <th class="header-icon-placeholder"></th>
-                                <th>Naziv</th>
-                                <th>Voditelj</th>
-                                <th class="align-center">Odrađeno</th>
-                                <th class="w-150">Pokrenuto</th>
-                                <th class="w-100">Ažurirano</th>
-                                <th class="header-icon-placeholder"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="table-icon-placeholder">
-                                        <svg viewBox="0 0 24 24">
-                                            <path fill="rgb(0, 0, 0)"
-                                                d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
-                                        </svg>
-                                    </span></td>
-                                <td>Proces prijave prakse</td>
-                                <td class="w-250">Nikola Tanković</td>
-                                <td class="align-center">22%</td>
-                                <td class="w-150">12.02.2022</td>
-                                <td class="w-100">14.07.2022</td>
-                                <td>
-                                    <span class="table-icon-placeholder">
-                                        <svg viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
-                                        </svg>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="table-icon-placeholder">
-                                        <svg viewBox="0 0 24 24">
-                                            <path fill="rgb(255, 0, 0)"
-                                                d="M13,2V4C17.39,4.54 20.5,8.53 19.96,12.92C19.5,16.56 16.64,19.43 13,19.88V21.88C18.5,21.28 22.45,16.34 21.85,10.85C21.33,6.19 17.66,2.5 13,2M11,2C9.04,2.18 7.19,2.95 5.67,4.2L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.24,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.06,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37H7.06M13,13V7H11V13H13M13,17V15H11V17H13Z" />
-                                        </svg>
-                                        <!-- ALERT ICON -->
-                                        <!-- <svg xmlns="http://www.w3.org/2000/svg"
-                                            width="16" height="16" fill="rgb(255, 0, 0)"
-                                            class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                                        </svg> -->
-                                    </span>
-                                </td>
-                                <td>Proces prijave prakse</td>
-                                <td class="w-250">Nikola Tanković</td>
-                                <td class="align-center">22%</td>
-                                <td class="w-150">12.02.2022</td>
-                                <td class="w-100">14.07.2022</td>
-                                <td>
-                                    <span class="table-icon-placeholder">
-                                        <svg viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
-                                        </svg>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="table-icon-placeholder">
-                                        <svg viewBox="0 0 24 24">
-                                            <path fill="rgb(0, 0, 0)"
-                                                d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
-                                        </svg>
-                                    </span></td>
-                                <td>Proces prijave prakse</td>
-                                <td class="w-250">Nikola Tanković</td>
-                                <td class="align-center">22%</td>
-                                <td class="w-150">12.02.2022</td>
-                                <td class="w-100">14.07.2022</td>
-                                <td>
-                                    <span class="table-icon-placeholder">
-                                        <svg viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
-                                        </svg>
-                                    </span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-scroll">
+                        <table class="list-table" >
+                            <thead>
+                                <tr>
+                                    <th class="header-icon-placeholder"></th>
+                                    <th class="">Naziv<br><small>Voditelj</small></th>
+                                    <th class="show-lg">Naziv</th>
+                                    <th class="show-lg">Voditelj</th>
+                                    <th class="align-center show-lg">Odrađeno</th>
+                                    <th class="w-150 show-lg">Pokrenuto</th>
+                                    <th class="w-100">Ažurirano</th>
+                                    <th class="header-icon-placeholder"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="rgb(0, 0, 0)"
+                                                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                    <td class="show-sm">
+                                        Proces prijave prakse<br><small>Nikola Tanković</small>
+                                    </td>
+                                    <td class="show-lg">Proces prijave prakse</td>
+                                    <td class="w-250 show-lg">Nikola Tanković</td>
+                                    <td class="align-center show-lg">22%</td>
+                                    <td class="w-150 show-lg">12.02.2022</td>
+                                    <td class="w-100">14.07.2022</td>
+                                    <td>
+                                        <span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="show-sm progress-bar-row">
+                                    <td colspan="4" class="progress-bar-wrapper">
+                                        <span class="progress-bar" style="width: 68%;"></span>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td><span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="rgb(0, 0, 0)"
+                                                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                    <td class="show-sm">
+                                        Proces prijave prakse<br><small>Nikola Tanković</small>
+                                    </td>
+                                    <td class="show-lg">Proces prijave prakse</td>
+                                    <td class="w-250 show-lg">Nikola Tanković</td>
+                                    <td class="align-center show-lg">22%</td>
+                                    <td class="w-150 show-lg">12.02.2022</td>
+                                    <td class="w-100">14.07.2022</td>
+                                    <td>
+                                        <span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="show-sm progress-bar-row">
+                                    <td colspan="4" class="progress-bar-wrapper">
+                                        <span class="progress-bar" style="width: 68%;"></span>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td><span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="rgb(0, 0, 0)"
+                                                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                    <td class="show-sm">
+                                        Proces prijave prakse<br><small>Nikola Tanković</small>
+                                    </td>
+                                    <td class="show-lg">Proces prijave prakse</td>
+                                    <td class="w-250 show-lg">Nikola Tanković</td>
+                                    <td class="align-center show-lg">22%</td>
+                                    <td class="w-150 show-lg">12.02.2022</td>
+                                    <td class="w-100">14.07.2022</td>
+                                    <td>
+                                        <span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="show-sm progress-bar-row">
+                                    <td colspan="4" class="progress-bar-wrapper">
+                                        <span class="progress-bar" style="width: 68%;"></span>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td><span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="rgb(0, 0, 0)"
+                                                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                    <td class="show-sm">
+                                        Proces prijave prakse<br><small>Nikola Tanković</small>
+                                    </td>
+                                    <td class="show-lg">Proces prijave prakse</td>
+                                    <td class="w-250 show-lg">Nikola Tanković</td>
+                                    <td class="align-center show-lg">22%</td>
+                                    <td class="w-150 show-lg">12.02.2022</td>
+                                    <td class="w-100">14.07.2022</td>
+                                    <td>
+                                        <span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="show-sm progress-bar-row">
+                                    <td colspan="4" class="progress-bar-wrapper">
+                                        <span class="progress-bar" style="width: 68%;"></span>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td><span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="rgb(0, 0, 0)"
+                                                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                    <td class="show-sm">
+                                        Proces prijave prakse<br><small>Nikola Tanković</small>
+                                    </td>
+                                    <td class="show-lg">Proces prijave prakse</td>
+                                    <td class="w-250 show-lg">Nikola Tanković</td>
+                                    <td class="align-center show-lg">22%</td>
+                                    <td class="w-150 show-lg">12.02.2022</td>
+                                    <td class="w-100">14.07.2022</td>
+                                    <td>
+                                        <span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="show-sm progress-bar-row">
+                                    <td colspan="4" class="progress-bar-wrapper">
+                                        <span class="progress-bar" style="width: 68%;"></span>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td><span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="rgb(0, 0, 0)"
+                                                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                    <td class="show-sm">
+                                        Proces prijave prakse<br><small>Nikola Tanković</small>
+                                    </td>
+                                    <td class="show-lg">Proces prijave prakse</td>
+                                    <td class="w-250 show-lg">Nikola Tanković</td>
+                                    <td class="align-center show-lg">22%</td>
+                                    <td class="w-150 show-lg">12.02.2022</td>
+                                    <td class="w-100">14.07.2022</td>
+                                    <td>
+                                        <span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="show-sm progress-bar-row">
+                                    <td colspan="4" class="progress-bar-wrapper">
+                                        <span class="progress-bar" style="width: 68%;"></span>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td><span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="rgb(0, 0, 0)"
+                                                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                    <td class="show-sm">
+                                        Proces prijave prakse<br><small>Nikola Tanković</small>
+                                    </td>
+                                    <td class="show-lg">Proces prijave prakse</td>
+                                    <td class="w-250 show-lg">Nikola Tanković</td>
+                                    <td class="align-center show-lg">22%</td>
+                                    <td class="w-150 show-lg">12.02.2022</td>
+                                    <td class="w-100">14.07.2022</td>
+                                    <td>
+                                        <span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="show-sm progress-bar-row">
+                                    <td colspan="4" class="progress-bar-wrapper">
+                                        <span class="progress-bar" style="width: 68%;"></span>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td><span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="rgb(0, 0, 0)"
+                                                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                    <td class="show-sm">
+                                        Proces prijave prakse<br><small>Nikola Tanković</small>
+                                    </td>
+                                    <td class="show-lg">Proces prijave prakse</td>
+                                    <td class="w-250 show-lg">Nikola Tanković</td>
+                                    <td class="align-center show-lg">22%</td>
+                                    <td class="w-150 show-lg">12.02.2022</td>
+                                    <td class="w-100">14.07.2022</td>
+                                    <td>
+                                        <span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="show-sm progress-bar-row">
+                                    <td colspan="4" class="progress-bar-wrapper">
+                                        <span class="progress-bar" style="width: 68%;"></span>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td><span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="rgb(0, 0, 0)"
+                                                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                    <td class="show-sm">
+                                        Proces prijave prakse<br><small>Nikola Tanković</small>
+                                    </td>
+                                    <td class="show-lg">Proces prijave prakse</td>
+                                    <td class="w-250 show-lg">Nikola Tanković</td>
+                                    <td class="align-center show-lg">22%</td>
+                                    <td class="w-150 show-lg">12.02.2022</td>
+                                    <td class="w-100">14.07.2022</td>
+                                    <td>
+                                        <span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="show-sm progress-bar-row">
+                                    <td colspan="4" class="progress-bar-wrapper">
+                                        <span class="progress-bar" style="width: 68%;"></span>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td><span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="rgb(0, 0, 0)"
+                                                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                    <td class="show-sm">
+                                        Proces prijave prakse<br><small>Nikola Tanković</small>
+                                    </td>
+                                    <td class="show-lg">Proces prijave prakse</td>
+                                    <td class="w-250 show-lg">Nikola Tanković</td>
+                                    <td class="align-center show-lg">22%</td>
+                                    <td class="w-150 show-lg">12.02.2022</td>
+                                    <td class="w-100">14.07.2022</td>
+                                    <td>
+                                        <span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="show-sm progress-bar-row">
+                                    <td colspan="4" class="progress-bar-wrapper">
+                                        <span class="progress-bar" style="width: 68%;"></span>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td><span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="rgb(0, 0, 0)"
+                                                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                    <td class="show-sm">
+                                        Proces prijave prakse<br><small>Nikola Tanković</small>
+                                    </td>
+                                    <td class="show-lg">Proces prijave prakse</td>
+                                    <td class="w-250 show-lg">Nikola Tanković</td>
+                                    <td class="align-center show-lg">22%</td>
+                                    <td class="w-150 show-lg">12.02.2022</td>
+                                    <td class="w-100">14.07.2022</td>
+                                    <td>
+                                        <span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="show-sm progress-bar-row">
+                                    <td colspan="4" class="progress-bar-wrapper">
+                                        <span class="progress-bar" style="width: 68%;"></span>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td><span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="rgb(0, 0, 0)"
+                                                    d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37L5.67,19.74C7.18,21 9.04,21.79 11,22V20C9.58,19.82 8.23,19.25 7.1,18.37M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                    <td class="show-sm">
+                                        Proces prijave prakse<br><small>Nikola Tanković</small>
+                                    </td>
+                                    <td class="show-lg">Proces prijave prakse</td>
+                                    <td class="w-250 show-lg">Nikola Tanković</td>
+                                    <td class="align-center show-lg">22%</td>
+                                    <td class="w-150 show-lg">12.02.2022</td>
+                                    <td class="w-100">14.07.2022</td>
+                                    <td>
+                                        <span class="table-icon-placeholder">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M3 10H14V12H3V10M3 6H14V8H3V6M3 14H10V16H3V14M16 13V21L22 17L16 13Z" />
+                                            </svg>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="show-sm progress-bar-row">
+                                    <td colspan="4" class="progress-bar-wrapper">
+                                        <span class="progress-bar" style="width: 68%;"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>
