@@ -4,6 +4,7 @@
         padding-top: 60px;
         /* #side-navigation min-width */
     }
+
     #app-content {
         flex: 100%;
     }
@@ -71,9 +72,8 @@
     #app {
         display: flex;
         flex-direction: row;
-        /* padding-left: 72px; */
-        /* #side-navigation min-width */
     }
+
     #app-content {
         flex: 85%;
     }

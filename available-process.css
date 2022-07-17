@@ -1,15 +1,22 @@
 /***************************************/
 /*               TABLE                 */
 /***************************************/
-tr th.align-center, tr td.align-center {
+tr th.align-center,
+tr td.align-center {
     text-align: center;
 }
-tr th.w-150, tr td.w-150 {
+
+tr th.w-150,
+tr td.w-150 {
     width: 150px;
 }
-tr th.w-200, tr td.w-200 {
+
+tr th.w-200,
+tr td.w-200 {
     width: 200px;
 }
-tr th.w-250, tr td.w-250 {
+
+tr th.w-250,
+tr td.w-250 {
     width: 250px;
 }
