@@ -70,10 +70,31 @@ p {
 /*            NAVIGATION               */
 /***************************************/
 #side-navigation {
-    width: auto; /* When nav is closed this should be set to 72px */
     height: 100%;
     padding: 0 8px;
     background-color: rgb(171, 180, 194);
+    transition: all 300ms ease-out;
+}
+#side-navigation.close {
+    width: 72px;
+}
+#side-navigation .top-placeholder .nav-icon svg.open, #side-navigation .top-placeholder .nav-icon svg.close {
+    display: none;
+}
+#side-navigation.close .top-placeholder .nav-icon svg.open {
+    display: none;
+}
+#side-navigation.close .top-placeholder .nav-icon svg.close {
+    display: block;
+}
+#side-navigation.open .top-placeholder .nav-icon svg.open {
+    display: block;
+}
+#side-navigation.open .top-placeholder .nav-icon svg.close {
+    display: none;
+}
+#side-navigation.open {
+    width: 240px;
 }
 .top-placeholder {
     padding: 24px 16px;
@@ -112,6 +133,10 @@ p {
     width: 28px;
     height: 28px;
     margin-bottom: 16px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
 }
 
 .side-navigator-menu-item-wrapper.active {
