@@ -94,7 +94,7 @@ p {
     display: block;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.762);
-    padding: 48px 16px;
+    padding: 48px 24px 16px 16px;
     overflow: hidden;
 }
 
@@ -271,7 +271,7 @@ p {
 .process-info-right {
     position: absolute;
     top: 16px;
-    right: 16px;
+    right: 24px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -470,9 +470,9 @@ div.outcomes-item div.pocess-obj-two-bg-color {
     overflow: hidden; /* Need this so we can scroll through left column  */
 }
 .left-column {
-    width: 25%;
+    width: 28%;
     height: 100%;
-    padding: 16px 0 16px 16px;
+    padding: 16px 0 16px 24px;
     box-shadow: none;
     overflow-y: hidden;
     border-radius: 0!important;
@@ -509,7 +509,7 @@ div.outcomes-item div.pocess-obj-two-bg-color {
 .lct {
     width: 100%;
     height: 100%;
-    padding-right: 8px;
+    padding-right: 24px;
     overflow-y: scroll;
 }
 .left-column-wrapper-inner {
