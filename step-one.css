@@ -47,12 +47,13 @@ p {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 24px;
     background-color: #F2F2F2;
 }
 
 .process-info {
-    width: 100%;
+    padding: 24px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E0E0E0;
 }
 
 .process-model-container {
@@ -466,18 +467,16 @@ div.outcomes-item div.pocess-obj-two-bg-color {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    overflow: hidden;
-    -webkit-box-shadow: 5px 5px 13px 0px rgba(0, 0, 0, 0.39);
-    box-shadow: 5px 5px 13px 0px rgba(0, 0, 0, 0.39);
-    border-radius: 12px;
+    overflow: hidden; /* Need this so we can scroll through left column  */
 }
 .left-column {
-    width: 22%;
+    width: 25%;
     height: 100%;
-    padding: 8px 0 8px 8px;
+    padding: 16px 0 16px 16px;
     box-shadow: none;
     overflow-y: hidden;
     border-radius: 0!important;
+    background-color: #FFFFFF;
 }
 .current-step-wrapper, .current-step-title-wrapper {
     width: 100%;
