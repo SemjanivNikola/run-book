@@ -1,8 +1,8 @@
 const sideNavigation = document.getElementById('side-navigation');
-let isSideNavigationOpen = sideNavigation.classList.contains('open');
+const isSideNavigationOpen = () => sideNavigation.classList.contains('open');
 
 function toggleSideNavigation() {
-    if (isSideNavigationOpen === true) {
+    if (isSideNavigationOpen()) {
         sideNavigation.classList.add('close');
         sideNavigation.classList.remove('open');
 
@@ -29,5 +29,4 @@ function setInitState(state) {
 
 function saveState(state) {
     localStorage.setItem('isSideNavigationOpen', state);
-    isSideNavigationOpen = state;
 }
