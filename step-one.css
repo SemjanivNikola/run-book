@@ -349,6 +349,22 @@ p {
 /***************************************/
 /*            COMPONENTS               */
 /***************************************/
+.icon-placeholder {
+    display: flex;
+    width: 32px;
+    height: 32px;
+}
+.step-icon {
+    margin: 0 auto;
+}
+.step-icon.done-success {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+.step-icon.done-success path {
+    fill: rgb(0, 185, 0);
+}
 .spacer-sm {
     height: 8px;
     width: 8px;
@@ -366,7 +382,7 @@ p {
 .divider-vertical {
     width: 2px;
     height: 100%;
-    min-height: inherit;
+    min-height: 35px;
     background-color: #E5E5E5;
 }
 
@@ -478,11 +494,19 @@ div.outcomes-item div.pocess-obj-two-bg-color {
     border-radius: 0!important;
     background-color: #FFFFFF;
 }
-.current-step-wrapper, .current-step-title-wrapper {
+.step-wrapper, .current-step-title-wrapper {
     width: 100%;
-    background-image: linear-gradient(145deg, rgb(221, 0, 0) 0%, rgb(222, 178, 0) 100%);
     padding: 2px;
     border-radius: 6px;
+}
+.step-wrapper {
+    background-color: rgb(183, 184, 186);
+}
+.step-wrapper.done {
+    background-color: rgb(50, 159, 50);
+}
+.step-wrapper.active {
+    background-image: linear-gradient(145deg, rgb(221, 0, 0) 0%, rgb(222, 178, 0) 100%);
 }
 .current-step-title {
     display: flex;
