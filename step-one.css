@@ -106,6 +106,15 @@ p {
     align-items: center;
     justify-content: space-between;
 }
+.main-icon-placeholder {
+    width: 24px;
+    height: 24px;
+}
+.title-inner-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 .po-header-title-wrapper {
     display: flex;
