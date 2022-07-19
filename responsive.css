@@ -5,10 +5,6 @@
         /* #side-navigation min-width */
     }
 
-    #app-content {
-        flex: 100%;
-    }
-
     #side-navigation {
         position: fixed;
         width: 100%;
@@ -72,10 +68,6 @@
     #app {
         display: flex;
         flex-direction: row;
-    }
-
-    #app-content {
-        flex: 85%;
     }
 
     #side-navigation {
