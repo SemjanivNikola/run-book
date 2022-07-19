@@ -27,7 +27,6 @@ p {
 #app-content {
     flex: 85%;
     height: 100%;
-    background-color: rgb(201, 201, 201);
 }
 
 #top-navigation {
@@ -42,6 +41,8 @@ p {
     display: flex;
     flex-direction: column;
     background-color: #F2F2F2;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .process-info {
@@ -81,8 +82,9 @@ p {
     position: relative;
     display: block;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.762);
-    padding: 48px 24px 16px 16px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.88);
+    padding: 24px 16px;
     overflow: hidden;
 }
 
@@ -156,7 +158,8 @@ p {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    gap: 16px;
+    justify-content: flex-start;
     padding: 8px 0;
     width: 100%;
 }
@@ -203,16 +206,18 @@ p {
 }
 
 /*          STEP DESCRIPTION           */
-.step-description-wrapper,
-.step-outcomes,
-.outcomes-item {
+.step-description-wrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 8px 0;
 }
 
-.step-description-wrapper p {
+.step-description-wrapper ul {
+    margin-inline-start: 16px;
+}
+
+.step-description-wrapper ul li {
+
     font-size: 14px;
 }
 
@@ -221,6 +226,11 @@ p {
     height: 55px;
     min-width: 55px;
     min-height: 55px;
+}
+.step-number-placeholder-sm {
+    width: 55px;
+    min-width: 55px;
+    min-height: 8px;
 }
 
 /*          STEP OUTCOMES           */
@@ -480,7 +490,6 @@ div.outcomes-item div.pocess-obj-two-bg-color {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    overflow: hidden; /* Need this so we can scroll through left column  */
 }
 .left-column {
     width: 28%;
@@ -540,3 +549,137 @@ div.outcomes-item div.pocess-obj-two-bg-color {
     justify-content: flex-start;
 }
 
+
+/***************************************/
+/*           PROCESS DIAGRAM           */
+/***************************************/
+.diagram-container {
+    min-height: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px;
+}
+.diagram-col {
+    width: 240px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+    /* background-color: red; */
+}
+
+.diagram-col-item {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 2px solid rgb(171, 180, 194);
+    box-shadow: rgba(171, 180, 194, 0.45) 0px 25px 20px -20px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    transition: all 300ms ease-out;
+}
+.diagram-col-item::after {
+    content: "PREGLEDAJ";
+    position: absolute;
+    top: -2px;
+    left: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0 6px;
+    text-transform: uppercase;
+    color: rgb(171, 180, 194);
+    background-color: #FFFFFF;
+    opacity: 0;
+    z-index: 999;
+    transition: all 300ms ease-out;
+}
+.diagram-col-item:hover::after {
+    top: -8px;
+    color: rgb(0, 0, 0);
+    opacity: 1;
+
+}
+.diagram-col-item h4 {
+    color: rgb(171, 180, 194);
+}
+.diagram-col-item.current {
+    box-shadow: rgba(0, 93, 130, 0.45) 0px 25px 20px -20px;
+    border: 2px solid rgb(0, 93, 130);
+    pointer-events: none;
+}
+.diagram-col-item.current h4, .diagram-col-item:hover h4, .diagram-col-item.test h4 {
+    color: rgb(0, 0, 0);
+}
+.diagram-col-item:hover {
+    border-width: 4px;
+    border-color: rgb(0, 93, 130);
+}
+
+.diagram-col-item.done {
+    border-width: 0;
+}
+.diagram-col-item.done .diagram-col-item-done-wrapper {
+    padding: 4px;
+}
+
+.diagram-col-item-done-wrapper {
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    background-image: linear-gradient(145deg, rgba(0, 255, 255, 0.25) 0%, rgba(204, 255, 102, 0.25) 100%);
+}
+
+.diagram-col-item small {
+    position: absolute;
+    top: -8px;
+    left: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0 6px;
+    text-transform: uppercase;
+    background-color: #FFFFFF;
+}
+
+
+/* TEST */
+.diagram-col-item.current .diagram-col-item-done-wrapper {
+    padding: 0;
+    background: transparent;
+}
+.diagram-col-item.test {
+    padding: 0;
+    border-width: 0;
+    pointer-events: none;
+}
+.gradient {
+    height: 100%;
+    width: 100%;
+    padding: 4px;
+    background-image: linear-gradient(145deg, rgba(0, 255, 255, 0.55) 0%, rgba(204, 255, 102, 0.55) 100%);
+    border-radius: 4px;
+}
+.text-inner {
+    height: 100%;
+    width: 100%;
+    padding: 8px;
+    background-color: #FFFFFF;
+}
+.diagram-col-item.test small {
+    position: absolute;
+    top: -6px;
+    left: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0 6px;
+    text-transform: uppercase;
+    background-color: #FFFFFF;
+}
