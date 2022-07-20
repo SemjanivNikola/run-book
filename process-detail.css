@@ -660,8 +660,8 @@ ul.step-list li {
 /* FAB WITH DESCRIPTION */
 .diagram-item-fab {
     position: absolute;
-    bottom: 4px;
-    right: 4px;
+    bottom: -10px;
+    right: -10px;
     width: 35px;
     height: 35px;
     display: flex;
