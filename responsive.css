@@ -2,7 +2,6 @@
     #app {
         flex-direction: column;
         padding-top: 60px;
-        /* #side-navigation min-width */
     }
 
     #side-navigation {
@@ -76,11 +75,11 @@
     }
 
     #side-navigation.close {
-        width: 72px;
+        min-width: 72px;
     }
 
     #side-navigation.open {
-        width: 240px;
+        min-width: 240px;
     }
 
     .top-placeholder {
