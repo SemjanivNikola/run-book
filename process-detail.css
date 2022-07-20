@@ -116,7 +116,7 @@ p {
     height: 55px;
     display: block;
     border-radius: 50%;
-    background-image: linear-gradient(145deg, rgba(255, 0, 0, 1) 0%, rgba(255, 204, 0, 1) 100%);
+    background-image: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(0,93,130,1) 35%, rgba(0,212,255,1) 100%);
     padding: 4px;
 }
 
@@ -209,6 +209,7 @@ p {
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-left: 8px;
 }
 
 .step-description-wrapper ul {
@@ -424,42 +425,6 @@ ul.step-list li {
     align-items: flex-start;
     justify-content: flex-start;
 }
-.step-wrapper, .current-step-title-wrapper {
-    width: 100%;
-    padding: 2px;
-    border-radius: 6px;
-}
-.step-wrapper {
-    background-color: rgb(183, 184, 186);
-}
-.step-wrapper.done {
-    background-color: rgb(50, 159, 50);
-}
-.step-wrapper.active {
-    background-image: linear-gradient(145deg, rgb(221, 0, 0) 0%, rgb(222, 178, 0) 100%);
-}
-.current-step-title {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: flex-start;
-}
-.current-step-title-wrapper h4 {
-    color: #FFFFFF;
-}
-.current-step-value {
-    font-size: 36px;
-}
-.current-step-description {
-    font-size: 14px;
-    color: #FFFFFF;
-}
-.current-step-value, .current-step-description {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    color: #FFFFFF;
-}
 
 /***************************************/
 /*         INFORMATION DETAILS         */
@@ -473,15 +438,54 @@ ul.step-list li {
 }
 
 /***************************************/
+/*             TAB WRAPPER             */
+/***************************************/
+.tab-wrapper {
+    width: 100%;
+    height: 46px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    border-bottom: 1px solid #E5E5E5;
+}
+.tab-wrapper .tab-item-placeholder {
+    width: 71px;
+}
+.tab-wrapper .tab-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+}
+.tab-wrapper .tab-item h6.tab-title {
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+}
+
+.tab-wrapper .tab-item.active {
+    border-bottom-color: #005d82; 
+}
+.tab-wrapper .tab-item.active h6.tab-title {
+    font-weight: 700;
+    color: #005d82;
+}
+
+/***************************************/
 /*           PROCESS DIAGRAM           */
 /***************************************/
+.diagram-wrapper {
+    padding: 16px 8px 8px;
+}
 .diagram-container {
     min-height: 350px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 8px;
     overflow-y: hidden;
     overflow-x: scroll;
 }
