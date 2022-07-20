@@ -74,10 +74,10 @@
         height: 100%;
     }
     #side-navigation.close {
-        min-width: 72px;
+        width: 72px;
     }
     #side-navigation.open {
-        min-width: 240px;
+        width: 240px;
     }
     #side-navigation.close + section#app-content {
         max-width: calc(100vw - 72px);
