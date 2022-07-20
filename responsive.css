@@ -73,13 +73,17 @@
         position: relative;
         height: 100%;
     }
-
     #side-navigation.close {
         min-width: 72px;
     }
-
     #side-navigation.open {
         min-width: 240px;
+    }
+    #side-navigation.close + section#app-content {
+        max-width: calc(100vw - 72px);
+    }
+    #side-navigation.open + section#app-content {
+        max-width: calc(100vw - 240px);
     }
 
     .top-placeholder {
