@@ -270,15 +270,31 @@ p {
     padding: 6px;
 }
 
-
-.step-outcomes-info.done h5 {
+.outcomes-item .icon-placeholder .step-icon {
+    width: 32px;
+    height: 32px;
+}
+.outcomes-item.done .icon-placeholder {
+    margin-right: 8px;
+}
+.outcomes-item.done .icon-placeholder .step-icon {
+    width: 22px;
+    height: 22px;
+    fill: rgb(0, 185, 0);
+}
+.outcomes-item.done .step-outcomes-info h5 {
+    line-height: 1.5;
     margin-bottom: 8px;
+}
+.step-outcomes-info h5 {
+   line-height: 2;
 }
 
 .step-outcomes-info p {
     color: rgb(118, 118, 118);
     font-size: 12px;
 }
+
 
 /*      DECORATION RIGHT - INFO       */
 .process-info-right {
@@ -358,24 +374,6 @@ p {
 /***************************************/
 /*            COMPONENTS               */
 /***************************************/
-.icon-placeholder {
-    display: flex;
-    width: 32px;
-    height: 32px;
-}
-.step-icon {
-    width: 28px;
-    height: 28px;
-    margin: 0 auto;
-}
-.step-icon.done {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-}
-.step-icon.done path {
-    fill: rgb(0, 185, 0);
-}
 .spacer-sm {
     height: 8px;
     width: 8px;
