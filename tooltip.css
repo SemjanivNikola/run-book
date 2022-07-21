@@ -34,6 +34,7 @@
     top: 0;
     left: 0;
     height: 100%;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 99999;
     display: flex;
@@ -44,8 +45,6 @@
 
 .tooltip-popup-container .tooltip-popup {
     position: relative;
-    width: 450px;
-    max-width: 100%;
     background-color: #FFFFFF;
     border-radius: 4px;
     padding: 16px;
