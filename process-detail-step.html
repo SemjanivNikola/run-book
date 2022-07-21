@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="process-detail.css">
     <link rel="stylesheet" href="navigation.css">
     <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="responsive-detail.css">
 
     <script>
         const isSideNavigationOpenn = localStorage.getItem('isSideNavigationOpen');
@@ -44,7 +45,13 @@
                     </svg>
                 </button>
                 <div class="spacer-md"></div>
-                <h2 class="title">Aktivni procesi</h2>
+                <div class="back-btn">
+                    <svg class="back-btn" viewBox="0 0 24 24">
+                        <path fill="rgb(255, 255, 255)"
+                            d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                    </svg>
+                    <h2 class="title">Sustav za prijavu prakse</h2>
+                </div>
             </div>
             <div class="side-navigator-container">
                 <div class="side-navigator-menu">
@@ -121,7 +128,6 @@
                             </div>
                         </a>
                     </div>
-                    <div class="spacer-md"></div>
 
                     <!-- STEP PROGRESS -->
                     <div class="step-progress">
@@ -131,7 +137,7 @@
                                 <div class="spacer-md"></div>
                                 <span class="progress-value">43%</span>
                             </div>
-                            <div class="divider-vertical"></div>
+                            <div class="divider-vertical show-lg"></div>
                             <div class="progress-info-wrapper">
                                 <h4>Vrijeme: </h4>
                                 <div class="spacer-md"></div>
@@ -141,7 +147,7 @@
                                 <div class="spacer-md"></div>
                                 <span class="progress-value"><i>3 mjeseca</i></span>
                             </div>
-                            <div class="divider-vertical"></div>
+                            <div class="divider-vertical show-lg"></div>
                             <div class="progress-info-wrapper">
                                 <h4>Koraka riješeno: </h4>
                                 <div class="spacer-md"></div>
@@ -246,7 +252,7 @@
 
                                         <div class="outcomes-item">
                                             <div class="icon-placeholder">
-                                                <svg viewBox="0 0 24 24">
+                                                <svg class="step-icon" viewBox="0 0 24 24">
                                                     <path fill="currentColor"
                                                         d="M17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12C7,9.58 8.72,7.56 11,7.1V3H13V7.1C15.28,7.56 17,9.58 17,12M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M11,21V19H13V21H11Z" />
                                                 </svg>

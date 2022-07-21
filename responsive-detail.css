@@ -1,0 +1,138 @@
+@media (max-width: 756px) {
+
+    /* NAVIGATION  */
+    .back-btn {
+        height: 44px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-end;
+    }
+
+    .back-btn svg {
+        width: 28px;
+        height: 28px;
+        margin-right: 8px;
+    }
+
+    .top-placeholder .back-btn h2.title {
+        font-size: 22px;
+    }
+
+    .process-info {
+        padding: 0 8px 0 0;
+    }
+
+    .step-progress-header {
+        padding: 0 8px;
+        display: block;
+    }
+
+    .divider-vertical.show-lg,
+    .process-info-title-wrapper {
+        display: none;
+    }
+
+    .progress-info-wrapper h4 {
+        width: 50%;
+        text-align: left;
+    }
+
+    /* DIAGRAM  */
+    .process-object {
+        padding: 16px 8px;
+    }
+
+    /* INFORMATION DETAILS */
+    .info-details-container {
+        padding: 16px 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .step-description-wrapper {
+        padding-left: 0;
+    }
+
+    .materials-wrapper {
+        padding: 0;
+    }
+    .outcomes-item .spacer-md {
+        display: none;
+    }
+
+    .outcomes-item .icon-placeholder .step-icon {
+        margin: 0;
+    }
+}
+
+@media (max-width: 546px) {
+    .step-number-wrapper {
+        width: 45px;
+        height: 45px;
+    }
+
+    /* TAB WRAPPER  */
+    .tab-wrapper .tab-item-placeholder {
+        display: none;
+    }
+}
+
+@media (max-width: 390px) {
+
+    /* NAVIGATION  */
+    .top-placeholder .back-btn h2.title {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+}
+
+@media (min-width: 756px) {
+
+    /* NAVIGATION  */
+    .back-btn {
+        display: none;
+    }
+
+    .process-info {
+        padding: 24px;
+    }
+
+    .step-progress-header {
+        height: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* DIAGRAM  */
+    .process-object {
+        padding: 24px 16px;
+    }
+
+    /* INFORMATION DETAILS */
+    .info-details-container {
+        padding: 16px;
+        border-radius: 4px;
+        background-color: #FFFFFF;
+        /* box-shadow: rgba(171, 180, 194, 0.45) 0px 25px 20px -20px; */
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    }
+
+    .step-description-wrapper {
+        padding-left: 8px;
+    }
+
+    .materials-wrapper {
+        padding: 16px 16px 16px 8px;
+    }
+}
+
+@media (min-width: 546px) {
+    .step-number-wrapper {
+        width: 55px;
+        height: 55px;
+    }
+}
