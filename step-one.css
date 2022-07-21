@@ -354,12 +354,12 @@ p {
 .step-icon {
     margin: 0 auto;
 }
-.step-icon.done-success {
+.step-icon.done {
     width: 20px;
     height: 20px;
     fill: currentColor;
 }
-.step-icon.done-success path {
+.step-icon.done path {
     fill: rgb(0, 185, 0);
 }
 .spacer-sm {
