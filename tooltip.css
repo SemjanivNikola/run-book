@@ -1,0 +1,74 @@
+.tooltip-wrapper {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.tooltip-footer .btn-wrapper {
+    padding: 4px;
+    border-radius: 4px;
+    background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,93,130,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+.tooltip-footer .btn-wrapper a {
+    text-decoration: none;
+}
+
+.tooltip-footer .btn-wrapper .action-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 32px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.tooltip-popup-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-popup-container .tooltip-popup {
+    position: relative;
+    width: 450px;
+    max-width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    padding: 16px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.tooltip-popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.tooltip-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 16px 0;
+}
