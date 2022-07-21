@@ -92,10 +92,10 @@ p {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
 }
 .process-info-title-wrapper {
     margin-bottom: 16px;
+    justify-content: space-between;
 }
 .main-icon-placeholder {
     width: 24px;
@@ -113,6 +113,7 @@ p {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-right: 8px;
 }
 
 .step-number-wrapper {
@@ -146,8 +147,8 @@ p {
 
 /*          TOOLTIP           */
 .tooltip-wrapper {
-    width: 24px;
-    height: 24px;
+    width:16px;
+    height:16px;
     display: flex;
     align-items: center;
     justify-content: center;
