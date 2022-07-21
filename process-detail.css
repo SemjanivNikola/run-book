@@ -105,6 +105,8 @@ p {
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-decoration: none;
+    
 }
 
 .po-header-title-wrapper {
