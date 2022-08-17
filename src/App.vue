@@ -1,16 +1,20 @@
 <template>
     <div id="app">
+        <side-drawer />
         <router-view />
     </div>
 </template>
 
 <script>
+import SideDrawer from "./views/SideDrawer.vue";
 export default {
     name: "App",
+    components: { SideDrawer },
 };
 </script>
 
-<style>
+
+        SideDrawer<style>
 #app {
     position: relative;
     height: 100vh;
