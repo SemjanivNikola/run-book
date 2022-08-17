@@ -5,6 +5,6 @@
 <script>
 
 export default {
-    name: "HomeScreen",
+    name: "ArchiveScreen",
 };
 </script>
