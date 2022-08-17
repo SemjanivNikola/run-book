@@ -1,10 +1,23 @@
 <template>
-  <h1>HOME</h1>
+ <div id="main-container">
+        <div class="info-wrapper">
+            <h2>Arhiva</h2>
+            <div class="spacer-md"></div>
+        </div>
+
+        <div class="content">
+            <search-bar />
+            <process-list />
+        </div>
+    </div>
 </template>
 
 <script>
+import SearchBar from "@/components/SearchBar.vue";
+import ProcessList from "@/views/ProcessList.vue";
 
 export default {
     name: "ArchiveScreen",
+    components: { SearchBar, ProcessList },
 };
 </script>
