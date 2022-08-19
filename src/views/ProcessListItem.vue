@@ -7,7 +7,6 @@
                         <span class="table-icon-placeholder">
                             <icon
                                 name="progress-clock"
-                                size="24"
                                 color="#000"
                             />
                         </span>
@@ -24,7 +23,7 @@
                     <td class="w-100">14.07.2022</td>
                     <td>
                         <span class="table-icon-placeholder">
-                            <icon name="info" size="24" color="#000" />
+                            <icon name="info" color="#000" />
                         </span>
                     </td>
                 </tr>
@@ -39,11 +38,8 @@
 </template>
 
 <script>
-import Icon from "./Icon.vue";
-
 export default {
     name: "ProcessListItem",
-    components: { Icon },
     data () {
         return {
             isSmall: false,

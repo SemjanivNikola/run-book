@@ -1,7 +1,7 @@
 <template>
     <div class="search-bar">
         <div class="icon-placeholder">
-            <icon name="search" size="24" color="#000" />
+            <icon name="search" color="#000" />
         </div>
         <div class="spacer-md"></div>
         <input type="text" placeholder="Pretraži..." />
@@ -9,11 +9,8 @@
 </template>
 
 <script>
-import Icon from "./Icon.vue";
-
 export default {
     name: "SearchBar",
-    components: { Icon },
 };
 </script>
 
