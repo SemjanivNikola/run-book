@@ -5,9 +5,19 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     strict: process.env.NODE_ENV !== "production",
-    state: {},
-    mutations: {},
-    getters: {},
+    state: {
+        drawerOpen: false,
+    },
+    mutations: {
+        toggleDrawer (state) {
+            state.drawerOpen = !state.drawerOpen;
+        },
+    },
+    getters: {
+        isDrawerOpen (state) {
+            return state.drawerOpen;
+        },
+    },
     actions: {},
     modules: {},
 });

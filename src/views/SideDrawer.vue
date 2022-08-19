@@ -1,13 +1,12 @@
 <template>
-    <nav id="side-navigation">
+    <nav id="side-navigation" :class="{open: isDrawerOpen}">
         <div class="top-placeholder">
             <button
                 type="button"
                 class="nav-icon"
-                onclick="toggleSideNavigation()"
+                @click="toggleDrawer"
             >
-                <icon name="drawer-open" size="24" class="open" />
-                <icon name="drawer-close" size="24" class="close" />
+                <icon :name="isDrawerOpen ? 'drawer-open' : 'drawer-close'" />
             </button>
             <div class="spacer-md"></div>
             <div class="title">Aktivni procesi</div>
@@ -22,7 +21,6 @@
                         <div class="side-navigator-menu-item-icon">
                             <icon
                                 name="active-process"
-                                size="24"
                                 color="rgb(0, 0, 0)"
                             />
                         </div>
@@ -38,7 +36,7 @@
                 >
                     <div class="side-navigator-menu-item">
                         <div class="side-navigator-menu-item-icon">
-                            <icon name="available-process" size="24" />
+                            <icon name="available-process" />
                         </div>
                         <div class="side-navigator-menu-item-text">
                             Dostupni procesi
@@ -49,7 +47,7 @@
                 <a class="side-navigator-menu-item-wrapper" href="archive.html">
                     <div class="side-navigator-menu-item">
                         <div class="side-navigator-menu-item-icon">
-                            <icon name="archive" size="24" />
+                            <icon name="archive" />
                         </div>
                         <div class="side-navigator-menu-item-text">Arhiva</div>
                     </div>
@@ -60,11 +58,18 @@
 </template>
 
 <script>
-import Icon from "@/components/Icon.vue";
+import { mapGetters } from "vuex";
 
 export default {
     name: "SideDrawer",
-    components: { Icon },
+    methods: {
+        toggleDrawer () {
+            this.$store.commit("toggleDrawer");
+        },
+    },
+    computed: {
+        ...mapGetters(["isDrawerOpen"]),
+    },
 };
 </script>
 
@@ -77,27 +82,6 @@ export default {
     background-color: #005d82;
     transition: all 300ms ease-out;
     z-index: 99999;
-}
-
-#side-navigation .top-placeholder .nav-icon svg.open,
-#side-navigation .top-placeholder .nav-icon svg.close {
-    display: none;
-}
-
-#side-navigation.close .top-placeholder .nav-icon svg.open {
-    display: none;
-}
-
-#side-navigation.close .top-placeholder .nav-icon svg.close {
-    display: block;
-}
-
-#side-navigation.open .top-placeholder .nav-icon svg.open {
-    display: block;
-}
-
-#side-navigation.open .top-placeholder .nav-icon svg.close {
-    display: none;
 }
 
 .side-navigator-menu {
@@ -158,5 +142,32 @@ export default {
 
 .side-navigator-menu-item-wrapper.active .side-navigator-menu-item-text {
     color: #000;
+}
+@media (max-width: 756px) {
+    #side-navigation {
+        position: fixed;
+        width: 100%;
+        height: 60px;
+    }
+
+    #side-navigation.open {
+        height: 100vh;
+    }
+}
+@media (min-width: 756px) {
+    #side-navigation {
+        position: relative;
+        height: 100%;
+        width: 72px;
+    }
+    #side-navigation.open {
+        width: 240px;
+    }
+    #side-navigation + section#app-content {
+        max-width: calc(100vw - 72px);
+    }
+    #side-navigation.open + section#app-content {
+        max-width: calc(100vw - 240px);
+    }
 }
 </style>
