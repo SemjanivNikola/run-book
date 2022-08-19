@@ -6,7 +6,7 @@
                 class="nav-icon"
                 @click="toggleDrawer"
             >
-                <icon :name="isDrawerOpen ? 'drawer-open' : 'drawer-close'" />{{isDrawerOpen}}
+                <icon :name="isDrawerOpen ? 'drawer-open' : 'drawer-close'" />
             </button>
             <div class="spacer-md"></div>
             <div class="title">Aktivni procesi</div>

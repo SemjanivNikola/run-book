@@ -20,7 +20,8 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        sans-serif;
     color: #000;
 }
 #app {
@@ -28,14 +29,18 @@ export default {
     height: 100vh;
     max-width: 100vw;
     overflow: hidden;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 #app-content {
     height: 100%;
     width: 100%;
     background-color: #f9f9f9;
+}
+#main-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 .icon-placeholder {
     width: 24px;
@@ -49,5 +54,17 @@ export default {
 }
 p {
     text-align: justify;
+}
+@media (max-width: 756px) {
+    #app {
+        flex-direction: column;
+        padding-top: 60px;
+    }
+}
+@media (min-width: 756px) {
+    #app {
+        display: flex;
+        flex-direction: row;
+    }
 }
 </style>
