@@ -11,6 +11,10 @@ export default new Vuex.Store({
     mutations: {
         toggleDrawer (state) {
             state.drawerOpen = !state.drawerOpen;
+            localStorage.drawerState = state.drawerOpen;
+        },
+        setDrawerInitState (state, stateValue) {
+            state.drawerOpen = stateValue;
         },
     },
     getters: {

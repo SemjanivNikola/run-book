@@ -1,7 +1,9 @@
 <template>
     <div id="app">
         <side-drawer />
-        <router-view />
+        <section id="app-content">
+            <router-view />
+        </section>
     </div>
 </template>
 
@@ -13,8 +15,14 @@ export default {
 };
 </script>
 
-
-        SideDrawer<style>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #000;
+}
 #app {
     position: relative;
     height: 100vh;
@@ -23,6 +31,11 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+#app-content {
+    height: 100%;
+    width: 100%;
+    background-color: #f9f9f9;
 }
 .icon-placeholder {
     width: 24px;
@@ -33,5 +46,8 @@ export default {
     width: 16px;
     min-width: 16px;
     min-height: 16px;
+}
+p {
+    text-align: justify;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
-    <nav id="side-navigation" :class="{open: isDrawerOpen}">
+    <nav id="side-navigation" :class="{open :isDrawerOpen}">
         <div class="top-placeholder">
             <button
                 type="button"
                 class="nav-icon"
                 @click="toggleDrawer"
             >
-                <icon :name="isDrawerOpen ? 'drawer-open' : 'drawer-close'" />
+                <icon :name="isDrawerOpen ? 'drawer-open' : 'drawer-close'" />{{isDrawerOpen}}
             </button>
             <div class="spacer-md"></div>
             <div class="title">Aktivni procesi</div>
@@ -62,6 +62,14 @@ import { mapGetters } from "vuex";
 
 export default {
     name: "SideDrawer",
+    created () {
+        const { drawerState } = localStorage;
+        if (drawerState === "true") {
+            this.$store.commit("setDrawerInitState", true);
+        } else {
+            this.$store.commit("setDrawerInitState", false);
+        }
+    },
     methods: {
         toggleDrawer () {
             this.$store.commit("toggleDrawer");
@@ -153,6 +161,23 @@ export default {
     #side-navigation.open {
         height: 100vh;
     }
+    .top-placeholder {
+        display: flex;
+        flex-direction: row;
+        padding: 16px 16px 0;
+    }
+
+    .top-placeholder .spacer-md {
+        display: inline-flex;
+    }
+
+    .top-placeholder .title {
+        display: contents;
+        font-size: 24px;
+        font-weight: 700;
+        color: #FFF;
+        letter-spacing: 0.5px;
+    }
 }
 @media (min-width: 756px) {
     #side-navigation {
@@ -168,6 +193,17 @@ export default {
     }
     #side-navigation.open + section#app-content {
         max-width: calc(100vw - 240px);
+    }
+    .top-placeholder {
+        padding: 24px 16px;
+    }
+
+    .top-placeholder .spacer-md {
+        display: none;
+    }
+
+    .top-placeholder .title {
+        display: none;
     }
 }
 </style>
