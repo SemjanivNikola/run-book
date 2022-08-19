@@ -1,39 +1,30 @@
 <template>
-    <tr>
-        <td :colspan="isSmall ? 4 : 7">
-            <table>
-                <tr onclick="window.location=`process-detail.html`;">
-                    <td>
-                        <span class="table-icon-placeholder">
-                            <icon
-                                name="progress-clock"
-                                color="#000"
-                            />
-                        </span>
-                    </td>
-                    <td class="show-sm">
-                        Proces prijave prakse<br /><small
-                            >Nikola Tanković</small
-                        >
-                    </td>
-                    <td class="show-lg">Proces prijave prakse</td>
-                    <td class="w-250 show-lg">Nikola Tanković</td>
-                    <td class="align-center show-lg">22%</td>
-                    <td class="w-150 show-lg">12.02.2022</td>
-                    <td class="w-100">14.07.2022</td>
-                    <td>
-                        <span class="table-icon-placeholder">
-                            <icon name="info" color="#000" />
-                        </span>
-                    </td>
-                </tr>
-                <tr class="show-sm progress-bar-row">
-                    <td colspan="4" class="progress-bar-wrapper">
-                        <span class="progress-bar" style="width: 68%"></span>
-                    </td>
-                </tr>
-            </table>
+    <tr
+        class="list-item"
+        style="position: relative"
+        onclick="window.location=`process-detail.html`;"
+    >
+        <td>
+            <span class="table-icon-placeholder">
+                <icon name="progress-clock" color="#000" />
+            </span>
         </td>
+        <td class="show-sm">
+            Proces prijave prakse<br /><small>Nikola Tanković</small>
+        </td>
+        <td class="show-lg">Proces prijave prakse</td>
+        <td class="w-250 show-lg">Nikola Tanković</td>
+        <td class="align-center show-lg">22%</td>
+        <td class="w-150 show-lg">12.02.2022</td>
+        <td class="w-100">14.07.2022</td>
+        <td>
+            <span class="table-icon-placeholder">
+                <icon name="info" color="#000" />
+            </span>
+        </td>
+        <span class="show-sm progress-bar-row">
+            <span class="progress-bar" style="width: 68%"></span>
+        </span>
     </tr>
 </template>
 
@@ -52,26 +43,92 @@ export default {
 </script>
 
 <style scoped>
-tr.action-row {
+tr.list-item {
     cursor: pointer;
     transition: background-color 400ms ease-out;
-}
-
-tr.has-border {
     border-bottom: 1px solid #eee;
 }
-
-tr.action-row td {
+tr.list-item:hover {
+    background-color: #ffffff;
+}
+tr.list-item td {
     padding: 16px 0;
 }
-
 .table-icon-placeholder {
     display: block;
     width: 24px;
     height: 24px;
 }
+.progress-bar-row {
+    position: absolute;
+    width: 100%;
+    bottom: -1px;
+    left: 0;
+    padding: 0;
+    background: transparent;
+}
+.progress-bar-row .progress-bar {
+    height: 4px;
+    border-radius: 0 16px 16px 0;
+    background-image: linear-gradient(
+        145deg,
+        rgba(0, 255, 255, 1) 0%,
+        rgba(204, 255, 102, 1) 100%
+    );
+}
+.progress-bar-row .progress-bar.error {
+    background-image: linear-gradient(
+        145deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 204, 0, 1) 100%
+    );
+}
+tr td.align-center {
+    text-align: center;
+}
+tr td.w-100 {
+    width: 100px;
+}
+tr td.w-150 {
+    width: 150px;
+}
+tr td.w-200 {
+    width: 200px;
+}
+tr td.w-250 {
+    width: 250px;
+}
 
-tr.action-row:hover {
-    background-color: #FFFFFF;
+@media (max-width: 756px) {
+    .list-table tbody tr td.show-lg {
+        display: none;
+    }
+    .list-table tbody tr td:first-child {
+        width: 46px;
+        padding-left: 8px;
+    }
+    .list-table tbody tr td:last-child {
+        width: 32px;
+    }
+    .progress-bar-row.show-sm {
+        display: block;
+    }
+}
+
+@media (min-width: 756px) {
+    .list-table tbody tr.show-sm,
+    .list-table tbody tr td.show-sm {
+        display: none;
+    }
+    .list-table tbody tr td:first-child {
+        width: 56px;
+        padding-left: 16px;
+    }
+    .list-table tbody tr td:last-child {
+        width: 40px;
+    }
+    .progress-bar-row.show-sm {
+        display: none;
+    }
 }
 </style>

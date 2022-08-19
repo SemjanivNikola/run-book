@@ -42,6 +42,10 @@ export default {
     display: flex;
     flex-direction: column;
 }
+.content {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
 .icon-placeholder {
     width: 24px;
     height: 24px;
@@ -55,16 +59,44 @@ export default {
 p {
     text-align: justify;
 }
+span {
+    display: block;
+}
+/***************************************/
+/*           INFO WRAPPER              */
+/***************************************/
+.info-wrapper {
+    padding: 24px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.info-wrapper h2.title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
 @media (max-width: 756px) {
     #app {
         flex-direction: column;
         padding-top: 60px;
+    }
+    .info-wrapper {
+        display: none;
     }
 }
 @media (min-width: 756px) {
     #app {
         display: flex;
         flex-direction: row;
+    }
+    .info-wrapper {
+        display: block;
+    }
+    .content {
+        padding-left: 24px;
+        padding-right: 24px;
     }
 }
 </style>

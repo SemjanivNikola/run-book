@@ -42,4 +42,15 @@ export default {
     outline: none;
     border-bottom-color: rgb(171, 180, 194);
 }
+
+@media (max-width: 756px) {
+    .search-bar {
+        padding: 0 8px;
+    }
+}
+@media (min-width: 756px) {
+    .search-bar {
+        padding: 0 16px;
+    }
+}
 </style>
