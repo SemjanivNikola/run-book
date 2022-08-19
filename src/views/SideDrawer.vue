@@ -1,11 +1,7 @@
 <template>
-    <nav id="side-navigation" :class="{open :isDrawerOpen}">
+    <nav id="side-navigation" :class="{ open: isDrawerOpen }">
         <div class="top-placeholder">
-            <button
-                type="button"
-                class="nav-icon"
-                @click="toggleDrawer"
-            >
+            <button type="button" class="nav-icon" @click="toggleDrawer">
                 <icon :name="isDrawerOpen ? 'drawer-open' : 'drawer-close'" />
             </button>
             <div class="spacer-md"></div>
@@ -13,45 +9,67 @@
         </div>
         <div class="side-navigator-container">
             <div class="side-navigator-menu">
-                <a
-                    class="side-navigator-menu-item-wrapper active"
+                <router-link
+                    to="/"
+                    class="side-navigator-menu-item-wrapper"
                     aria-disabled="true"
                 >
                     <div class="side-navigator-menu-item">
                         <div class="side-navigator-menu-item-icon">
                             <icon
                                 name="active-process"
-                                color="rgb(0, 0, 0)"
+                                :color="
+                                    currentRoute === 'ActiveProcessScreen'
+                                        ? 'rgb(0, 0, 0)'
+                                        : undefined
+                                "
                             />
                         </div>
                         <div class="side-navigator-menu-item-text">
                             Aktivni procesi
                         </div>
                     </div>
-                </a>
+                </router-link>
 
-                <a
+                <router-link
+                    to="/available-processes"
                     class="side-navigator-menu-item-wrapper"
-                    href="available-process-list.html"
                 >
                     <div class="side-navigator-menu-item">
                         <div class="side-navigator-menu-item-icon">
-                            <icon name="available-process" />
+                            <icon
+                                name="available-process"
+                                :color="
+                                    currentRoute === 'AvailableProcessScreen'
+                                        ? 'rgb(0, 0, 0)'
+                                        : undefined
+                                "
+                            />
                         </div>
                         <div class="side-navigator-menu-item-text">
                             Dostupni procesi
                         </div>
                     </div>
-                </a>
+                </router-link>
 
-                <a class="side-navigator-menu-item-wrapper" href="archive.html">
+                <router-link
+                    to="/archive"
+                    class="side-navigator-menu-item-wrapper"
+                >
                     <div class="side-navigator-menu-item">
                         <div class="side-navigator-menu-item-icon">
-                            <icon name="archive" />
+                            <icon
+                                name="archive"
+                                :color="
+                                    currentRoute === 'ArchiveScreen'
+                                        ? 'rgb(0, 0, 0)'
+                                        : undefined
+                                "
+                            />
                         </div>
                         <div class="side-navigator-menu-item-text">Arhiva</div>
                     </div>
-                </a>
+                </router-link>
             </div>
         </div>
     </nav>
@@ -62,6 +80,11 @@ import { mapGetters } from "vuex";
 
 export default {
     name: "SideDrawer",
+    data () {
+        return {
+            currentRoute: "",
+        };
+    },
     created () {
         const { drawerState } = localStorage;
         if (drawerState === "true") {
@@ -69,10 +92,16 @@ export default {
         } else {
             this.$store.commit("setDrawerInitState", false);
         }
+        this.currentRoute = this.$route.name;
     },
     methods: {
         toggleDrawer () {
             this.$store.commit("toggleDrawer");
+        },
+    },
+    watch: {
+        $route (to) {
+            this.currentRoute = to.name;
         },
     },
     computed: {
@@ -136,7 +165,7 @@ export default {
     outline: none;
 }
 
-.side-navigator-menu-item-wrapper.active {
+a.side-navigator-menu-item-wrapper.router-link-exact-active {
     cursor: default;
     background-color: #e0e0e0;
     border-radius: 4px;
@@ -144,11 +173,8 @@ export default {
     box-shadow: 5px 5px 13px 0px rgba(0, 0, 0, 0.39);
 }
 
-.side-navigator-menu-item-wrapper.active .nav-icon {
-    background-color: #fff;
-}
-
-.side-navigator-menu-item-wrapper.active .side-navigator-menu-item-text {
+a.side-navigator-menu-item-wrapper.router-link-exact-active
+    .side-navigator-menu-item-text {
     color: #000;
 }
 @media (max-width: 756px) {
@@ -175,7 +201,7 @@ export default {
         display: contents;
         font-size: 24px;
         font-weight: 700;
-        color: #FFF;
+        color: #fff;
         letter-spacing: 0.5px;
     }
 }
