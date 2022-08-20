@@ -9,16 +9,19 @@
             <search-bar />
             <process-list />
         </div>
+
+        <right-sheet />
     </div>
 </template>
 
 <script>
 import SearchBar from "@/components/SearchBar.vue";
 import ProcessList from "@/views/ProcessList.vue";
+import RightSheet from "@/views/RightSheet.vue";
 
 export default {
     name: "ActiveProcessScreen",
-    components: { SearchBar, ProcessList },
+    components: { SearchBar, ProcessList, RightSheet },
     data () {
         return {
             activeProcesses: [],
