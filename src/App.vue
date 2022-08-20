@@ -24,6 +24,9 @@ export default {
         sans-serif;
     color: #000;
 }
+body {
+    background-color: #005d82;
+}
 #app {
     position: relative;
     height: 100vh;
