@@ -90,9 +90,24 @@ export default {
         archive () {
             return `<svg viewBox="0 0 24 24"><path fill="${this.color}" d="M3,3H21V7H3V3M4,8H20V21H4V8M9.5,11A0.5,0.5 0 0,0 9,11.5V13H15V11.5A0.5,0.5 0 0,0 14.5,11H9.5Z" /></svg>`;
         },
+        stepDone () {
+            return `<svg viewBox="0 0 24 24">
+                        <path fill="${this.color}" d="M20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4C12.76,4 13.5,4.11 14.2,4.31L15.77,2.74C14.61,2.26 13.34,2 12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12M7.91,10.08L6.5,11.5L11,16L21,6L19.59,4.58L11,13.17L7.91,10.08Z" />
+                    </svg>`;
+        },
+        nextStep () {
+            return `<svg viewBox="0 0 24 24">
+                        <path fill="${this.color}" d="M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M11,21V19H13V21H11Z" />
+                    </svg>`;
+        },
+        lastStep () {
+            return `<svg viewBox="0 0 24 24">
+                        <path fill="${this.color}" d="M17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12C7,9.58 8.72,7.56 11,7.1V3H13V7.1C15.28,7.56 17,9.58 17,12M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M11,21V19H13V21H11Z" />
+                    </svg>`;
+        },
     },
     methods: {
-        // eslint-disable-next-line max-statements
+        // eslint-disable-next-line max-statements, max-lines-per-function
         iconName () {
             switch (this.name) {
                 case "plus": {
@@ -129,6 +144,15 @@ export default {
                     return this.availableProcess;
                 }
                 case "archive": {
+                    return this.archive;
+                }
+                case "step-done": {
+                    return this.archive;
+                }
+                case "next-step": {
+                    return this.archive;
+                }
+                case "last-step": {
                     return this.archive;
                 }
                 default: {
