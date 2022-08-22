@@ -59,6 +59,11 @@ body {
     min-width: 16px;
     min-height: 16px;
 }
+.step-description-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 p {
     text-align: justify;
 }
@@ -88,6 +93,9 @@ span {
     .info-wrapper {
         display: none;
     }
+     .step-description-wrapper {
+        padding-left: 0;
+    }
 }
 @media (min-width: 756px) {
     #app {
@@ -100,6 +108,9 @@ span {
     .content {
         padding-left: 24px;
         padding-right: 24px;
+    }
+    .step-description-wrapper {
+        padding-left: 8px;
     }
 }
 </style>
