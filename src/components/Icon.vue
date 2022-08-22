@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
     <div
-        id="icon-wrapper"
+        class="icon-wrapper"
         :style="{ width: size + 'px', height: size + 'px' }"
         v-html="iconName()"
     />
@@ -147,13 +147,13 @@ export default {
                     return this.archive;
                 }
                 case "step-done": {
-                    return this.archive;
+                    return this.stepDone;
                 }
                 case "next-step": {
-                    return this.archive;
+                    return this.nextStep;
                 }
                 case "last-step": {
-                    return this.archive;
+                    return this.lastStep;
                 }
                 default: {
                     // file
@@ -166,7 +166,10 @@ export default {
 </script>
 
 <style scoped>
-#icon-wrapper svg {
+.icon-wrapper {
+    flex-shrink: 0;
+}
+.icon-wrapper svg {
     width: 100%;
     height: 100%;
 }
