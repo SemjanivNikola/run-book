@@ -64,6 +64,9 @@ body {
     flex-direction: row;
     align-items: center;
 }
+.step-description-wrapper.no-padding {
+    padding: 0 !important;
+}
 p {
     text-align: justify;
 }
