@@ -7,10 +7,14 @@
 
         <div class="content">
             <search-bar />
-            <process-list />
+            <process-list @onOpenSheet="handleOnOpenSheet" />
         </div>
 
-        <right-sheet />
+        <right-sheet
+            v-if="isSheetOpen"
+            @close="isSheetOpen = false"
+            :itemId="itemId"
+        />
     </div>
 </template>
 
@@ -25,7 +29,15 @@ export default {
     data () {
         return {
             activeProcesses: [],
+            isSheetOpen: false,
+            itemId: null,
         };
+    },
+    methods: {
+        handleOnOpenSheet (id) {
+            this.isSheetOpen = true;
+            this.itemId = id;
+        },
     },
 };
 </script>

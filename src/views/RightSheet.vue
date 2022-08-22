@@ -6,7 +6,7 @@
                     <h3>Proces prijave prakse</h3>
                     <h6>Nikola Tanković</h6>
                 </div>
-                <button>X</button>
+                <button @click="$emit('close')" style="cursor: pointer;">X</button>
             </div>
             <span class="progress-bar-wrapper">
                 <span class="progress-bar" style="width: 68%"></span>
@@ -15,7 +15,6 @@
         <div class="sheet-body">
             <tab-bar noPlaceholder>
                 <tab-bar-item title="pregled">
-                    <!--Mozda: pojasnjenje, opis, prikaz, sadrzaj, cilj -->
                     <process-description noPadding />
                 </tab-bar-item>
                 <tab-bar-item title="poveznice">

@@ -1,9 +1,5 @@
 <template>
-    <tr
-        class="list-item"
-        style="position: relative"
-        onclick="window.location=`process-detail.html`;"
-    >
+    <tr class="list-item" style="position: relative" @click="routeToScreen">
         <td>
             <span class="table-icon-placeholder">
                 <icon name="progress-clock" color="#000" />
@@ -17,7 +13,7 @@
         <td class="align-center show-lg">22%</td>
         <td class="w-150 show-lg">12.02.2022</td>
         <td class="w-100">14.07.2022</td>
-        <td>
+        <td @click.stop="onClick">
             <span class="table-icon-placeholder">
                 <icon name="info" color="#000" />
             </span>
@@ -34,10 +30,23 @@ export default {
     data () {
         return {
             isSmall: false,
+            item: { id: 50 },
         };
     },
     created () {
         this.isSmall = window.innerWidth >= 756;
+    },
+    methods: {
+        onClick (event) {
+            event.preventDefault();
+            this.$parent.$emit("onOpenSheet", this.item.id);
+        },
+        routeToScreen () {
+            this.$router.push({
+                name: "ProcessDetails",
+                params: { id: this.item.id },
+            });
+        },
     },
 };
 </script>
