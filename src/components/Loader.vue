@@ -1,6 +1,8 @@
 <template>
-    <div class="loader-wrapper">
-        <div v-if="isLoading" class="loader"></div>
+    <div>
+        <div v-if="isLoading" class="loader-wrapper">
+            <div class="loader"></div>
+        </div>
         <slot v-else></slot>
     </div>
 </template>
