@@ -3,28 +3,38 @@
         <div class="sheet-header">
             <div class="sheet-header-wrapper">
                 <div class="info-wrapper">
-                    <h3>Proces prijave prakse</h3>
-                    <h6>Nikola Tanković</h6>
+                    <h3>{{ record.title }}</h3>
+                    <h6>{{ record.manager }}</h6>
                 </div>
-                <button @click="$emit('close')" style="cursor: pointer;">X</button>
+                <button @click="$emit('close')" style="cursor: pointer">
+                    X
+                </button>
             </div>
             <span class="progress-bar-wrapper">
-                <span class="progress-bar" style="width: 68%"></span>
+                <span
+                    class="progress-bar"
+                    :style="{ width: record.progress + '%' }"
+                ></span>
             </span>
         </div>
-        <div class="sheet-body">
-            <tab-bar noPlaceholder>
-                <tab-bar-item title="pregled">
-                    <process-description noPadding />
-                </tab-bar-item>
-                <tab-bar-item title="poveznice">
-                    <process-link-list />
-                </tab-bar-item>
-                <tab-bar-item title="koraci">
-                    <process-step-list />
-                </tab-bar-item>
-            </tab-bar>
+        <div v-if="error" class="error-wrapper">
+            <p>{{ error }}</p>
         </div>
+        <loader v-else :isLoading="isLoading">
+            <div class="sheet-body">
+                <tab-bar noPlaceholder>
+                    <tab-bar-item title="pregled">
+                        <process-description noPadding />
+                    </tab-bar-item>
+                    <tab-bar-item title="poveznice">
+                        <process-link-list />
+                    </tab-bar-item>
+                    <tab-bar-item title="koraci">
+                        <process-step-list />
+                    </tab-bar-item>
+                </tab-bar>
+            </div>
+        </loader>
     </section>
 </template>
 
@@ -34,10 +44,59 @@ import TabBarItem from "@/components/TabBarItem.vue";
 import ProcessLinkList from "@/components/ProcessLinkList.vue";
 import ProcessStepList from "@/components/ProcessStepList.vue";
 import ProcessDescription from "@/components/ProcessDescription.vue";
+import Loader from "@/components/Loader.vue";
 
 export default {
-    components: { TabBar, TabBarItem, ProcessLinkList, ProcessStepList, ProcessDescription },
     name: "RightSheet",
+    props: {
+        recordId: {
+            type: Number,
+            required: true,
+        },
+    },
+    components: {
+        TabBar,
+        TabBarItem,
+        ProcessLinkList,
+        ProcessStepList,
+        ProcessDescription,
+        Loader,
+    },
+    data () {
+        return {
+            isLoading: true,
+            record: { title: "-", manager: "-", progress: "0" },
+            additionalInfo: null,
+            error: null,
+        };
+    },
+    created () {
+        this.fetchData(this.recordId);
+    },
+    watch: {
+        recordId (value) {
+            this.fetchData(value);
+        },
+    },
+    methods: {
+        async fetchData (id) {
+            this.isLoading = true;
+            this.record = this.$store.getters["activeProcess/getPreview"];
+            try {
+                this.additionalInfo = await this.$store.dispatch(
+                    "activeProcess/readProcessById",
+                    id,
+                );
+            } catch (error) {
+                this.cleanRecord();
+                this.error = error;
+            }
+            this.isLoading = false;
+        },
+        cleanRecord () {
+            this.record = { title: "-", manager: "-", progress: "0" };
+        },
+    },
 };
 </script>
 
@@ -93,6 +152,11 @@ button {
         rgba(0, 255, 255, 1) 0%,
         rgba(204, 255, 102, 1) 100%
     );
+}
+.eror-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 32px 16px;
 }
 
 @media (max-width: 756px) {

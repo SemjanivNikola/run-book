@@ -13,7 +13,7 @@
         <right-sheet
             v-if="isSheetOpen"
             @close="isSheetOpen = false"
-            :itemId="itemId"
+            :recordId="recordId"
         />
     </div>
 </template>
@@ -30,13 +30,13 @@ export default {
         return {
             activeProcesses: [],
             isSheetOpen: false,
-            itemId: null,
+            recordId: null,
         };
     },
     methods: {
         handleOnOpenSheet (id) {
             this.isSheetOpen = true;
-            this.itemId = id;
+            this.recordId = id;
         },
     },
 };

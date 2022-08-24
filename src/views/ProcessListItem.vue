@@ -6,11 +6,11 @@
             </span>
         </td>
         <td class="show-sm">
-            Proces prijave prakse<br /><small>Nikola Tanković</small>
+            {{ item.title }}<br /><small>{{ item.manager }}</small>
         </td>
-        <td class="show-lg">Proces prijave prakse</td>
-        <td class="w-250 show-lg">Nikola Tanković</td>
-        <td class="align-center show-lg">22%</td>
+        <td class="show-lg">{{ item.title }}</td>
+        <td class="w-250 show-lg">{{ item.manager }}</td>
+        <td class="align-center show-lg">{{ item.progress }}</td>
         <td class="w-150 show-lg">12.02.2022</td>
         <td class="w-100">14.07.2022</td>
         <td @click.stop="onClick">
@@ -19,7 +19,7 @@
             </span>
         </td>
         <span class="show-sm progress-bar-row">
-            <span class="progress-bar" style="width: 68%"></span>
+            <span class="progress-bar" :style="{ width: item.progress + '%' }"></span>
         </span>
     </tr>
 </template>
@@ -30,7 +30,12 @@ export default {
     data () {
         return {
             isSmall: false,
-            item: { id: 50 },
+            item: {
+                id: 50,
+                title: "Proces prijave prakse",
+                manager: "Nikola tanković",
+                progress: 36,
+            },
         };
     },
     created () {
@@ -39,6 +44,7 @@ export default {
     methods: {
         onClick (event) {
             event.preventDefault();
+            this.$store.commit("activeProcess/setPreview", this.item, { root: true });
             this.$parent.$emit("onOpenSheet", this.item.id);
         },
         routeToScreen () {
