@@ -1,5 +1,5 @@
 <template>
- <div id="main-container">
+    <div id="main-container">
         <div class="info-wrapper">
             <h2>Dostupni procesi</h2>
             <div class="spacer-md"></div>
@@ -7,10 +7,14 @@
 
         <div class="content">
             <search-bar />
-            <process-list />
+            <process-list @onOpenSheet="handleOnOpenSheet" />
         </div>
 
-        <right-sheet />
+        <right-sheet
+            v-if="isSheetOpen"
+            @close="isSheetOpen = false"
+            :recordId="recordId"
+        />
     </div>
 </template>
 
@@ -22,5 +26,18 @@ import RightSheet from "@/views/RightSheet.vue";
 export default {
     name: "AvailableProcessScreen",
     components: { SearchBar, ProcessList, RightSheet },
+    data () {
+        return {
+            activeProcesses: [],
+            isSheetOpen: false,
+            recordId: null,
+        };
+    },
+    methods: {
+        handleOnOpenSheet (id) {
+            this.isSheetOpen = true;
+            this.recordId = id;
+        },
+    },
 };
 </script>
