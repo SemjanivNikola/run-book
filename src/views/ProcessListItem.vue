@@ -49,7 +49,7 @@ export default {
         },
         routeToScreen () {
             this.$router.push({
-                name: "ProcessDetails",
+                name: "ProcessDetailScreen",
                 params: { id: this.item.id },
             });
         },

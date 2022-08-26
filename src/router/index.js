@@ -31,6 +31,7 @@ const routes = [
         path: "/active-processes/:id",
         name: "ProcessDetailScreen",
         component: ProcessDetailScreen,
+        props: true,
         children: [
             {
                 path: "overview",
