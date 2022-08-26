@@ -4,19 +4,26 @@ export default {
     state: {
         list: [],
         recordPreview: null,
-        recordAdditionalInfo: null,
+        processDetail: null,
     },
     mutations: {
         setPreview (state, payload) {
             state.recordPreview = payload;
         },
-        setAdditionalinfo (state, payload) {
-            state.recordAdditionalInfo = payload;
+        setProcessDetail (state, payload) {
+            state.processDetail = payload;
         },
     },
     getters: {
         getPreview (state) {
             return state.recordPreview;
+        },
+        getAdditionalInfo (state) {
+            const { description, linkList, stepList } = state.processDetail;
+            return { description, linkList, stepList };
+        },
+        getDetails (state) {
+            return state.processDetail;
         },
     },
     actions: {
@@ -24,7 +31,8 @@ export default {
             await axios.get(`/process/active/?id=${payload}`).then((res) => {
                 console.warn("RES >> ", res);
 
-                commit("setAdditionalinfo", res.data);
+                commit("setProcessDetail", res.data);
+                return res.data;
             }).
                 catch((err) => {
                     throw err.message;
