@@ -38,6 +38,11 @@ export default {
         <path fill="${this.color}" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
       </svg>`;
         },
+        chevronRight () {
+            return `<svg viewBox="0 0 24 24">
+                        <path fill="${this.color}" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                    </svg>`;
+        },
         menu () {
             return `<svg viewBox="0 0 16 16" fill="none">
         <path fill="${this.color}" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
@@ -120,6 +125,9 @@ export default {
                 }
                 case "close": {
                     return this.close;
+                }
+                case "chevron-right": {
+                    return this.chevronRight;
                 }
                 case "menu": {
                     return this.menu;
