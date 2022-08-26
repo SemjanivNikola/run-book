@@ -17,9 +17,7 @@
                 ></span>
             </span>
         </div>
-        <div v-if="error" class="error-wrapper">
-            <p>{{ error }}</p>
-        </div>
+        <error-handler v-if="error" :msg="error" />
         <loader v-else :isLoading="isLoading">
             <div class="sheet-body">
                 <tab-bar noPlaceholder>
@@ -45,6 +43,7 @@ import ProcessLinkList from "@/components/ProcessLinkList.vue";
 import ProcessStepList from "@/components/ProcessStepList.vue";
 import ProcessDescription from "@/components/ProcessDescription.vue";
 import Loader from "@/components/Loader.vue";
+import ErrorHandler from "@/components/ErrorHandler.vue";
 
 export default {
     name: "RightSheet",
@@ -61,6 +60,7 @@ export default {
         ProcessStepList,
         ProcessDescription,
         Loader,
+        ErrorHandler,
     },
     data () {
         return {
