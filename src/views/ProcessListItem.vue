@@ -10,7 +10,7 @@
         </td>
         <td class="show-lg">{{ item.title }}</td>
         <td class="w-250 show-lg">{{ item.manager }}</td>
-        <td class="align-center show-lg">{{ item.progress }}</td>
+        <td class="align-center show-lg">{{ item.progress }}%</td>
         <td class="w-150 show-lg">12.02.2022</td>
         <td class="w-100">14.07.2022</td>
         <td @click.stop="onClick">
