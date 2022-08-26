@@ -64,7 +64,7 @@ body {
     flex-direction: row;
     align-items: center;
 }
-.step-description-wrapper.no-padding {
+.no-padding {
     padding: 0 !important;
 }
 p {
