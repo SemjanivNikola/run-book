@@ -1,7 +1,10 @@
 {
   "name": "runbook",
+  "description": "University master degree app project",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "",
+  "license": "",
+  "author": "Nikola Semjaniv <nikola.sem450@gmail.com> ()",
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",

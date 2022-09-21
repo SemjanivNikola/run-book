@@ -1,7 +1,4 @@
 const exec = require("child_process").execSync;
-// const path = require("path");
-
-// const eslintPath = path.join(__dirname, "node_modules", "bin", "eslint");
 
 try {
     exec(
