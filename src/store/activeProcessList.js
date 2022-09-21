@@ -16,7 +16,10 @@ export default {
     },
     getters: {
         getPreview (state) {
-            return state.recordPreview;
+            if (state.recordPreview) {
+                return state.recordPreview;
+            }
+            return { title: "-", manager: "-", progress: "0" };
         },
         getAdditionalInfo (state) {
             const { description, linkList, stepList } = state.processDetail;
@@ -27,9 +30,8 @@ export default {
         },
     },
     actions: {
-        async readProcessById ({ commit }, payload) {
-            await axios.get(`/process/active/?id=${payload}`).then((res) => {
-                console.warn("RES >> ", res);
+        readProcessById ({ commit }, payload) {
+            return axios.get(`/process/${payload}`).then((res) => {
 
                 commit("setProcessDetail", res.data);
                 return res.data;

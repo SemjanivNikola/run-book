@@ -1,9 +1,8 @@
 <template>
     <section>
-        <error-handler v-if="error" :msg="error" />
-        <loader v-else :isLoading="isLoading">
+        <content-loader @is-fetched="fetched" path="activeProcess/readProcessById" :param="id" />
+        <div v-if="data">
             <process-info :info="data.info" />
-
             <div class="content-row">
                 <div class="process-model-container no-padding">
                     <div class="process-object">
@@ -13,12 +12,12 @@
                                 <div class="step-number-wrapper">
                                     <div class="step-number-wrapper-inner">
                                         <span class="step-number">{{
-                                            data.currentStep.num
+                                            currentStep.id
                                         }}</span>
                                     </div>
                                 </div>
                                 <div class="spacer-md"></div>
-                                <h3>{{ data.currentStep.title }}</h3>
+                                <h3>{{ currentStep.title }}</h3>
                             </div>
                             <a href="tooltip.html">
                                 <div class="tooltip-wrapper">
@@ -48,46 +47,36 @@
                     </div>
                 </div>
             </div>
-        </loader>
+        </div>
     </section>
 </template>
 
 <script>
-import Loader from "@/components/Loader.vue";
-import ErrorHandler from "@/components/ErrorHandler.vue";
 import ProcessInfo from "@/components/ProcessInfo.vue";
+import ContentLoader from "@/components/ContentLoader.vue";
 
 export default {
     name: "ProcessDetailScreen",
-    components: { Loader, ErrorHandler, ProcessInfo },
+    components: { ProcessInfo, ContentLoader },
     props: {
         id: {
-            type: Number,
+            type: Number || String, // On page refresh id from URL becomes string
             required: true,
         },
     },
     data () {
         return {
-            isLoading: true,
-            error: null,
             data: null,
         };
     },
-    created () {
-        this.fetchData(this.id);
-    },
     methods: {
-        async fetchData (id) {
-            this.isLoading = true;
-            try {
-                this.data = await this.$store.dispatch(
-                    "activeProcess/readProcessById",
-                    id,
-                );
-            } catch (error) {
-                this.error = error;
-            }
-            this.isLoading = false;
+        fetched (content) {
+            this.data = content;
+        },
+    },
+    computed: {
+        currentStep () {
+            return this.data.stepList[this.data.currentStep[0]][this.data.currentStep[1]];
         },
     },
 };

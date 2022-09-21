@@ -19,24 +19,24 @@
                 <div class="progress-info-wrapper">
                     <h4>Vrijeme:</h4>
                     <div class="spacer-md"></div>
-                    <span class="progress-value">{{ info.totalTime }}</span>
+                    <span class="progress-value">{{ info.timeTotal }}</span>
                     <div class="spacer-md"></div>
                     <div class="divider-vertical"></div>
                     <div class="spacer-md"></div>
                     <span class="progress-value"
-                        ><i>{{ info.averageTime }}</i></span
+                        ><i>{{ info.timeAverage }}</i></span
                     >
                 </div>
                 <div class="divider-vertical show-lg"></div>
                 <div class="progress-info-wrapper">
                     <h4>Koraka riješeno:</h4>
                     <div class="spacer-md"></div>
-                    <span class="progress-value">{{ info.doneSteps }}</span>
+                    <span class="progress-value">{{ info.stepDone }}</span>
                     <div class="spacer-md"></div>
                     <div class="divider-vertical"></div>
                     <div class="spacer-md"></div>
                     <span class="progress-value"
-                        ><i>{{ info.totalSteps }}</i></span
+                        ><i>{{ info.stepTotal }}</i></span
                     >
                 </div>
             </div>
@@ -130,7 +130,7 @@ export default {
     width: 2px;
     height: 100%;
     min-height: 35px;
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
 }
 
 @media (max-width: 756px) {

@@ -17,33 +17,31 @@
                 ></span>
             </span>
         </div>
-        <error-handler v-if="error" :msg="error" />
-        <loader v-else :isLoading="isLoading">
-            <div class="sheet-body">
-                <tab-bar noPlaceholder>
-                    <tab-bar-item title="pregled">
-                        <process-description noPadding />
-                    </tab-bar-item>
-                    <tab-bar-item title="poveznice">
-                        <process-link-list />
-                    </tab-bar-item>
-                    <tab-bar-item title="koraci">
-                        <process-step-list />
-                    </tab-bar-item>
-                </tab-bar>
-            </div>
-        </loader>
+        <content-loader @is-fetched="fetched" path="activeProcess/readProcessById" :param="recordId" />
+        <div v-if="additionalInfo" class="sheet-body">
+            <tab-bar noPlaceholder>
+                <tab-bar-item title="pregled">
+                    <process-description noPadding />
+                </tab-bar-item>
+                <tab-bar-item title="poveznice">
+                    <process-link-list />
+                </tab-bar-item>
+                <tab-bar-item title="koraci">
+                    <process-step-list />
+                </tab-bar-item>
+            </tab-bar>
+        </div>
     </section>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import TabBar from "@/components/TabBar.vue";
 import TabBarItem from "@/components/TabBarItem.vue";
 import ProcessLinkList from "@/components/ProcessLinkList.vue";
 import ProcessStepList from "@/components/ProcessStepList.vue";
 import ProcessDescription from "@/components/ProcessDescription.vue";
-import Loader from "@/components/Loader.vue";
-import ErrorHandler from "@/components/ErrorHandler.vue";
+import ContentLoader from "@/components/ContentLoader.vue";
 
 export default {
     name: "RightSheet",
@@ -59,43 +57,24 @@ export default {
         ProcessLinkList,
         ProcessStepList,
         ProcessDescription,
-        Loader,
-        ErrorHandler,
+        ContentLoader,
     },
     data () {
         return {
-            isLoading: true,
-            record: { title: "-", manager: "-", progress: "0" },
             additionalInfo: null,
-            error: null,
         };
     },
-    created () {
-        this.fetchData(this.recordId);
-    },
-    watch: {
-        recordId (value) {
-            this.fetchData(value);
-        },
-    },
     methods: {
-        async fetchData (id) {
-            this.isLoading = true;
-            this.record = this.$store.getters["activeProcess/getPreview"];
-            try {
-                this.additionalInfo = await this.$store.dispatch(
-                    "activeProcess/readProcessById",
-                    id,
-                );
-            } catch (error) {
-                this.cleanRecord();
-                this.error = error;
+        fetched (content) {
+            if (content) {
+                this.additionalInfo = content;
+            } else {
+                this.$store.commit("activeProcess/setPreview", null);
             }
-            this.isLoading = false;
         },
-        cleanRecord () {
-            this.record = { title: "-", manager: "-", progress: "0" };
-        },
+    },
+    computed: {
+        ...mapGetters({ record: "activeProcess/getPreview" }),
     },
 };
 </script>
