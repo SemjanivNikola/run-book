@@ -2,7 +2,7 @@
     <section class="sheet-wrapper">
         <div class="sheet-header">
             <div class="sheet-header-wrapper">
-                <div class="info-wrapper">
+                <div class="sheet-header-info">
                     <h3>{{ record.title }}</h3>
                     <h6>{{ record.manager }}</h6>
                 </div>
@@ -84,7 +84,8 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
-    width: 38%;
+    display: flex;
+    flex-direction: column;
     height: 100vh;
     background-color: #fff;
     border-left: 2px solid #eee;
@@ -95,9 +96,13 @@ export default {
 .sheet-header {
     position: sticky;
     top: 0;
+    flex: 1;
     border-bottom: 1px solid #e0e0e0;
     background-color: inherit;
     z-index: 100;
+}
+.sheet-body {
+    flex: 6;
 }
 .sheet-header-wrapper {
     display: flex;
@@ -105,7 +110,7 @@ export default {
     align-items: center;
     justify-content: space-between;
 }
-.info-wrapper {
+.sheet-header-info {
     border-bottom: none !important;
 }
 button {
@@ -139,7 +144,13 @@ button {
 }
 
 @media (max-width: 756px) {
+    .sheet-wrapper {
+        width: 100%
+    }
 }
 @media (min-width: 756px) {
+    .sheet-wrapper {
+        width: 38%
+    }
 }
 </style>

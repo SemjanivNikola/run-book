@@ -15,7 +15,7 @@
             </ul>
         </header>
         <section class="tab-detail">
-            <slot></slot>
+            <slot />
         </section>
     </article>
 </template>
@@ -52,7 +52,10 @@ export default {
 .tab-bar {
     position: relative;
     width: 100%;
-    height: 100%;
+}
+.tab-bar header {
+    position: sticky;
+    top: 0;
 }
 .tab-wrapper {
     width: 100%;

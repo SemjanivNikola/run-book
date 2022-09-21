@@ -76,7 +76,7 @@ span {
 /***************************************/
 /*           INFO WRAPPER              */
 /***************************************/
-.info-wrapper {
+.info-wrapper, .sheet-header-info {
     padding: 24px;
     background-color: #ffffff;
     border-bottom: 1px solid #e0e0e0;
