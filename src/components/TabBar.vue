@@ -56,6 +56,7 @@ export default {
 .tab-bar header {
     position: sticky;
     top: 0;
+    background-color: rgb(255, 255, 255);
 }
 .tab-wrapper {
     width: 100%;

@@ -90,19 +90,16 @@ export default {
     background-color: #fff;
     border-left: 2px solid #eee;
     z-index: 99;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
 }
 .sheet-header {
-    position: sticky;
-    top: 0;
-    flex: 1;
     border-bottom: 1px solid #e0e0e0;
     background-color: inherit;
     z-index: 100;
 }
 .sheet-body {
     flex: 6;
+    overflow-y: scroll;
 }
 .sheet-header-wrapper {
     display: flex;
