@@ -86,7 +86,6 @@ export default {
     right: 0;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     background-color: #fff;
     border-left: 2px solid #eee;
     z-index: 99;
@@ -142,12 +141,14 @@ button {
 
 @media (max-width: 756px) {
     .sheet-wrapper {
-        width: 100%
+        width: 100%;
+        height: calc(100vh - 60px);
     }
 }
 @media (min-width: 756px) {
     .sheet-wrapper {
-        width: 38%
+        width: 38%;
+        height: 100vh;
     }
 }
 </style>

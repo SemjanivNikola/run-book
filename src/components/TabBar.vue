@@ -97,7 +97,7 @@ export default {
 
 @media (max-width: 756px) {
     .tab-detail {
-        padding: 16px 8px 16px 0;
+        padding: 16px 8px;
         border-radius: 0;
         background: transparent;
         box-shadow: none;
