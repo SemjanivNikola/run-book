@@ -1,36 +1,8 @@
 <template>
     <ul class="materials-wrapper">
-        <li>
-            <a href="https://www.google.com" targert="_blank">
-                Pogledaj zanimljive i slobodne projekte ovdje</a
-            >
-        </li>
-        <!-- bit.ly/fipu-praksa-zadaci -->
-        <li>
-            <a href="https://www.google.com" targert="_blank"
-                >Prijavi se na 3 najdraža zadatka</a
-            >
-        </li>
-        <!-- bit.ly/fipu-praksa-pref -->
-        <li>
-            <a href="https://www.google.com" targert="_blank"
-                >Prijavnica za poduzeća</a
-            >
-        </li>
-        <!-- http://bit.ly/fipu-praksa-prijava-zadatka -->
-        <li>
-            <a href="https://www.google.com" targert="_blank"
-                >Predaja prijavnice</a
-            >
-        </li>
-        <li>
-            <a href="https://www.google.com" targert="_blank"
-                >Predaja dnevnika prakse</a
-            >
-        </li>
-        <li>
-            <a href="https://www.google.com" targert="_blank"
-                >Studomat - za prijavu ispita</a
+        <li v-for="(item, index) in urlList" :key="index">
+            <a :href="item.url" targert="_blank">
+               {{item.title}}</a
             >
         </li>
     </ul>
@@ -39,6 +11,12 @@
 <script>
 export default {
     name: "ProcessLinkList",
+    props: {
+        urlList: {
+            type: Array,
+            required: true,
+        },
+    },
 };
 </script>
 
