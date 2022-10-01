@@ -3,3 +3,4 @@ package.json
 public/*
 src/assets/*
 docs/js/*
+**/*.ts
