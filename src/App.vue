@@ -59,11 +59,6 @@ body {
     min-width: 16px;
     min-height: 16px;
 }
-.step-description-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
 .no-padding {
     padding: 0 !important;
 }

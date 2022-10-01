@@ -45,10 +45,10 @@ export default {
                     this.param,
                 );
                 this.$emit("is-fetched", response);
+                this.isLoading = false;
             } catch (error) {
                 this.error = error;
             }
-            this.isLoading = false;
         },
     },
 };

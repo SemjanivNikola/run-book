@@ -66,6 +66,7 @@ export default {
     align-items: stretch;
     justify-content: flex-start;
     border-bottom: 1px solid #E5E5E5;
+    list-style-type: none;
 }
 .tab-wrapper .title-placeholder {
     width: 71px;
