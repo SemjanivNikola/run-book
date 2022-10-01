@@ -3,8 +3,8 @@
         <div class="sheet-header">
             <div class="sheet-header-wrapper">
                 <div class="sheet-header-info">
-                    <h3>{{ record.title }}</h3>
-                    <h6>{{ record.manager }}</h6>
+                    <h3>{{ preview.title }}</h3>
+                    <h6>{{ preview.manager }}</h6>
                 </div>
                 <button @click="$emit('close')" style="cursor: pointer">
                     X
@@ -13,7 +13,7 @@
             <span class="progress-bar-wrapper">
                 <span
                     class="progress-bar"
-                    :style="{ width: record.progress + '%' }"
+                    :style="{ width: preview.progress + '%' }"
                 ></span>
             </span>
         </div>
@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import TabBar from "@/components/TabBar.vue";
 import TabBarItem from "@/components/TabBarItem.vue";
 import ProcessLinkList from "@/components/ProcessLinkList.vue";
@@ -61,20 +60,31 @@ export default {
     },
     data () {
         return {
+            preview: { title: "-", manager: "-", progress: 0 },
             additionalInfo: null,
         };
+    },
+    watch: {
+        recordId (val) {
+            this.record(val);
+        },
+    },
+    created () {
+        this.record(this.recordId);
     },
     methods: {
         fetched (content) {
             if (content) {
                 this.additionalInfo = content;
-            } else {
-                this.$store.commit("activeProcess/setPreview", null);
             }
         },
-    },
-    computed: {
-        ...mapGetters({ record: "activeProcess/getPreview" }),
+        record (id) {
+            const previewFn = this.$store.getters["activeProcess/getPreview"];
+            const preview = previewFn(id);
+            if (preview) {
+                this.preview = preview;
+            }
+        },
     },
 };
 </script>
