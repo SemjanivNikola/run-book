@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                <process-list-item />
+                <process-list-item v-for="item in list" :key="item.id" :process="item" />
             </tbody>
         </table>
     </div>
@@ -25,6 +25,12 @@ import ProcessListItem from "./ProcessListItem.vue";
 
 export default {
     name: "ProcessList",
+    props: {
+        list: {
+            type: Array,
+            required: true,
+        },
+    },
     components: { ProcessListItem },
 };
 </script>
