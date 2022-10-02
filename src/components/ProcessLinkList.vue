@@ -1,11 +1,13 @@
 <template>
-    <ul class="materials-wrapper">
-        <li v-for="(item, index) in urlList" :key="index">
-            <a :href="item.url" targert="_blank">
-               {{item.title}}</a
-            >
-        </li>
-    </ul>
+    <div class="materials-wrapper">
+        <h4>Poveznice</h4>
+        <div class="spacer-sm"></div>
+        <ul>
+            <li v-for="(item, index) in urlList" :key="index">
+                <a :href="item.url" targert="_blank"> {{ item.title }}</a>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
@@ -21,16 +23,16 @@ export default {
 </script>
 
 <style scoped>
-ul.materials-wrapper {
+.materials-wrapper ul {
     margin-inline-start: 16px;
 }
-ul.materials-wrapper li a {
+.materials-wrapper ul li a {
     color: #005d82;
     font-style: italic;
     line-height: 1.5;
 }
 @media (max-width: 756px) {
-    .materials-wrapper {
+    .materials-wrapper ul {
         padding: 0;
     }
 }

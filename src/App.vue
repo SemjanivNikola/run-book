@@ -59,6 +59,12 @@ body {
     min-width: 16px;
     min-height: 16px;
 }
+.spacer-sm {
+    height: 8px;
+    width: 8px;
+    min-width: 8px;
+    min-height: 8px;
+}
 .no-padding {
     padding: 0 !important;
 }
