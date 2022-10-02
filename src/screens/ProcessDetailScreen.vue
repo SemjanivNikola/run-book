@@ -1,50 +1,68 @@
 <template>
-    <section>
-        <content-loader @is-fetched="fetched" path="activeProcess/readProcessById" :param="id" />
-        <div v-if="data">
-            <process-info :info="data.info" />
-            <div class="content-row">
-                <div class="process-model-container no-padding">
-                    <div class="process-object">
-                        <!-- HEADER -->
-                        <div class="po-header">
-                            <div class="po-header-title-wrapper">
-                                <div class="step-number-wrapper">
-                                    <div class="step-number-wrapper-inner">
-                                        <span class="step-number">{{
-                                            currentStep.id
-                                        }}</span>
-                                    </div>
+    <section id="main-container">
+        <content-loader
+            @is-fetched="fetched"
+            path="activeProcess/readProcessById"
+            :param="id"
+        />
+        <process-info v-if="processData" :info="processData.info" />
+        <div v-if="processData" class="content-row">
+            <div class="process-model-container no-padding">
+                <div class="process-object">
+                    <!-- HEADER -->
+                    <div class="po-header">
+                        <div class="po-header-title-wrapper">
+                            <div class="step-number-wrapper">
+                                <div class="step-number-wrapper-inner">
+                                    <span class="step-number">{{
+                                        currentStep.id
+                                    }}</span>
                                 </div>
-                                <div class="spacer-md"></div>
-                                <h3>{{ currentStep.title }}</h3>
                             </div>
-                            <a href="tooltip.html">
-                                <div class="tooltip-wrapper">
-                                    <icon name="help" :size="16" color="rgb(0, 0, 0)" />
-                                </div>
-                            </a>
+                            <div class="spacer-md"></div>
+                            <h3>{{ currentStep.title }}</h3>
                         </div>
-
-                        <div class="spacer-md"></div>
-
-                        <tab-bar>
-                            <tab-bar-item title="pregled procesa">
-                                <!-- PROCESS DIAGRAM -->
-                                <p>DIJAGRAM</p>
-                            </tab-bar-item>
-                            <tab-bar-item title="trenutni korak">
-                                <process-description noPadding />
-                                <process-link-list />
-                                <process-step-list />
-                            </tab-bar-item>
-                            <tab-bar-item title="detalji procesa">
-                                <process-description noPadding />
-                                <process-link-list />
-                                <process-step-list />
-                            </tab-bar-item>
-                        </tab-bar>
+                        <a href="tooltip.html">
+                            <div class="tooltip-wrapper">
+                                <icon
+                                    name="help"
+                                    :size="16"
+                                    color="rgb(0, 0, 0)"
+                                />
+                            </div>
+                        </a>
                     </div>
+
+                    <div class="spacer-md"></div>
+
+                    <tab-bar>
+                        <tab-bar-item title="pregled">
+                            <!-- PROCESS DIAGRAM -->
+                            <p>DIJAGRAM</p>
+                        </tab-bar-item>
+                        <tab-bar-item title="trenutni korak">
+                            <process-description
+                                noPadding
+                                :text="currentStep.description"
+                                title="Pojedinosti o trenutnom koraku"
+                            />
+                            <process-link-list :urlList="getUrlList" />
+                            <process-step-list
+                                :stepList="getStepListForActiveStep"
+                            />
+                        </tab-bar-item>
+                        <tab-bar-item title="detalji">
+                            <process-description
+                                noPadding
+                                :text="currentStep.description"
+                                title="Detalji procesa"
+                            />
+                            <process-link-list :urlList="processData.urlList" />
+                            <process-step-list
+                                :stepList="processData.stepList"
+                            />
+                        </tab-bar-item>
+                    </tab-bar>
                 </div>
             </div>
         </div>
@@ -52,12 +70,26 @@
 </template>
 
 <script>
-import ProcessInfo from "@/components/ProcessInfo.vue";
 import ContentLoader from "@/components/ContentLoader.vue";
+import ProcessDescription from "@/components/ProcessDescription.vue";
+import ProcessInfo from "@/components/ProcessInfo.vue";
+import ProcessLinkList from "@/components/ProcessLinkList.vue";
+import ProcessStepList from "@/components/ProcessStepList.vue";
+import TabBar from "@/components/TabBar.vue";
+import TabBarItem from "@/components/TabBarItem.vue";
+import { mapGetters } from "vuex";
 
 export default {
     name: "ProcessDetailScreen",
-    components: { ProcessInfo, ContentLoader },
+    components: {
+        ProcessInfo,
+        ContentLoader,
+        TabBar,
+        TabBarItem,
+        ProcessLinkList,
+        ProcessStepList,
+        ProcessDescription,
+    },
     props: {
         id: {
             type: Number || String, // On page refresh id from URL becomes string
@@ -66,23 +98,43 @@ export default {
     },
     data () {
         return {
-            data: null,
+            processData: null,
         };
     },
     methods: {
         fetched (content) {
-            this.data = content;
+            this.processData = content;
         },
     },
     computed: {
+        ...mapGetters("activeProcess", ["getStepListForActiveStep"]),
         currentStep () {
-            return this.data.stepList[this.data.currentStep[0]][this.data.currentStep[1]];
+            return this.processData.stepList[this.processData.currentStep[0]][
+                this.processData.currentStep[1]
+            ];
+        },
+        getUrlList () {
+            const list = [];
+            this.currentStep.urlIndexList.forEach((index) => {
+                list.push(this.processData.urlList[index]);
+            });
+            return list;
         },
     },
 };
 </script>
 
 <style scoped>
+#main-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 .content-row {
     display: flex;
     flex-grow: 1;
@@ -126,11 +178,20 @@ export default {
 .step-number-wrapper {
     display: block;
     border-radius: 50%;
-    background-image: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(0,93,130,1) 35%, rgba(0,212,255,1) 100%);
+    background-image: linear-gradient(
+        45deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(0, 93, 130, 1) 35%,
+        rgba(0, 212, 255, 1) 100%
+    );
     padding: 4px;
 }
 .step-number-wrapper.color-success {
-    background-image: linear-gradient(145deg, rgba(0, 255, 255, 1) 0%, rgba(204, 255, 102, 1) 100%);
+    background-image: linear-gradient(
+        145deg,
+        rgba(0, 255, 255, 1) 0%,
+        rgba(204, 255, 102, 1) 100%
+    );
 }
 .step-number-wrapper-inner {
     width: 100%;
@@ -140,7 +201,7 @@ export default {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23CDCDCD' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23CDCDCD'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
     padding: 8px;
 }
@@ -155,9 +216,8 @@ export default {
     cursor: pointer;
 }
 
-
 @media (max-width: 756px) {
-     .process-object {
+    .process-object {
         padding: 16px 8px;
     }
 }
@@ -168,7 +228,7 @@ export default {
     }
 }
 @media (min-width: 756px) {
-     .process-object {
+    .process-object {
         padding: 24px 16px;
     }
 }
