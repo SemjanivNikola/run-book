@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import activeProcessList from "./activeProcessList";
+import activeProcessStore from "./activeProcessStore";
 
 Vue.use(Vuex);
 
@@ -27,7 +27,7 @@ export default new Vuex.Store({
     modules: {
         activeProcess: {
             namespaced: true,
-            ...activeProcessList,
+            ...activeProcessStore,
         },
     },
 });

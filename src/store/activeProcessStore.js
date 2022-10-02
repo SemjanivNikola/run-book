@@ -3,26 +3,36 @@ import axios from "axios";
 export default {
     state: {
         list: [],
-        processDetail: null,
+        detail: null,
     },
     mutations: {
         setList (state, payload) {
             state.list = payload;
         },
-        setProcessDetail (state, payload) {
-            state.processDetail = payload;
+        setDetail (state, payload) {
+            state.detail = payload;
         },
     },
     getters: {
         getPreview: (state) => (id) => {
             return state.list.find((item) => item.id === id);
         },
-        getAdditionalInfo (state) {
-            const { description, linkList, stepList } = state.processDetail;
-            return { description, linkList, stepList };
+        getDetail (state) {
+            return state.detail;
         },
-        getDetails (state) {
-            return state.processDetail;
+
+        /**
+         * @desc this is used to present only active step within it's own group along with next group one with all
+         * steps inside it
+         * @returns Array<[Step[], Step[]]>
+         */
+        getStepListForActiveStep (state) {
+            const stepList = [[], []];
+            const activeStep = state.detail.currentStep;
+
+            stepList[0].push(state.detail.stepList[activeStep[0]][activeStep[1]]);
+            stepList[1] = state.detail.stepList[state.detail.currentStep[0] + 1];
+            return stepList;
         },
     },
     actions: {
@@ -39,7 +49,7 @@ export default {
         readProcessById ({ commit }, payload) {
             return axios.get(`/process/${payload}`).then((res) => {
 
-                commit("setProcessDetail", res.data);
+                commit("setDetail", res.data);
                 return res.data;
             }).
                 catch((err) => {
