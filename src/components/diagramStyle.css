@@ -1,0 +1,273 @@
+.diagram-wrapper {
+    padding: 16px 8px 8px;
+}
+.diagram-container {
+    min-height: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-bottom: 16px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+.diagram-col {
+    width: 250px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+}
+.diagram-col-item {
+    position: relative;
+    width: 100%;
+    min-height: 120px;
+    height: 120px;
+    border-radius: 4px;
+    border: 2px solid rgb(171, 180, 194);
+    box-shadow: rgba(171, 180, 194, 0.45) 0px 25px 20px -20px;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 300ms ease-out;
+}
+.diagram-item-wrapper {
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+}
+.diagram-item-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 8px;
+    background-color: #ffffff;
+}
+.diagram-item-content .item-status {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 0;
+    margin-top: 4px;
+    gap: 8px;
+    border-radius: 4px;
+}
+.item-status .item-status-icon {
+    width: 16px;
+    height: 16px;
+}
+.item-status span {
+    font-size: 12px;
+    font-weight: 400;
+    color: #e81e63;
+}
+
+/*************************************/
+/*      CURRENT STEP - ACTIVE        */
+.diagram-col .diagram-col-item.current {
+    box-shadow: rgba(0, 93, 130, 0.45) 0px 10px 15px -3px,
+        rgba(0, 212, 255, 0.15) 0px 4px 6px -2px;
+    border-width: 0;
+}
+.diagram-col-item.current .diagram-item-wrapper {
+    padding: 4px;
+    background-image: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(0, 93, 130, 1) 35%,
+        rgba(0, 212, 255, 1) 100%
+    );
+}
+.diagram-col-item.current h4,
+.diagram-col-item:hover h4,
+.diagram-col-item.done h4 {
+    color: rgb(0, 0, 0);
+}
+.diagram-col-item small {
+    position: absolute;
+    top: -8px;
+    left: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0 6px;
+    text-transform: uppercase;
+    background-color: #ffffff;
+    opacity: 1;
+    transition: opacity 300ms ease-out;
+}
+
+/*************************************/
+/*           NEXT STEP              */
+.diagram-col-item::after {
+    content: "PREGLEDAJ";
+    position: absolute;
+    top: -2px;
+    left: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0 6px;
+    text-transform: uppercase;
+    color: rgb(171, 180, 194);
+    background-color: #ffffff;
+    opacity: 0;
+    z-index: 999;
+    transition: all 300ms ease-out;
+}
+.diagram-col-item:hover::after {
+    top: -6px;
+    color: rgb(0, 0, 0);
+    opacity: 1;
+}
+.diagram-col-item h4 {
+    color: rgb(171, 180, 194);
+}
+.diagram-col-item:hover {
+    border-width: 4px;
+    border-color: rgb(0, 93, 130);
+}
+.diagram-col-item:hover .diagram-item-content small {
+    opacity: 0;
+}
+
+/*************************************/
+/*      PREVIOUS STEP - DONE        */
+.diagram-col-item.done {
+    border-width: 0;
+    min-height: 75px;
+    height: 75px;
+}
+.diagram-col-item.done .diagram-item-wrapper {
+    padding: 4px;
+    background-image: linear-gradient(
+        145deg,
+        rgba(0, 221, 221, 0.55) 0%,
+        rgb(191, 240, 95) 100%
+    );
+}
+
+/*************************************/
+/*       DIAGRAM ITEM BUTTON        */
+
+/* Bottom card button */
+.diagram-item-button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 35px;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(0, 93, 130, 1) 35%,
+        rgba(0, 212, 255, 1) 100%
+    );
+    transition: all 300ms ease-out;
+    cursor: pointer;
+}
+.diagram-item-button span {
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.diagram-item-button .action-icon {
+    fill: #ffffff;
+    width: 16px;
+    height: 16px;
+}
+
+/* FAB */
+.diagram-item-fab {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 4px;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    background-color: #0b1b1e;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px -3px,
+        rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    transition: all 300ms ease-out;
+    cursor: pointer;
+}
+
+/* FAB WITH DESCRIPTION */
+.diagram-item-fab {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: flex-end;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    background-color: #0b1b1e;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 4px 15px -2px,
+        rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    overflow: hidden;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+.diagram-item-fab .fab-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    min-width: 195px;
+}
+.diagram-item-fab .action-icon {
+    width: 28px;
+    height: 28px;
+    transition: all 300ms ease-out;
+}
+.diagram-item-fab.disabled {
+    pointer-events: none;
+}
+.diagram-item-fab:hover {
+    width: 195px;
+    border-radius: 25px;
+}
+.diagram-item-fab:hover .action-icon {
+    transform: rotateZ(180deg);
+}
+.diagram-item-fab span {
+    min-width: 120px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+@media (max-width: 756px) {
+    .materials-wrapper ul {
+        padding: 0;
+    }
+}
+@media (min-width: 756px) {
+    .materials-wrapper {
+        padding: 16px 16px 16px 8px;
+    }
+}

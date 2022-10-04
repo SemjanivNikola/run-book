@@ -37,8 +37,7 @@
 
                     <tab-bar>
                         <tab-bar-item title="pregled">
-                            <!-- PROCESS DIAGRAM -->
-                            <p>DIJAGRAM</p>
+                            <process-diagram :stepList="processData.stepList" />
                         </tab-bar-item>
                         <tab-bar-item title="trenutni korak">
                             <process-description
@@ -78,6 +77,7 @@ import ProcessStepList from "@/components/ProcessStepList.vue";
 import TabBar from "@/components/TabBar.vue";
 import TabBarItem from "@/components/TabBarItem.vue";
 import { mapGetters } from "vuex";
+import ProcessDiagram from "@/components/ProcessDiagram.vue";
 
 export default {
     name: "ProcessDetailScreen",
@@ -89,6 +89,7 @@ export default {
         ProcessLinkList,
         ProcessStepList,
         ProcessDescription,
+        ProcessDiagram,
     },
     props: {
         id: {
