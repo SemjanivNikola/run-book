@@ -5,9 +5,13 @@
             <div class="spacer-md"></div>
         </div>
 
-        <div class="content">
+        <content-loader
+            @is-fetched="fetched"
+            path="availableProcess/readProcessList"
+        />
+        <div v-if="queryList" class="content">
             <search-bar />
-            <process-list @onOpenSheet="handleOnOpenSheet" />
+            <process-list :list="queryList" @onOpenSheet="handleOnOpenSheet" />
         </div>
 
         <right-sheet
@@ -20,20 +24,26 @@
 
 <script>
 import SearchBar from "@/components/SearchBar.vue";
-import ProcessList from "@/views/ProcessList.vue";
+import ProcessList from "@/views/available-process/ProcessList.vue";
 import RightSheet from "@/views/RightSheet.vue";
+import ContentLoader from "@/components/ContentLoader.vue";
 
 export default {
     name: "AvailableProcessScreen",
-    components: { SearchBar, ProcessList, RightSheet },
+    components: { SearchBar, ProcessList, RightSheet, ContentLoader },
     data () {
         return {
-            activeProcesses: [],
+            queryList: null,
             isSheetOpen: false,
             recordId: null,
         };
     },
     methods: {
+        fetched (content) {
+            if (content) {
+                this.queryList = content;
+            }
+        },
         handleOnOpenSheet (id) {
             this.isSheetOpen = true;
             this.recordId = id;
