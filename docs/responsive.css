@@ -61,7 +61,7 @@
         height: calc(100vh - 124px);
     }
 
-    .tooltip-popup-container .tooltip-popup {
+    .tooltip-popup-container .tooltip-popup-wrapper {
         width: 80%;
         max-width: 95%;
     }
@@ -140,7 +140,7 @@
         height: calc(100vh - 157px);
     }
 
-    .tooltip-popup-container .tooltip-popup {
+    .tooltip-popup-container .tooltip-popup-wrapper {
         width: 450px;
         max-width: 450px;
     }

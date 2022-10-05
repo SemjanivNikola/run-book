@@ -5,28 +5,21 @@
                 <div class="tooltip-popup-content">
                     <h3>{{ title }}</h3>
                     <div class="spacer-md"></div>
-                    <p>
-                        {{ text }}
-                    </p>
+                    <p>{{ text }}</p>
                 </div>
 
                 <div class="tooltip-footer">
-                    <a href="process-detail.html">
-                        <button
-                            type="button"
-                            title="Zatvori"
-                            translate="yes"
-                            class="tooltip-btn"
-                        >
-                            <div class="tooltip-btn-wrapper">
-                                <span>Zatvori</span>
-                                <icon
-                                    name="chevron-right"
-                                    color="rgb(0,212,255)"
-                                />
-                            </div>
-                        </button>
-                    </a>
+                    <button
+                        title="Zatvori"
+                        translate="yes"
+                        class="tooltip-btn"
+                        @click="$emit('onAction')"
+                    >
+                        <div class="tooltip-btn-wrapper">
+                            <span>Zatvori</span>
+                            <icon name="chevron-right" color="rgb(0,212,255)" />
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
@@ -58,7 +51,6 @@ export default {
     justify-content: center;
     cursor: pointer;
 }
-
 .tooltip-footer .btn-wrapper {
     padding: 4px;
     border-radius: 4px;
@@ -69,11 +61,6 @@ export default {
         rgba(0, 212, 255, 1) 100%
     );
 }
-
-.tooltip-footer .btn-wrapper a {
-    text-decoration: none;
-}
-
 .tooltip-footer .btn-wrapper .action-btn {
     display: flex;
     flex-direction: row;
@@ -84,9 +71,8 @@ export default {
     padding: 8px 32px;
     background-color: #ffffff;
 }
-
 .tooltip-popup-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
@@ -98,7 +84,6 @@ export default {
     align-items: center;
     justify-content: center;
 }
-
 .tooltip-popup-wrapper {
     border-radius: 8px;
     padding: 4px;
@@ -111,7 +96,6 @@ export default {
     box-shadow: rgba(0, 93, 130, 0.45) 0px 10px 15px -3px,
         rgba(0, 212, 255, 0.15) 0px 4px 6px -2px;
 }
-
 .tooltip-popup-container .tooltip-popup {
     position: relative;
     background-color: #ffffff;
@@ -171,5 +155,18 @@ export default {
     font-size: 12px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+}
+
+@media (max-width: 756px) {
+    .tooltip-popup-container .tooltip-popup-wrapper {
+        width: 80%;
+        max-width: 95%;
+    }
+}
+@media (min-width: 756px) {
+    .tooltip-popup-container .tooltip-popup-wrapper {
+        width: 450px;
+        max-width: 450px;
+    }
 }
 </style>

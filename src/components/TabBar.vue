@@ -2,7 +2,7 @@
     <article class="tab-bar">
         <header>
             <ul class="tab-wrapper">
-                <li v-if="!noPlaceholder" class="title-placeholder"></li>
+                <li v-if="!noPlaceholder" class="tab-item-placeholder"></li>
                 <li
                     v-for="(tab, index) in tabList"
                     class="tab-item"
@@ -10,7 +10,7 @@
                     :key="index"
                     @click="selectTab(index)"
                 >
-                    <h6 class="tab-title">{{tab.title}}</h6>
+                    <h6 class="tab-title">{{ tab.title }}</h6>
                 </li>
             </ul>
         </header>
@@ -65,10 +65,10 @@ export default {
     flex-direction: row;
     align-items: stretch;
     justify-content: flex-start;
-    border-bottom: 1px solid #E5E5E5;
+    border-bottom: 1px solid #e5e5e5;
     list-style-type: none;
 }
-.tab-wrapper .title-placeholder {
+.tab-wrapper .tab-item-placeholder {
     width: 71px;
 }
 .tab-wrapper .tab-item {
@@ -104,17 +104,18 @@ export default {
         box-shadow: none;
     }
 }
-    @media (max-width: 546px) {
-        .tab-wrapper .tab-item-placeholder {
-            display: none;
-        }
+@media (max-width: 546px) {
+    .tab-wrapper .tab-item-placeholder {
+        display: none;
     }
+}
 @media (min-width: 756px) {
     .tab-detail {
         padding: 16px;
         border-radius: 4px;
-        background-color: #FFFFFF;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+        background-color: #ffffff;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+            rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     }
 }
 </style>

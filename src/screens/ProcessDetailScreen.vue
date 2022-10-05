@@ -22,7 +22,7 @@
                             <div class="spacer-md"></div>
                             <h3>{{ currentStep.title }}</h3>
                         </div>
-                        <a href="tooltip.html">
+                        <a @click="onActionPress">
                             <div class="tooltip-wrapper">
                                 <icon
                                     name="help"
@@ -37,7 +37,10 @@
 
                     <tab-bar>
                         <tab-bar-item title="pregled">
-                            <process-diagram :stepList="processData.stepList" />
+                            <process-diagram
+                                :stepList="processData.stepList"
+                                @onAction="onActionPress"
+                            />
                         </tab-bar-item>
                         <tab-bar-item title="trenutni korak">
                             <process-description
@@ -65,6 +68,8 @@
                 </div>
             </div>
         </div>
+
+        <modal-provider v-show="showModal" :title="title" :text="text" @onAction="onActionPress" />
     </section>
 </template>
 
@@ -78,6 +83,7 @@ import TabBar from "@/components/TabBar.vue";
 import TabBarItem from "@/components/TabBarItem.vue";
 import { mapGetters } from "vuex";
 import ProcessDiagram from "@/components/ProcessDiagram.vue";
+import ModalProvider from "@/components/ModalProvider.vue";
 
 export default {
     name: "ProcessDetailScreen",
@@ -90,6 +96,7 @@ export default {
         ProcessStepList,
         ProcessDescription,
         ProcessDiagram,
+        ModalProvider,
     },
     props: {
         id: {
@@ -100,11 +107,18 @@ export default {
     data () {
         return {
             processData: null,
+            showModal: false,
+            title: "Alokacija na praksu",
+            // eslint-disable-next-line max-len
+            text: "U privitku mail se nalaze dva dokumenta od kojih je jedan prijavnica koju moraš ispuniti kod prijave prakse nakon pozitivne evaluacije, a drugi dokument je predložak dnevnika prakse kojeg ćeš morati ispuniti (bilo bi odlično ukoliko bi to radio/la redovito) i predati kada budeš izlazio/la na rok.",
         };
     },
     methods: {
         fetched (content) {
             this.processData = content;
+        },
+        onActionPress () {
+            this.showModal = !this.showModal;
         },
     },
     computed: {
