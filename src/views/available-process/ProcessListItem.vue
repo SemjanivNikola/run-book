@@ -1,15 +1,22 @@
 <template>
     <tr class="list-item" style="position: relative" @click="routeToScreen">
         <td><span class="table-icon-placeholder"></span></td>
-        <td class="color show-sm">
+        <td class="show-sm">
             {{ process.title }}<br /><small>{{ process.manager }}</small>
         </td>
-        <td class="color show-lg">{{ process.title }}</td>
-        <td class="w-250 show-lg">{{ process.manager }}</td>
+        <td class="color show-lg">
+            <span>{{ process.title }}</span>
+        </td>
+        <td class="w-200 show-lg">{{ process.manager }}</td>
         <td class="w-150 align-center show-lg">
             {{ process.averageDuration }}
         </td>
         <td class="w-100 align-center show-lg">{{ process.totalSteps }}</td>
+        <td class="align-center show-sm">
+            {{ process.averageDuration }}<br /><small>{{
+                process.totalSteps
+            }}</small>
+        </td>
         <td @click.stop="onClick">
             <span class="table-icon-placeholder">
                 <icon name="info" color="#000" />
@@ -48,7 +55,7 @@ tr.list-item {
     cursor: pointer;
     transition: background-color 400ms ease-out;
     border-bottom: 1px solid #eee;
-    background: transparent;
+    background: #f9f9f9;
     overflow: hidden;
     z-index: 10;
 }
@@ -58,13 +65,20 @@ tr.list-item td {
 tr.list-item td.color {
     color: #000;
 }
+tr.list-item td.color span {
+    display: inline;
+    position: relative;
+    color: #fff;
+    mix-blend-mode: difference;
+    z-index: 100;
+}
 tr.list-item td.color:after {
     content: "Pokreni ➔";
     margin-left: 24px;
     padding: 8px;
     border-radius: 16px;
     color: #f9f9f9;
-    mix-blend-mode: difference;
+    mix-blend-mode: lighten;
 }
 .table-icon-placeholder {
     display: block;
@@ -144,13 +158,23 @@ tr.list-item:hover td.color:before {
     0% {
         transform: skew(-18deg) translateX(-110%);
     }
-    50% {
+    25% {
         width: 100%;
         transform: skew(-18deg) translateX(0);
     }
-    100% {
+    50% {
         width: 50%;
         transform: skew(-18deg) translateX(202%);
+    }
+    55% {
+        width: 0%;
+        opacity: 0;
+        transform: skew(-18deg) translateX(-5%);
+    }
+    100% {
+        width: 37%;
+        opacity: 1;
+        transform: skew(-18deg) translateX(-5%);
     }
 }
 @keyframes slider-line {
