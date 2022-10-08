@@ -6,7 +6,7 @@
             </button>
             <div class="spacer-md"></div>
 
-            <div v-if="canGoBack" class="back-btn">
+            <div v-if="canGoBack" class="back-btn" @click="$router.back()">
                 <icon name="chevron-left" :size="28" />
                 <h2 class="title">{{ title }}</h2>
             </div>
@@ -233,16 +233,22 @@ a.side-navigator-menu-item-wrapper.router-link-exact-active
     }
     .back-btn {
         height: 44px;
+        width: 93%;
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        justify-content: flex-end;
+        justify-content: flex-start;
         text-decoration: none;
     }
     .back-btn .icon-wrapper {
+        display: inline-block;
         margin-right: 8px;
     }
     .top-placeholder .back-btn h2.title {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 22px;
     }
 }
