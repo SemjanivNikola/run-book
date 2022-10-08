@@ -1,9 +1,9 @@
 <template>
     <div class="process-info">
         <div class="process-info-title-wrapper">
-            <a class="title-inner-wrapper" @click="router.go(-1)">
-                <icon name="chevron-right" color="rgb(0, 0, 0)" />
-                <h3>{{ info.title }}</h3>
+            <a class="title-inner-wrapper" @click="$router.go(-1)">
+                <icon name="chevron-right" color="rgb(0, 0, 0)" :size="28"/>
+                <h2>{{ info.title }}</h2>
             </a>
         </div>
 
@@ -70,10 +70,9 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-.process-info-title-wrapper {
     margin-bottom: 16px;
     justify-content: space-between;
+    cursor: pointer;
 }
 .title-inner-wrapper {
     display: flex;
