@@ -33,6 +33,7 @@ interface Process {
 
 interface Info {
     title: string;
+    description: string;
     status: ProcessStatus;
     progress: number;
     timeAverage: string;
