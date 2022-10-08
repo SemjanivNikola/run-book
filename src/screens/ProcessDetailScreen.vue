@@ -56,7 +56,7 @@
                         <tab-bar-item title="detalji">
                             <process-description
                                 noPadding
-                                :text="currentStep.description"
+                                :text="processData.info.description"
                                 title="Detalji procesa"
                             />
                             <process-link-list :urlList="processData.urlList" />
@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <modal-provider v-show="showModal" :title="title" :text="text" @onAction="onActionPress" />
+        <modal-provider v-show="showModal" :title="modalTitle" :text="modalText" @onAction="onActionPress" />
     </section>
 </template>
 
@@ -108,9 +108,9 @@ export default {
         return {
             processData: null,
             showModal: false,
-            title: "Alokacija na praksu",
+            modalTitle: "Alokacija na praksu",
             // eslint-disable-next-line max-len
-            text: "U privitku mail se nalaze dva dokumenta od kojih je jedan prijavnica koju moraš ispuniti kod prijave prakse nakon pozitivne evaluacije, a drugi dokument je predložak dnevnika prakse kojeg ćeš morati ispuniti (bilo bi odlično ukoliko bi to radio/la redovito) i predati kada budeš izlazio/la na rok.",
+            modalText: "U privitku mail se nalaze dva dokumenta od kojih je jedan prijavnica koju moraš ispuniti kod prijave prakse nakon pozitivne evaluacije, a drugi dokument je predložak dnevnika prakse kojeg ćeš morati ispuniti (bilo bi odlično ukoliko bi to radio/la redovito) i predati kada budeš izlazio/la na rok.",
         };
     },
     methods: {

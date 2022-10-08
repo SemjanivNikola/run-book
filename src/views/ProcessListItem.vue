@@ -1,5 +1,5 @@
 <template>
-    <tr class="list-item" @click="routeToScreen">
+    <tr class="list-item" @click="routeToScreen" title="Pogledaj">
         <td>
             <span class="table-icon-placeholder">
                 <icon name="progress-clock" color="#000" />
@@ -41,7 +41,7 @@ export default {
         routeToScreen () {
             this.$router.push({
                 name: "ProcessDetailScreen",
-                params: { id: this.process.id },
+                params: { id: this.process.id, title: this.process.title },
             });
         },
     },

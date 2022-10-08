@@ -1,10 +1,10 @@
 <template>
-    <tr class="list-item start" @click="routeToScreen">
+    <tr class="list-item start" @click="routeToScreen" title="Pogledaj">
         <td><span class="table-icon-placeholder"></span></td>
         <td class="show-sm">
             {{ process.title }}<br /><small>{{ process.manager }}</small>
         </td>
-        <td class="mix-blend show-lg">
+        <td @click="startProcess" class="mix-blend show-lg" type="button">
             <span>{{ process.title }}</span>
         </td>
         <td class="w-200 show-lg">{{ process.manager }}</td>
@@ -35,15 +35,18 @@ export default {
         },
     },
     methods: {
-        onClick (event) {
-            event.preventDefault();
+        onClick () {
             this.$parent.$emit("onOpenSheet", this.process.id);
         },
         routeToScreen () {
             this.$router.push({
                 name: "ProcessDetailScreen",
-                params: { id: this.process.id },
+                params: { id: this.process.id, title: this.process.title },
             });
+        },
+        startProcess () {
+            // eslint-disable-next-line no-alert
+            alert("Proces se pokreće");
         },
     },
 };

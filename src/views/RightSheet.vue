@@ -4,10 +4,10 @@
             <div class="sheet-header-wrapper">
                 <div class="sheet-header-info">
                     <h3>{{ preview.title }}</h3>
-                    <h6>{{ preview.manager }}</h6>
+                    <h5>{{ preview.manager }}</h5>
                 </div>
                 <button @click="$emit('close')" style="cursor: pointer">
-                    X
+                    <icon name="close" color="#000" />
                 </button>
             </div>
             <span class="progress-bar-wrapper">
@@ -21,13 +21,14 @@
         <div v-if="additionalInfo" class="sheet-body">
             <tab-bar noPlaceholder>
                 <tab-bar-item title="pregled">
-                    <process-description noPadding />
+                    <process-description noPadding :text="additionalInfo.info.description"
+                                title="Ukratko" />
                 </tab-bar-item>
                 <tab-bar-item title="poveznice">
-                    <process-link-list />
+                    <process-link-list :urlList="additionalInfo.urlList" />
                 </tab-bar-item>
                 <tab-bar-item title="koraci">
-                    <process-step-list />
+                    <process-step-list :stepList="additionalInfo.stepList" />
                 </tab-bar-item>
             </tab-bar>
         </div>
@@ -41,6 +42,7 @@ import ProcessLinkList from "@/components/ProcessLinkList.vue";
 import ProcessStepList from "@/components/ProcessStepList.vue";
 import ProcessDescription from "@/components/ProcessDescription.vue";
 import ContentLoader from "@/components/ContentLoader.vue";
+import Icon from "@/components/Icon.vue";
 
 export default {
     name: "RightSheet",
@@ -57,6 +59,7 @@ export default {
         ProcessStepList,
         ProcessDescription,
         ContentLoader,
+        Icon,
     },
     data () {
         return {
@@ -118,6 +121,9 @@ export default {
 }
 .sheet-header-info {
     border-bottom: none !important;
+}
+.sheet-header-info h3 {
+    margin-bottom: 8px;
 }
 button {
     background: transparent;
