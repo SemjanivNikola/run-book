@@ -1,6 +1,7 @@
 import ActiveProcessScreen from "@/screens/ActiveProcessScreen.vue";
 import ArchiveScreen from "@/screens/ArchiveScreen.vue";
 import AvailableProcessScreen from "@/screens/AvailableProcessScreen.vue";
+import FormScreen from "@/screens/FormScreen.vue";
 import ProcessDetailScreen from "@/screens/ProcessDetailScreen.vue";
 import Vue from "vue";
 import VueRouter from "vue-router";
@@ -29,6 +30,11 @@ const routes = [
         name: "ProcessDetailScreen",
         component: ProcessDetailScreen,
         props: true,
+    },
+    {
+        path: "/form-preview",
+        name: "FormScreen",
+        component: FormScreen,
     },
 ];
 

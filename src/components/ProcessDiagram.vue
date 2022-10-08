@@ -38,7 +38,7 @@
                                 translate="yes"
                                 class="diagram-item-fab"
                             >
-                                <div class="fab-wrapper" @click="$emit('onAction')">
+                                <div class="fab-wrapper" @click="$emit('on-action')">
                                     <span>{{action.caption}}</span>
                                     <div class="action-icon">
                                          <icon name="plus" color="rgb(0,212,255)" :size="28" />

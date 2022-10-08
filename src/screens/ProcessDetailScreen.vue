@@ -39,7 +39,7 @@
                         <tab-bar-item title="pregled">
                             <process-diagram
                                 :stepList="processData.stepList"
-                                @onAction="onActionPress"
+                                @on-action="onActionPress"
                             />
                         </tab-bar-item>
                         <tab-bar-item title="trenutni korak">
@@ -118,6 +118,7 @@ export default {
             this.processData = content;
         },
         onActionPress () {
+            this.$router.push({ name: "FormScreen" });
             this.showModal = !this.showModal;
         },
     },
