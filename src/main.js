@@ -2,10 +2,11 @@ import axios from "axios";
 import Vue from "vue";
 import App from "./App.vue";
 import Icon from "./components/Icon.vue";
+import environmen from "./environment";
 import router from "./router";
 import store from "./store";
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = environmen.MANAGER_BASE_URL;
 
 Vue.component("Icon", Icon);
 
