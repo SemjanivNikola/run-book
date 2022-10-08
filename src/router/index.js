@@ -1,12 +1,9 @@
+import ActiveProcessScreen from "@/screens/ActiveProcessScreen.vue";
+import ArchiveScreen from "@/screens/ArchiveScreen.vue";
+import AvailableProcessScreen from "@/screens/AvailableProcessScreen.vue";
+import ProcessDetailScreen from "@/screens/ProcessDetailScreen.vue";
 import Vue from "vue";
 import VueRouter from "vue-router";
-import ActiveProcessScreen from "@/screens/ActiveProcessScreen.vue";
-import AvailableProcessScreen from "@/screens/AvailableProcessScreen.vue";
-import ArchiveScreen from "@/screens/ArchiveScreen.vue";
-import ProcessDetailScreen from "@/screens/ProcessDetailScreen.vue";
-import ProcessOverview from "@/views/ProcessOverview.vue";
-import CurrentStep from "@/views/CurrentStep.vue";
-import ProcessDetail from "@/views/ProcessDetail.vue";
 
 
 Vue.use(VueRouter);
@@ -28,24 +25,10 @@ const routes = [
         component: ArchiveScreen,
     },
     {
-        path: "/active-processes/:id",
+        path: "/process-detail/:id",
         name: "ProcessDetailScreen",
         component: ProcessDetailScreen,
         props: true,
-        children: [
-            {
-                path: "overview",
-                component: ProcessOverview,
-            },
-            {
-                path: "current-step",
-                component: CurrentStep,
-            },
-            {
-                path: "process-detail",
-                component: ProcessDetail,
-            },
-        ],
     },
 ];
 
