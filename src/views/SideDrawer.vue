@@ -2,10 +2,15 @@
     <nav id="side-navigation" :class="{ open: isDrawerOpen }">
         <div class="top-placeholder">
             <button type="button" class="nav-icon" @click="toggleDrawer">
-                <icon :name="isDrawerOpen ? 'drawer-open' : 'drawer-close'" />
+                <icon :name="isDrawerOpen ? 'drawer-open' : 'drawer-close'" :size="28" />
             </button>
             <div class="spacer-md"></div>
-            <div class="title">Aktivni procesi</div>
+
+            <div v-if="canGoBack" class="back-btn">
+                <icon name="chevron-left" :size="28" />
+                <h2 class="title">{{ title }}</h2>
+            </div>
+            <h2 v-else class="title">{{ title }}</h2>
         </div>
         <div class="side-navigator-container">
             <div class="side-navigator-menu">
@@ -106,6 +111,30 @@ export default {
     },
     computed: {
         ...mapGetters(["isDrawerOpen"]),
+        title () {
+            switch (this.currentRoute) {
+                case "ActiveProcessScreen":
+                    return "Aktivni procesi";
+                case "AvailableProcessScreen":
+                    return "Dostupni procesi";
+                case "ArchiveScreen":
+                    return "Arhiva";
+                default: {
+                    const { title } = this.$router.currentRoute.params;
+                    return title ? title : "Detalji";
+                }
+            }
+        },
+        canGoBack () {
+            switch (this.currentRoute) {
+                case "ActiveProcessScreen":
+                case "AvailableProcessScreen":
+                case "ArchiveScreen":
+                    return false;
+                default:
+                    return true;
+            }
+        },
     },
 };
 </script>
@@ -156,8 +185,6 @@ export default {
 }
 
 .nav-icon {
-    width: 28px;
-    height: 28px;
     margin-bottom: 16px;
     cursor: pointer;
     background: transparent;
@@ -204,6 +231,27 @@ a.side-navigator-menu-item-wrapper.router-link-exact-active
         color: #fff;
         letter-spacing: 0.5px;
     }
+    .back-btn {
+        height: 44px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-end;
+        text-decoration: none;
+    }
+    .back-btn .icon-wrapper {
+        margin-right: 8px;
+    }
+    .top-placeholder .back-btn h2.title {
+        font-size: 22px;
+    }
+}
+@media (max-width: 390px) {
+    /* NAVIGATION  */
+    .top-placeholder .back-btn h2.title {
+        font-size: 18px;
+        line-height: 1.5;
+    }
 }
 @media (min-width: 756px) {
     #side-navigation {
@@ -223,12 +271,13 @@ a.side-navigator-menu-item-wrapper.router-link-exact-active
     .top-placeholder {
         padding: 24px 16px;
     }
-
     .top-placeholder .spacer-md {
         display: none;
     }
-
     .top-placeholder .title {
+        display: none;
+    }
+    .back-btn {
         display: none;
     }
 }

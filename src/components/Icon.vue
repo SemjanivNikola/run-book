@@ -37,9 +37,10 @@ export default {
       </svg>`;
         },
         close () {
-            return `<svg viewBox="0 0 24 24" fill="none">
-        <path fill="${this.color}" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-      </svg>`;
+            return `<svg viewBox="0 0 24 24"><path fill="${this.color}" d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" /></svg>`;
+        },
+        chevronLeft () {
+            return `<svg viewBox="0 0 24 24"><path fill="${this.color}" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" /></svg>`;
         },
         chevronRight () {
             return `<svg viewBox="0 0 24 24">
@@ -125,7 +126,7 @@ export default {
         },
     },
     methods: {
-        // eslint-disable-next-line max-statements, max-lines-per-function
+        // eslint-disable-next-line max-statements, max-lines-per-function, complexity
         iconName () {
             switch (this.name) {
                 case "plus": {
@@ -136,6 +137,9 @@ export default {
                 }
                 case "close": {
                     return this.close;
+                }
+                case "chevron-left": {
+                    return this.chevronLeft;
                 }
                 case "chevron-right": {
                     return this.chevronRight;
