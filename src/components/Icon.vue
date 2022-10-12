@@ -124,6 +124,9 @@ export default {
                         <path fill="${this.color}" d="M17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12C7,9.58 8.72,7.56 11,7.1V3H13V7.1C15.28,7.56 17,9.58 17,12M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M11,21V19H13V21H11Z" />
                     </svg>`;
         },
+        repeat () {
+            return `<svg viewBox="0 0 24 24"><path fill="${this.color}" d="M17,17H7V14L3,18L7,22V19H19V13H17M7,7H17V10L21,6L17,2V5H5V11H7V7Z" /></svg>`;
+        },
     },
     methods: {
         // eslint-disable-next-line max-statements, max-lines-per-function, complexity
@@ -188,6 +191,9 @@ export default {
                 }
                 case "warning": {
                     return this.progressWarning;
+                }
+                case "repeat": {
+                    return this.repeat;
                 }
                 default: {
                     // file
