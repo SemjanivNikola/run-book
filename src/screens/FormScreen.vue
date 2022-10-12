@@ -1,5 +1,7 @@
 <template>
-    <FormRenderer :formConfiguration="TEST_DATA" v-model="formInput" />
+    <div class="form-wrapper">
+        <FormRenderer :formConfiguration="TEST_DATA" v-model="formInput" />
+    </div>
 </template>
 
 <script>
@@ -17,3 +19,6 @@ export default {
     },
 };
 </script>
+
+<style src="@/styles/formScreenStyle.css">
+</style>
