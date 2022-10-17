@@ -19,4 +19,7 @@ new Vue({
     router,
     store,
     render: (h) => h(App),
+    mounted () {
+        document.title = "RunBook";
+    },
 }).$mount("#app");

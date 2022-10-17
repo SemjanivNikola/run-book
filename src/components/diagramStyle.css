@@ -64,6 +64,9 @@
     font-weight: 400;
     color: #e81e63;
 }
+.index-addon {
+    display: inline;
+}
 
 /*************************************/
 /*      CURRENT STEP - ACTIVE        */
@@ -83,7 +86,10 @@
 }
 .diagram-col-item.current h4,
 .diagram-col-item:hover h4,
-.diagram-col-item.done h4 {
+.diagram-col-item.done h4,
+.diagram-col-item.current .index-addon,
+.diagram-col-item:hover .index-addon,
+.diagram-col-item.done .index-addon {
     color: rgb(0, 0, 0);
 }
 .diagram-col-item small {
@@ -123,7 +129,7 @@
     color: rgb(0, 0, 0);
     opacity: 1;
 }
-.diagram-col-item h4 {
+.diagram-col-item h4, .index-addon {
     color: rgb(171, 180, 194);
 }
 .diagram-col-item:hover {

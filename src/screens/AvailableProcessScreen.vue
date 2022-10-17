@@ -1,8 +1,16 @@
 <template>
     <div id="main-container">
         <div class="info-wrapper">
-            <h2>Dostupni procesi</h2>
-            <div class="spacer-md"></div>
+            <div>
+                <h2>Dostupni procesi</h2>
+                <div class="spacer-md"></div>
+            </div>
+
+            <img
+                src="../assets/logo.png"
+                alt="logo"
+                style="width: 50px; height: 100%"
+            />
         </div>
 
         <content-loader
@@ -12,6 +20,11 @@
         <div v-if="queryList" class="content">
             <search-bar />
             <process-list :list="queryList" @onOpenSheet="handleOnOpenSheet" />
+        </div>
+
+        <div v-if="isListEmpty" class="empty-list-wrapper">
+            <img src="../assets/empty-list.svg" alt="List is empty" />
+            <p><b>Ops!</b> Nažalost nismo uspjeli ništa pronaći.</p>
         </div>
 
         <right-sheet
@@ -34,6 +47,7 @@ export default {
     data () {
         return {
             queryList: null,
+            isListEmpty: false,
             isSheetOpen: false,
             recordId: null,
         };
@@ -41,7 +55,11 @@ export default {
     methods: {
         fetched (content) {
             if (content) {
-                this.queryList = content;
+                if (content.length > 0) {
+                    this.queryList = content;
+                } else {
+                    this.isListEmpty = true;
+                }
             }
         },
         handleOnOpenSheet (id) {
@@ -51,3 +69,10 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+#main-container .info-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+</style>

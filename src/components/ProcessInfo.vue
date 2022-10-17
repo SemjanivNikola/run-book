@@ -17,15 +17,15 @@
                 </div>
                 <div class="divider-vertical show-lg"></div>
                 <div class="progress-info-wrapper">
-                    <h4>Vrijeme:</h4>
+                    <h4>Proteklo vrijeme:</h4>
                     <div class="spacer-md"></div>
                     <span class="progress-value">{{ info.timeTotal }}</span>
+                </div>
+                <div class="divider-vertical show-lg"></div>
+                <div class="progress-info-wrapper">
+                    <h4>Prosječno vrijeme:</h4>
                     <div class="spacer-md"></div>
-                    <div class="divider-vertical"></div>
-                    <div class="spacer-md"></div>
-                    <span class="progress-value"
-                        ><i>{{ info.timeAverage }}</i></span
-                    >
+                    <span class="progress-value">{{ info.timeAverage }}</span>
                 </div>
                 <div class="divider-vertical show-lg"></div>
                 <div class="progress-info-wrapper">

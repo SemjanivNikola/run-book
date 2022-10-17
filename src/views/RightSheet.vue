@@ -17,18 +17,21 @@
                 ></span>
             </span>
         </div>
-        <content-loader @is-fetched="fetched" path="activeProcess/readProcessById" :param="recordId" />
+        <content-loader
+            @is-fetched="fetched"
+            path="activeProcess/readProcessById"
+            :param="recordId"
+        />
         <div v-if="additionalInfo" class="sheet-body">
             <tab-bar noPlaceholder>
                 <tab-bar-item title="pregled">
-                    <process-description noPadding :text="additionalInfo.info.description"
-                                title="Ukratko" />
-                </tab-bar-item>
-                <tab-bar-item title="poveznice">
-                    <process-link-list :urlList="additionalInfo.urlList" />
+                    <process-description noPadding title="Ukratko" />
                 </tab-bar-item>
                 <tab-bar-item title="koraci">
-                    <process-step-list :stepList="additionalInfo.stepList" />
+                    <process-step-list
+                        :isProcessActive="isActive"
+                        :stepList="additionalInfo.stepList"
+                    />
                 </tab-bar-item>
             </tab-bar>
         </div>
@@ -38,7 +41,6 @@
 <script>
 import TabBar from "@/components/TabBar.vue";
 import TabBarItem from "@/components/TabBarItem.vue";
-import ProcessLinkList from "@/components/ProcessLinkList.vue";
 import ProcessStepList from "@/components/ProcessStepList.vue";
 import ProcessDescription from "@/components/ProcessDescription.vue";
 import ContentLoader from "@/components/ContentLoader.vue";
@@ -55,7 +57,6 @@ export default {
     components: {
         TabBar,
         TabBarItem,
-        ProcessLinkList,
         ProcessStepList,
         ProcessDescription,
         ContentLoader,
@@ -87,6 +88,11 @@ export default {
             if (preview) {
                 this.preview = preview;
             }
+        },
+    },
+    computed: {
+        isActive () {
+            return this.additionalInfo.info.status === "ACTIVE";
         },
     },
 };

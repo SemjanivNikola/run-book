@@ -89,6 +89,18 @@ span {
     margin-bottom: 16px;
 }
 
+.empty-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 32px;
+}
+.empty-list-wrapper img {
+    max-height: 220px;
+}
+
 @media (max-width: 756px) {
     #app {
         flex-direction: column;

@@ -12,6 +12,10 @@ export default {
         setDetail (state, payload) {
             state.detail = payload;
         },
+        setDetailAction (state, payload) {
+            const activeStep = state.detail.currentStep;
+            state.detail.stepList[activeStep[0]][activeStep[1]].action = payload;
+        },
     },
     getters: {
         getPreview: (state) => (id) => {
@@ -52,6 +56,12 @@ export default {
                 commit("setDetail", res.data);
                 return res.data;
             }).
+                catch((err) => {
+                    throw err.message;
+                });
+        },
+        readActionById (payload) {
+            return axios.get(`/process/action/${payload}`).
                 catch((err) => {
                     throw err.message;
                 });

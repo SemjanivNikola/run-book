@@ -57,6 +57,7 @@ export default {
     position: sticky;
     top: 0;
     background-color: rgb(255, 255, 255);
+    z-index: 100;
 }
 .tab-wrapper {
     width: 100%;

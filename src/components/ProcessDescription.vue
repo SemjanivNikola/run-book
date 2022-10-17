@@ -1,7 +1,11 @@
 <template>
     <div class="step-description-wrapper" :class="{'no-padding': noPadding}">
-        <h3 v-if="title" class="mb">{{title}}</h3>
-        <p>{{text}}</p>
+        <h3 class="mb">Važni datumi</h3>
+        <p>Za studente koji su upisali Stručnu praksu na preddiplomskom ili diplomskom studiju:</p>
+        <ol>
+            <li>Najraniji datum početka izvođenja stručne prakse - <b>15. listopad 2022.</b></li>
+            <li>Najkasniji datum završetka - <b>15. rujna 2023.</b></li>
+        </ol>
     </div>
 </template>
 
@@ -13,14 +17,6 @@ export default {
             type: Boolean,
             default: false,
         },
-        title: {
-            type: String,
-            default: null,
-        },
-        text: {
-            type: String,
-            required: true,
-        },
     },
 };
 </script>
@@ -31,6 +27,9 @@ export default {
 }
 .mb {
     margin-bottom: 16px
+}
+ol {
+    padding: 16px 32px;
 }
 
 @media (max-width: 756px) {

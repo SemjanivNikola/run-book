@@ -27,6 +27,8 @@
                 </div>
             </div>
         </div>
+
+        <button v-if="isProcessActive" type="edit" @click="onEdit">UREDI</button>
     </div>
 </template>
 
@@ -43,6 +45,10 @@ export default {
         stepList: {
             type: Array,
             required: false,
+        },
+        isProcessActive: {
+            type: Boolean,
+            default: false,
         },
     },
     components: { Icon },
@@ -105,6 +111,9 @@ export default {
             }
 
             return color;
+        },
+        onEdit () {
+            console.warn("TODO edit");
         },
     },
 };
@@ -188,6 +197,29 @@ export default {
 ul.step-list li {
     font-size: 12px;
     color: #767676;
+}
+
+button[type="edit"] {
+    max-width: 180px;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #fff;
+    background-color: rgb(0, 93, 130);
+    padding: 8px 16px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    letter-spacing: 1.5px;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45);
+    transition: box-shadow 350ms ease-out;
+    cursor: pointer;
+}
+button[type="edit"]:hover {
+    -webkit-box-shadow: 0 0 12px 2px rgba(0, 93, 130, 1);
+    -moz-box-shadow: 0 0 12px 2px rgba(0, 93, 130, 1);
+    box-shadow: 0 0 12px 2px rgba(0, 93, 130, 1);
 }
 
 @media (max-width: 756px) {

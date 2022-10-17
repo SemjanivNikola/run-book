@@ -32,9 +32,10 @@ const routes = [
         props: true,
     },
     {
-        path: "/form-preview",
+        path: "process/action/form",
         name: "FormScreen",
         component: FormScreen,
+        props: true,
     },
 ];
 

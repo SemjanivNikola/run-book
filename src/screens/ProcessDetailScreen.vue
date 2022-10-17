@@ -16,13 +16,13 @@
                                 <div class="step-number-wrapper-inner">
                                     <span class="step-number">{{
                                         currentStep.id
-                                    }}</span>
+                                    }}.</span>
                                 </div>
                             </div>
                             <div class="spacer-md"></div>
                             <h3>{{ currentStep.title }}</h3>
                         </div>
-                        <a @click="onActionPress">
+                        <a @click="toggleModal">
                             <div class="tooltip-wrapper">
                                 <icon
                                     name="help"
@@ -43,25 +43,14 @@
                             />
                         </tab-bar-item>
                         <tab-bar-item title="trenutni korak">
-                            <process-description
-                                noPadding
-                                :text="currentStep.description"
-                                title="Pojedinosti o trenutnom koraku"
-                            />
-                            <process-link-list :urlList="getUrlList" />
                             <process-step-list
                                 :stepList="getStepListForActiveStep"
+                                :isProcessActive="true"
                             />
                         </tab-bar-item>
                         <tab-bar-item title="detalji">
                             <process-description
                                 noPadding
-                                :text="processData.info.description"
-                                title="Detalji procesa"
-                            />
-                            <process-link-list :urlList="processData.urlList" />
-                            <process-step-list
-                                :stepList="processData.stepList"
                             />
                         </tab-bar-item>
                     </tab-bar>
@@ -69,7 +58,7 @@
             </div>
         </div>
 
-        <modal-provider v-show="showModal" :title="modalTitle" :text="modalText" @onAction="onActionPress" />
+        <modal-provider v-show="showModal" :title="modalTitle" :text="modalText" @onAction="toggleModal" />
     </section>
 </template>
 
@@ -77,7 +66,6 @@
 import ContentLoader from "@/components/ContentLoader.vue";
 import ProcessDescription from "@/components/ProcessDescription.vue";
 import ProcessInfo from "@/components/ProcessInfo.vue";
-import ProcessLinkList from "@/components/ProcessLinkList.vue";
 import ProcessStepList from "@/components/ProcessStepList.vue";
 import TabBar from "@/components/TabBar.vue";
 import TabBarItem from "@/components/TabBarItem.vue";
@@ -92,7 +80,6 @@ export default {
         ContentLoader,
         TabBar,
         TabBarItem,
-        ProcessLinkList,
         ProcessStepList,
         ProcessDescription,
         ProcessDiagram,
@@ -110,15 +97,18 @@ export default {
             showModal: false,
             modalTitle: "Alokacija na praksu",
             // eslint-disable-next-line max-len
-            modalText: "U privitku mail se nalaze dva dokumenta od kojih je jedan prijavnica koju moraš ispuniti kod prijave prakse nakon pozitivne evaluacije, a drugi dokument je predložak dnevnika prakse kojeg ćeš morati ispuniti (bilo bi odlično ukoliko bi to radio/la redovito) i predati kada budeš izlazio/la na rok.",
+            modalText: "",
         };
     },
     methods: {
         fetched (content) {
             this.processData = content;
+            this.modalTitle = this.processData.info.description;
         },
         onActionPress () {
-            this.$router.push({ name: "FormScreen" });
+            this.$router.push({ name: "FormScreen", prams: { id: this.currentStep.action } });
+        },
+        toggleModal () {
             this.showModal = !this.showModal;
         },
     },
