@@ -19,7 +19,7 @@
         </div>
         <content-loader
             @is-fetched="fetched"
-            path="activeProcess/readProcessById"
+            path="processStore/readProcessById"
             :param="recordId"
         />
         <div v-if="additionalInfo" class="sheet-body">
@@ -83,7 +83,7 @@ export default {
             }
         },
         record (id) {
-            const previewFn = this.$store.getters["activeProcess/getPreview"];
+            const previewFn = this.$store.getters["processStore/getPreview"];
             const preview = previewFn(id);
             if (preview) {
                 this.preview = preview;

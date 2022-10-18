@@ -2,7 +2,7 @@
     <div class="form-wrapper">
         <content-loader
             @is-fetched="fetched"
-            path="activeProcess/readActionById"
+            path="processStore/readActionById"
             :param="id"
         />
         <div v-if="form">
@@ -45,7 +45,7 @@ export default {
         },
         onActionPress () {
             this.$store.commit(
-                "activeProcess/setDetailAction",
+                "processStore/setDetailAction",
                 this.formInput,
                 { root: true },
             );

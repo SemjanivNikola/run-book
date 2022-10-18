@@ -40,8 +40,8 @@ export default {
         },
     },
     actions: {
-        readProcessList ({ commit }) {
-            return axios.get("/process").then((res) => {
+        readProcessList ({ commit }, payload) {
+            return axios.get(`/process?status=${payload}`).then((res) => {
 
                 commit("setList", res.data);
                 return res.data;

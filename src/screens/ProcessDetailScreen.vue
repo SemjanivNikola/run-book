@@ -2,7 +2,7 @@
     <section id="main-container">
         <content-loader
             @is-fetched="fetched"
-            path="activeProcess/readProcessById"
+            path="processStore/readProcessById"
             :param="id"
         />
         <process-info v-if="processData" :info="processData.info" />
@@ -113,7 +113,7 @@ export default {
         },
     },
     computed: {
-        ...mapGetters("activeProcess", ["getStepListForActiveStep"]),
+        ...mapGetters("processStore", ["getStepListForActiveStep"]),
         currentStep () {
             return this.processData.stepList[this.processData.currentStep[0]][
                 this.processData.currentStep[1]

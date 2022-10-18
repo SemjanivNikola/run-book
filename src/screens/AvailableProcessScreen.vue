@@ -15,7 +15,8 @@
 
         <content-loader
             @is-fetched="fetched"
-            path="availableProcess/readProcessList"
+            path="processStore/readProcessList"
+            param="available"
         />
         <div v-if="queryList" class="content">
             <search-bar />

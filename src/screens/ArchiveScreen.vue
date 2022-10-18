@@ -13,9 +13,14 @@
             />
         </div>
 
-        <div class="content">
+        <content-loader
+            @is-fetched="fetched"
+            path="processStore/readProcessList"
+            param="archive"
+        />
+        <div v-if="queryList" class="content">
             <search-bar />
-            <process-list @onOpenSheet="handleOnOpenSheet" />
+            <process-list :list="queryList" @onOpenSheet="handleOnOpenSheet" />
         </div>
 
         <div v-if="isListEmpty" class="empty-list-wrapper">
@@ -35,19 +40,29 @@
 import SearchBar from "@/components/SearchBar.vue";
 import ProcessList from "@/views/ProcessList.vue";
 import RightSheet from "@/views/RightSheet.vue";
+import ContentLoader from "@/components/ContentLoader.vue";
 
 export default {
     name: "ArchiveScreen",
-    components: { SearchBar, ProcessList, RightSheet },
+    components: { SearchBar, ProcessList, ContentLoader, RightSheet },
     data () {
         return {
-            activeProcesses: [],
+            queryList: [],
             isListEmpty: true,
             isSheetOpen: false,
             recordId: null,
         };
     },
     methods: {
+        fetched (content) {
+            if (content) {
+                if (content.length > 0) {
+                    this.queryList = content;
+                } else {
+                    this.isListEmpty = true;
+                }
+            }
+        },
         handleOnOpenSheet (id) {
             this.isSheetOpen = true;
             this.recordId = id;
