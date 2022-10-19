@@ -127,6 +127,12 @@ export default {
         repeat () {
             return `<svg viewBox="0 0 24 24"><path fill="${this.color}" d="M17,17H7V14L3,18L7,22V19H19V13H17M7,7H17V10L21,6L17,2V5H5V11H7V7Z" /></svg>`;
         },
+        firstPage () {
+            return `<svg viewBox="0 0 24 24"><path fill="${this.color}" d="M18.41,16.59L13.82,12L18.41,7.41L17,6L11,12L17,18L18.41,16.59M6,6H8V18H6V6Z" /></svg>`;
+        },
+        lastPage () {
+            return `<svg viewBox="0 0 24 24"><path fill="${this.color}" d="M5.59,7.41L10.18,12L5.59,16.59L7,18L13,12L7,6L5.59,7.41M16,6H18V18H16V6Z" /></svg>`;
+        },
     },
     methods: {
         // eslint-disable-next-line max-statements, max-lines-per-function, complexity
@@ -194,6 +200,12 @@ export default {
                 }
                 case "repeat": {
                     return this.repeat;
+                }
+                case "fiirst-page": {
+                    return this.firstPage;
+                }
+                case "last-page": {
+                    return this.lastPage;
                 }
                 default: {
                     // file
