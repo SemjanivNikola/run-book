@@ -24,7 +24,7 @@
                             <icon
                                 name="active-process"
                                 :color="
-                                    currentRoute === 'ActiveProcessScreen'
+                                    currentRoute === 'ActiveListScreen'
                                         ? 'rgb(0, 0, 0)'
                                         : undefined
                                 "
@@ -45,7 +45,7 @@
                             <icon
                                 name="available-process"
                                 :color="
-                                    currentRoute === 'AvailableProcessScreen'
+                                    currentRoute === 'AvailableListScreen'
                                         ? 'rgb(0, 0, 0)'
                                         : undefined
                                 "
@@ -66,7 +66,7 @@
                             <icon
                                 name="archive"
                                 :color="
-                                    currentRoute === 'ArchiveScreen'
+                                    currentRoute === 'ArchiveListScreen'
                                         ? 'rgb(0, 0, 0)'
                                         : undefined
                                 "
