@@ -6,29 +6,23 @@
                     <th class="header-icon-placeholder"></th>
                     <th class="show-sm">Naziv<br /><small>Voditelj</small></th>
                     <th class="show-lg">Naziv</th>
-                    <th class="w-250 show-lg">Voditelj</th>
-                    <th class="w-150 align-center show-lg">
-                        Prosječno vrijeme trajanja
-                    </th>
-                    <th class="w-100 align-center show-lg">Broj koraka</th>
-                    <th class="align-center show-sm">
-                        Vrijeme trajanja<br /><small>Broj koraka</small>
-                    </th>
+                    <th class="show-lg">Voditelj</th>
+                    <th class="align-center show-lg">Odrađeno</th>
+                    <th class="w-150 show-lg">Pokrenuto</th>
+                    <th class="w-100">Ažurirano</th>
                     <th class="header-icon-placeholder"></th>
                 </tr>
             </thead>
             <tbody>
-                <process-list-item
-                    v-for="item in list"
-                    :key="item.id"
-                    :process="item"
-                />
+                <process-list-item v-for="item in list" :key="item.id" :process="item" />
             </tbody>
         </table>
+        <pagination-wrapper />
     </div>
 </template>
 
 <script>
+import PaginationWrapper from "@/components/PaginationWrapper.vue";
 import ProcessListItem from "./ProcessListItem.vue";
 
 export default {
@@ -39,7 +33,7 @@ export default {
             required: true,
         },
     },
-    components: { ProcessListItem },
+    components: { ProcessListItem, PaginationWrapper },
 };
 </script>
 

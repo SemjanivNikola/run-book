@@ -38,7 +38,7 @@
 
 <script>
 import SearchBar from "@/components/SearchBar.vue";
-import ProcessList from "@/views/ProcessList.vue";
+import ProcessList from "@/views/archive-process/ProcessList.vue";
 import RightSheet from "@/views/RightSheet.vue";
 import ContentLoader from "@/components/ContentLoader.vue";
 

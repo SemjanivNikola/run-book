@@ -1,27 +1,26 @@
 <template>
-    <tr class="list-item start" @click="routeToScreen" title="Pogledaj">
-        <td><span class="table-icon-placeholder"></span></td>
+    <tr class="list-item" @click="routeToScreen" title="Pogledaj">
+        <td>
+            <span class="table-icon-placeholder">
+                <icon name="progress-clock" color="#000" />
+            </span>
+        </td>
         <td class="show-sm">
             {{ process.title }}<br /><small>{{ process.manager }}</small>
         </td>
-        <td @click="startProcess" class="mix-blend show-lg" type="button">
-            <span>{{ process.title }}</span>
-        </td>
-        <td class="w-200 show-lg">{{ process.manager }}</td>
-        <td class="w-150 align-center show-lg">
-            {{ process.averageDuration }}
-        </td>
-        <td class="w-100 align-center show-lg">{{ process.totalSteps }}</td>
-        <td class="align-center show-sm">
-            {{ process.averageDuration }}<br /><small>{{
-                process.totalSteps
-            }}</small>
-        </td>
+        <td class="show-lg">{{ process.title }}</td>
+        <td class="w-250 show-lg">{{ process.manager }}</td>
+        <td class="align-center show-lg">{{ process.progress }}%</td>
+        <td class="w-150 show-lg">{{process.startedAt}}</td>
+        <td class="w-100">{{process.updatedAt}}</td>
         <td class="table-action" @click.stop="onClick">
             <span class="table-icon-placeholder">
                 <icon name="info" color="#000" />
             </span>
         </td>
+        <span class="show-sm progress-bar-row">
+            <span class="progress-bar" :style="{ width: process.progress + '%' }"></span>
+        </span>
     </tr>
 </template>
 
@@ -35,7 +34,8 @@ export default {
         },
     },
     methods: {
-        onClick () {
+        onClick (event) {
+            event.preventDefault();
             this.$parent.$emit("onOpenSheet", this.process.id);
         },
         routeToScreen () {
@@ -43,10 +43,6 @@ export default {
                 name: "ProcessDetailScreen",
                 params: { id: this.process.id, title: this.process.title },
             });
-        },
-        startProcess () {
-            // eslint-disable-next-line no-alert
-            alert("Proces se pokreće");
         },
     },
 };
