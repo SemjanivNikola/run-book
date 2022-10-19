@@ -201,7 +201,7 @@ export default {
                 case "repeat": {
                     return this.repeat;
                 }
-                case "fiirst-page": {
+                case "first-page": {
                     return this.firstPage;
                 }
                 case "last-page": {

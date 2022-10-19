@@ -17,10 +17,12 @@
                 <process-list-item v-for="item in list" :key="item.id" :process="item" />
             </tbody>
         </table>
+        <pagination-wrapper />
     </div>
 </template>
 
 <script>
+import PaginationWrapper from "@/components/PaginationWrapper.vue";
 import ProcessListItem from "./ProcessListItem.vue";
 
 export default {
@@ -31,7 +33,7 @@ export default {
             required: true,
         },
     },
-    components: { ProcessListItem },
+    components: { ProcessListItem, PaginationWrapper },
 };
 </script>
 
