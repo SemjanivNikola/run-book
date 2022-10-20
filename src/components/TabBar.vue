@@ -81,6 +81,7 @@ export default {
     text-align: center;
     border-bottom: 3px solid transparent;
     cursor: pointer;
+    text-transform: uppercase;
 }
 .tab-wrapper .tab-item h6.tab-title {
     font-size: 14px;
