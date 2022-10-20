@@ -62,7 +62,12 @@
 .item-status span {
     font-size: 12px;
     font-weight: 400;
+}
+.item-status.action span {
     color: #e81e63;
+}
+.item-status span {
+    color: rgb(171, 180, 194);
 }
 .index-addon {
     display: inline;
