@@ -1,7 +1,10 @@
 <template>
     <div class="step-wrapper">
         <div
-            :class="[{ done: isDone(index), active: isActive(index) }, 'step-item']"
+            :class="[
+                { done: isDone(index), active: isActive(index) },
+                'step-item',
+            ]"
             v-for="(group, index) in stepList"
             :key="index"
         >
@@ -23,12 +26,23 @@
                     ]"
                 >
                     <h5>{{ step.caption }}</h5>
-                    <p>{{ step.summary }}</p>
+                    <ul v-if="index === 0" class="step-list">
+                        <li>Zadatak 41 - Valamar d.d.</li>
+                        <li>Zadatak 83 - Tri plus grupa d.o.o.</li>
+                        <li>Zadatak 86 - TRI M d.o.o.</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <button v-if="isProcessActive" type="edit" @click="onEdit">UREDI</button>
+        <div v-if="isProcessActive" class="btn-group">
+            <button  type="submit" @click="onEdit">
+                POŠALJI
+            </button>
+            <button type="edit" @click="onEdit">
+                UREDI
+            </button>
+        </div>
     </div>
 </template>
 
@@ -148,16 +162,11 @@ export default {
 .step-item.active .step-info-wrapper .step-info.active h5 {
     color: #000;
 }
-.step-item.done .step-info-wrapper .step-info.done p,
-.step-item.active .step-info-wrapper .step-info.active p {
-    color: rgba(0, 0, 0, .63);
-}
+
 /* When group is done/active - color skipped steps */
 .step-item.done .step-info-wrapper .step-info h5,
-.step-item.active .step-info-wrapper .step-info h5,
-.step-item.done .step-info-wrapper .step-info p,
-.step-item.active .step-info-wrapper .step-info p {
-    color: rgba(118, 118, 118, .54)
+.step-item.active .step-info-wrapper .step-info h5 {
+    color: rgba(118, 118, 118, 0.54);
 }
 
 .step-info {
@@ -174,7 +183,7 @@ export default {
     left: 48px;
     width: calc(100% - 48px);
     height: 1px;
-    background-color: rgba(0, 0, 0, .23);
+    background-color: rgba(0, 0, 0, 0.23);
 }
 .step-info.done {
     border-left-color: rgb(0, 185, 0);
@@ -188,7 +197,7 @@ export default {
 }
 
 .step-info p {
-     color: rgba(0, 0, 0, .63);
+    color: rgba(0, 0, 0, 0.63);
     font-size: 12px;
 }
 .step-info ul.step-list {
@@ -199,24 +208,35 @@ ul.step-list li {
     color: #767676;
 }
 
-button[type="edit"] {
-    max-width: 180px;
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+.step-wrapper .btn-group button {
+    width: 180px;
     text-transform: uppercase;
     font-size: 16px;
-    color: #fff;
-    background-color: rgb(0, 93, 130);
     padding: 8px 16px;
-    border: none;
     outline: none;
     border-radius: 4px;
     letter-spacing: 1.5px;
-    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45);
-    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45);
     transition: box-shadow 350ms ease-out;
     cursor: pointer;
 }
-button[type="edit"]:hover {
+.step-wrapper .btn-group button[type="edit"] {
+    background: transparent;
+    border: 2px solid rgb(0, 93, 130);
+}
+.step-wrapper .btn-group button[type="submit"] {
+    border: none;
+    color: #fff;
+    background-color: rgb(0, 93, 130);
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45);
+}
+.step-wrapper .btn-group button:hover {
     -webkit-box-shadow: 0 0 12px 2px rgba(0, 93, 130, 1);
     -moz-box-shadow: 0 0 12px 2px rgba(0, 93, 130, 1);
     box-shadow: 0 0 12px 2px rgba(0, 93, 130, 1);

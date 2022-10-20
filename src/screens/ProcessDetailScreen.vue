@@ -43,6 +43,10 @@
                             />
                         </tab-bar-item>
                         <tab-bar-item title="trenutni korak">
+                            <process-description
+                                noPadding
+                                :text="currentStep.description"
+                            />
                             <process-step-list
                                 :stepList="getStepListForActiveStep"
                                 :isProcessActive="true"
@@ -105,8 +109,21 @@ export default {
             this.processData = content;
             this.modalTitle = this.processData.info.description;
         },
+
+        /**
+         * @desc If action is string it means it's URL for rthird party,
+         * otherwise it sohould be ID/number so we route to form screen
+         */
         onActionPress () {
-            this.$router.push({ name: "FormScreen", prams: { id: this.currentStep.action } });
+            const { action } = this.currentStep;
+
+            if (typeof action === "string") {
+                // URL - redirect to third party
+                window.open(action, "_blank");
+            } else {
+                // Number - read for by ID
+                this.$router.push({ name: "FormScreen", prams: { id: action } });
+            }
         },
         toggleModal () {
             this.showModal = !this.showModal;
