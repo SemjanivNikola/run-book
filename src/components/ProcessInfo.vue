@@ -2,7 +2,7 @@
     <div class="process-info">
         <div class="process-info-title-wrapper">
             <a class="title-inner-wrapper" @click="$router.go(-1)">
-                <icon name="chevron-right" color="rgb(0, 0, 0)" :size="28"/>
+                <icon name="chevron-right" color="rgb(0, 0, 0)" :size="28" />
                 <h2>{{ info.title }}</h2>
             </a>
         </div>
@@ -36,12 +36,15 @@
                     <div class="divider-vertical"></div>
                     <div class="spacer-md"></div>
                     <span class="progress-value"
-                        ><i>{{ info.stepTotal }}</i></span
+                        >{{ info.stepTotal }}</span
                     >
                 </div>
             </div>
             <div class="spacer-md"></div>
-            <div class="step-progress-bar"></div>
+            <div
+                class="step-progress-bar"
+                :style="{ '--progress': info.progress + '%' }"
+            ></div>
         </div>
     </div>
 </template>
@@ -115,7 +118,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    width: 43%;
+    width: var(--progress);
     height: 100%;
     display: block;
     background-image: linear-gradient(
