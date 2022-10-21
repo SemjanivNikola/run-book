@@ -25,11 +25,13 @@
                 />
             </tbody>
         </table>
+        <pagination-wrapper />
     </div>
 </template>
 
 <script>
 import ProcessListItem from "./ProcessListItem.vue";
+import PaginationWrapper from "@/components/PaginationWrapper.vue";
 
 export default {
     name: "ProcessList",
@@ -39,7 +41,7 @@ export default {
             required: true,
         },
     },
-    components: { ProcessListItem },
+    components: { ProcessListItem, PaginationWrapper },
 };
 </script>
 
