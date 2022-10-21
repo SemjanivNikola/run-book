@@ -26,11 +26,17 @@
                     ]"
                 >
                     <h5>{{ step.caption }}</h5>
+                    <!-- TODO: Remove this hardcoded stuff -->
                     <ul v-if="index === 0" class="step-list">
                         <li>Zadatak 41 - Valamar d.d.</li>
                         <li>Zadatak 83 - Tri plus grupa d.o.o.</li>
                         <li>Zadatak 86 - TRI M d.o.o.</li>
                     </ul>
+                    <ul v-if="index > 0 && step.action" class="step-list">
+                        <li v-if="typeof step.action === 'string'">{{step.action}}</li>
+                        <li v-else>-</li>
+                    </ul>
+                    <!-- End's here -->
                 </div>
             </div>
         </div>

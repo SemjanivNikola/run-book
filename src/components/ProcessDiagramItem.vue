@@ -34,7 +34,7 @@
                     translate="yes"
                     class="diagram-item-fab"
                 >
-                    <div class="fab-wrapper" @click="$emit('on-action')">
+                    <div class="fab-wrapper" @click="onAction">
                         <span>{{ step.action.label }}</span>
                         <div class="action-icon">
                             <icon
@@ -99,6 +99,24 @@ export default {
         this.isActionNeeded = Boolean(
             this.isActive && this.step.action !== null,
         );
+    },
+    methods: {
+
+        /**
+         * @desc If action is string it means it's URL for rthird party,
+         * otherwise it sohould be ID/number so we route to form screen
+         */
+        onAction () {
+            const { action } = this.step;
+
+            if (typeof action === "string") {
+                // URL - redirect to third party
+                window.open(action, "_blank");
+            } else {
+                // Number - read for by ID
+                this.$router.push({ name: "FormScreen", prams: { id: action } });
+            }
+        },
     },
     computed: {
         iconName () {

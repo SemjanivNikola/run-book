@@ -39,7 +39,6 @@
                         <tab-bar-item title="pregled">
                             <process-diagram
                                 :stepList="processData.stepList"
-                                @on-action="onActionPress"
                             />
                         </tab-bar-item>
                         <tab-bar-item title="trenutni korak">
@@ -55,6 +54,9 @@
                         <tab-bar-item title="detalji">
                             <process-description
                                 noPadding
+                            />
+                            <process-step-list
+                                :stepList="processData.stepList"
                             />
                         </tab-bar-item>
                     </tab-bar>
@@ -108,22 +110,6 @@ export default {
         fetched (content) {
             this.processData = content;
             this.modalTitle = this.processData.info.description;
-        },
-
-        /**
-         * @desc If action is string it means it's URL for rthird party,
-         * otherwise it sohould be ID/number so we route to form screen
-         */
-        onActionPress () {
-            const { action } = this.currentStep;
-
-            if (typeof action === "string") {
-                // URL - redirect to third party
-                window.open(action, "_blank");
-            } else {
-                // Number - read for by ID
-                this.$router.push({ name: "FormScreen", prams: { id: action } });
-            }
         },
         toggleModal () {
             this.showModal = !this.showModal;
