@@ -3,18 +3,12 @@
         :class="[{ current: isActive }, 'diagram-col-item']"
         title="Pregledaj"
         translate="yes"
+        @click="openDetals"
     >
-        <div class="diagram-item-wrapper">
+        <div :id="'step-' + orderNum" class="diagram-item-wrapper">
             <div class="diagram-item-content">
                 <small v-if="isActive">Trenutni korak</small>
-                <h4>
-                    {{ index + 1 }}.<span
-                        class="index-addon"
-                        v-if="shouldCount"
-                        >{{ subArray[step.id - 1] }}</span
-                    >
-                    {{ step.title }}
-                </h4>
+                <h4>{{ orderNum }}. {{ step.title }}</h4>
 
                 <div v-if="isActionNeeded" class="action item-status">
                     <icon name="warning" color="#e81e63" />
@@ -36,6 +30,51 @@
                 >
                     <div class="fab-wrapper" @click="onAction">
                         <span>{{ step.action.label }}</span>
+                        <div class="action-icon">
+                            <icon
+                                name="plus"
+                                color="rgb(0,212,255)"
+                                :size="28"
+                            />
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- DETAILS -->
+        <div v-if="isDetailActive" class="detail-wrapper">
+            <div class="detail-content">
+                <h4>{{ orderNum }}. {{ step.title }}</h4>
+
+                <div class="spacer-md"></div>
+
+                <p style="font-size">{{step.description}}</p>
+
+                <div class="spacer-md"></div>
+
+                <div class="step-info">
+                    <h5 v-if="step.action">{{step.caption}}</h5>
+                    <ul v-if="index === 0" class="step-list">
+                        <li>Zadatak 41 - Valamar d.d.</li>
+                        <li>Zadatak 83 - Tri plus grupa d.o.o.</li>
+                        <li>Zadatak 86 - TRI M d.o.o.</li>
+                    </ul>
+                    <ul v-if="index > 0 && step.action" class="step-list">
+                        <li v-if="typeof step.action === 'string'">{{step.action}}</li>
+                        <li v-else>Još ništa nije ispunjeno</li>
+                    </ul>
+                </div>
+
+                <button
+                    v-if="isActionNeeded"
+                    type="button"
+                    :title="step.action.title"
+                    translate="yes"
+                    class="diagram-item-fab"
+                >
+                    <div class="fab-wrapper" @click="onAction">
+                        <span>UREDI</span>
                         <div class="action-icon">
                             <icon
                                 name="plus"
@@ -72,8 +111,10 @@ export default {
     },
     data () {
         return {
+            orderNum: null,
             isActive: false,
             isActionNeeded: false,
+            isDetailActive: false,
             subArray: [
                 "a",
                 "b",
@@ -99,8 +140,26 @@ export default {
         this.isActionNeeded = Boolean(
             this.isActive && this.step.action !== null,
         );
+        this.orderNum = this.shouldCount
+            ? this.index + 1 + this.subArray[this.step.id - 1].toString()
+            : this.index + 1;
     },
     methods: {
+        openDetals () {
+            this.isDetailActive = true;
+
+            const handleEvent = (event) => {
+                const values = Object.values(event.path);
+                const i = values.findIndex((item) => item.id === `step-${this.orderNum}`);
+
+                if (i < 0) {
+                    this.isDetailActive = false;
+                    window.removeEventListener("click", handleEvent);
+                }
+            };
+
+            window.addEventListener("click", handleEvent);
+        },
 
         /**
          * @desc If action is string it means it's URL for rthird party,
@@ -114,7 +173,10 @@ export default {
                 window.open(action, "_blank");
             } else {
                 // Number - read for by ID
-                this.$router.push({ name: "FormScreen", prams: { id: action } });
+                this.$router.push({
+                    name: "FormScreen",
+                    prams: { id: action },
+                });
             }
         },
     },
