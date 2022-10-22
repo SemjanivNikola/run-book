@@ -42,7 +42,7 @@
         </div>
 
         <div v-if="isProcessActive" class="btn-group">
-            <button  type="submit" @click="onEdit">
+            <button disabled="true" type="submit" @click="onEdit">
                 POŠALJI
             </button>
             <button type="edit" @click="onEdit">

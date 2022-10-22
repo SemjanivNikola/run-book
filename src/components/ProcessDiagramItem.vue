@@ -1,6 +1,6 @@
 <template>
     <div
-        :class="[{ current: isActive }, 'diagram-col-item']"
+        :class="[{ current: isActive, done: isDone }, 'diagram-col-item']"
         title="Pregledaj"
         translate="yes"
         @click="openDetals"
@@ -22,7 +22,22 @@
 
                 <!-- FAB WITH DESCRIPTION-->
                 <button
-                    v-if="isActionNeeded"
+                    v-if="isDone"
+                    type="button"
+                    class="diagram-item-fab disabled"
+                >
+                    <div class="fab-wrapper" @click="onAction">
+                        <div class="action-icon">
+                            <icon
+                                name="check"
+                                color="rgb(191, 240, 95)"
+                                :size="28"
+                            />
+                        </div>
+                    </div>
+                </button>
+                <button
+                    v-if="!isDone && isActionNeeded"
                     type="button"
                     :title="step.action.title"
                     translate="yes"
@@ -49,19 +64,21 @@
 
                 <div class="spacer-md"></div>
 
-                <p style="font-size">{{step.description}}</p>
+                <p style="font-size">{{ step.description }}</p>
 
                 <div class="spacer-md"></div>
 
                 <div class="step-info">
-                    <h5 v-if="step.action">{{step.caption}}</h5>
+                    <h5 v-if="step.action">{{ step.caption }}</h5>
                     <ul v-if="index === 0" class="step-list">
                         <li>Zadatak 41 - Valamar d.d.</li>
                         <li>Zadatak 83 - Tri plus grupa d.o.o.</li>
                         <li>Zadatak 86 - TRI M d.o.o.</li>
                     </ul>
                     <ul v-if="index > 0 && step.action" class="step-list">
-                        <li v-if="typeof step.action === 'string'">{{step.action}}</li>
+                        <li v-if="typeof step.action === 'string'">
+                            {{ step.action }}
+                        </li>
                         <li v-else>Još ništa nije ispunjeno</li>
                     </ul>
                 </div>
@@ -112,6 +129,7 @@ export default {
     data () {
         return {
             orderNum: null,
+            isDone: false,
             isActive: false,
             isActionNeeded: false,
             isDetailActive: false,
@@ -136,21 +154,32 @@ export default {
         };
     },
     created () {
-        this.isActive = this.step.status === "ACTIVE";
-        this.isActionNeeded = Boolean(
-            this.isActive && this.step.action !== null,
-        );
+        this.init();
         this.orderNum = this.shouldCount
             ? this.index + 1 + this.subArray[this.step.id - 1].toString()
             : this.index + 1;
     },
     methods: {
+        init () {
+            this.isDone = this.step.status === "COMPLETED";
+            if (this.isDone) {
+                this.isActive = false;
+                this.isActionNeeded = false;
+            } else {
+                this.isActive = this.step.status === "ACTIVE";
+                this.isActionNeeded = Boolean(
+                    this.isActive && this.step.action !== null,
+                );
+            }
+        },
         openDetals () {
             this.isDetailActive = true;
 
             const handleEvent = (event) => {
                 const values = Object.values(event.path);
-                const i = values.findIndex((item) => item.id === `step-${this.orderNum}`);
+                const i = values.findIndex(
+                    (item) => item.id === `step-${this.orderNum}`,
+                );
 
                 if (i < 0) {
                     this.isDetailActive = false;
