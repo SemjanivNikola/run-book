@@ -59,7 +59,7 @@ export default {
     font-family: "Niconne", cursive;
     color: #e0d6e9;
     transform-origin: center;
-    transform: rotate(-25deg) translate(3rem, -3rem);
+    transform: rotate(-25deg) translate(4rem, -4rem);
     text-shadow: 2px 2px 0px #957dad, 4px 4px 0px #ee4b2b, 6px 6px 0px #00c2cb,
         8px 8px 0px #ff7f50, 10px 10px 0px #553c9a;
 }

@@ -3,16 +3,17 @@
         <content-loader
             @is-fetched="fetched"
             path="processStore/readActionById"
-            :param="id"
+            :param="3"
         />
-        <div v-if="form">
+        <div v-if="form" class="container">
             <FormRenderer :formConfiguration="form" v-model="formInput" />
-            <div class="container">
-                <button type="submit" class="md-button" @click="onActionPress">
-                    SPREMI
-                </button>
-                <div style="height: 32px" />
-            </div>
+            <button
+                type="submit"
+                class="md-button transparent bottom-right"
+                @click="onActionPress"
+            >
+                SPREMI
+            </button>
         </div>
     </div>
 </template>
@@ -44,7 +45,7 @@ export default {
             this.$store.commit("processStore/setDetailAction", this.formInput, {
                 root: true,
             });
-            this.$router.go(-1);
+            this.$router.push({ name: "SuccessfulFormScreen" });
         },
     },
 };

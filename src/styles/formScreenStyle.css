@@ -1,11 +1,12 @@
 .form-wrapper {
     height: 100%;
+    padding: 0 24px;
     overflow-y: scroll;
 }
 .container {
+    position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding: 16px 15px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -14,6 +15,15 @@
 }
 .col-md-12 {
     width: "100%";
+}
+
+/* ****************************** */
+.form-headline-container {
+    padding: 16px 0;
+    margin-bottom: 48px
+}
+.form-headline-container h1 {
+    margin-bottom: 16px;
 }
 
 /* ****************************** */
@@ -293,10 +303,12 @@ span.multiselect__option:hover {
     cursor: pointer;
 }
 .dropzone .dz-message {
+    display: block;
     text-align: center;
     margin: 2em 0;
 }
 .dropzone .dz-default.dz-message, .dropzone .dz-default.dz-message span {
+    color: #999;
     cursor: pointer;
 }
 .dropzone.dz-started .dz-message {
@@ -548,10 +560,31 @@ button[type="submit"].md-button {
     transition: box-shadow 350ms ease-out;
     cursor: pointer;
 }
+button[type="submit"].md-button.transparent {
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #000;
+    border: 1px solid rgb(0, 93, 130);
+    background: transparent;
+    padding: 8px 16px;
+    outline: none;
+    border-radius: 4px;
+    letter-spacing: 1.5px;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45);
+    transition: box-shadow 350ms ease-out;
+    cursor: pointer;
+}
 button[type="submit"].md-button:hover {
     -webkit-box-shadow: 0 0 12px 2px rgba(0, 93, 130, 1);
     -moz-box-shadow: 0 0 12px 2px rgba(0, 93, 130, 1);
     box-shadow: 0 0 12px 2px rgba(0, 93, 130, 1);
+}
+button[type="submit"].md-button.bottom-right {
+    position: absolute;
+    bottom: 48px;
+    right: 0;
 }
 /* ******************************** */
 /*             ALERT                */
