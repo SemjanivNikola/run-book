@@ -3,13 +3,20 @@
         <h1>ODLIČNO!</h1>
         <div class="img-content">
             <div class="img-wrap">
-            <img src="../assets/form-successful.svg" />
+                <img src="../assets/form-successful.svg" />
             </div>
         </div>
         <h3>Podaci su uspješno poslani</h3>
         <div class="inline">
             <p>Za nekoliko sekundi ćeš se vratiti na pregled procesa.</p>
             <a @click="handleRoute">Vrati se odmah.</a>
+        </div>
+        <div class="logo">
+            <img
+                src="../assets/logo.png"
+                alt="logo"
+                style="width: 50px; height: 100%"
+            />
         </div>
     </div>
 </template>
@@ -77,8 +84,13 @@ export default {
     justify-content: center;
 }
 .inline a {
-    color:#005d82;
+    color: #005d82;
     text-decoration: underline;
     cursor: pointer;
+}
+.logo {
+    position: absolute;
+    top: 32px;
+    right: 32px;
 }
 </style>
