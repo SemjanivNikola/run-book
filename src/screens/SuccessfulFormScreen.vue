@@ -17,8 +17,19 @@
 <script>
 export default {
     name: "SuccessfulFormScreen",
+    data () {
+        return {
+            timeoutId: null,
+        };
+    },
+    created () {
+        this.timeoutId = setTimeout(() => {
+            this.handleRoute();
+        }, 5000);
+    },
     methods: {
         handleRoute () {
+            clearTimeout(this.timeoutId);
             this.$router.go(-2);
         },
     },
