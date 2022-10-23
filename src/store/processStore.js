@@ -60,8 +60,11 @@ export default {
                     throw err.message;
                 });
         },
-        readActionById (payload) {
+        readActionById (_c, payload) {
             return axios.get(`/process/action/${payload}`).
+                then((res) => {
+                    return res.data;
+                }).
                 catch((err) => {
                     throw err.message;
                 });

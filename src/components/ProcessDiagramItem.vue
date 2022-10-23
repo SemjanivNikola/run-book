@@ -201,10 +201,10 @@ export default {
                 // URL - redirect to third party
                 window.open(action, "_blank");
             } else {
-                // Number - read for by ID
+                // Object - read for by ID
                 this.$router.push({
                     name: "FormScreen",
-                    prams: { id: action },
+                    params: { id: action.id },
                 });
             }
         },

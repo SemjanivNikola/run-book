@@ -6,10 +6,10 @@
             :param="id"
         />
         <div v-if="form">
-            <FormRenderer :formConfiguration="TEST_DATA" v-model="formInput" />
+            <FormRenderer :formConfiguration="form" v-model="formInput" />
             <div class="container">
                 <button type="submit" class="md-button" @click="onActionPress">
-                    Test input
+                    SPREMI
                 </button>
                 <div style="height: 32px" />
             </div>
@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import TEST_DATA from "../../docs/testData.json";
 import { FormRenderer } from "v-form-builder";
 import ContentLoader from "@/components/ContentLoader.vue";
 
@@ -28,27 +27,23 @@ export default {
     props: {
         id: {
             type: Number || String, // On page refresh id from URL becomes string
-            required: true,
+            required: false,
         },
     },
     data () {
         return {
             formInput: null,
-            TEST_DATA,
             form: null,
         };
     },
     methods: {
         fetched (content) {
-            console.warn("content >> ", content);
             this.form = content;
         },
         onActionPress () {
-            this.$store.commit(
-                "processStore/setDetailAction",
-                this.formInput,
-                { root: true },
-            );
+            this.$store.commit("processStore/setDetailAction", this.formInput, {
+                root: true,
+            });
             this.$router.go(-1);
         },
     },

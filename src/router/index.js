@@ -32,7 +32,7 @@ const routes = [
         props: true,
     },
     {
-        path: "process/action/form",
+        path: "/process/action-form/:id",
         name: "FormScreen",
         component: FormScreen,
         props: true,
