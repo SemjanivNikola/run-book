@@ -17,7 +17,7 @@
                 <!-- Hide on INACTIVE step -->
                 <div v-if="isActive && !isActionNeeded" class="item-status">
                     <icon name="progress-clock" color="rgb(171, 180, 194)" />
-                    <span>Čekanje se odgovor treće strane</span>
+                    <span>Čekanje na odgovor treće strane</span>
                 </div>
 
                 <!-- FAB WITH DESCRIPTION-->

@@ -15,7 +15,7 @@
                             <div class="step-number-wrapper">
                                 <div class="step-number-wrapper-inner">
                                     <span class="step-number">{{
-                                        currentStep.id
+                                        processData.currentStep[0] + 1
                                     }}.</span>
                                 </div>
                             </div>
