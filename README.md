@@ -62,33 +62,33 @@ Detalji procesa prikazani su na način da je sučelje prodjeljeno na dvije glavn
 ```bash
 |--- src
     |--- assets
-        |--- ...
+    |   |--- ...
     |--- components
-        |--- ...
+    |   |--- ...
 ```
 Pod mapom ***components*** se nalaze komponente koje čine djelove sučelja te su sklone potpunom ili djelomičnom uređivanju.
 ```bash
     |--- router
-    |     |--- index.js
+    |   |--- index.js
     |--- screens
-        |--- ...
+    |   |--- ...
 ```
 Mapa ***screens*** sadržava konkretna sučelja aplikacije i nije predviđena za ništa drugo osim toga.
 ```bash
     |--- store
-        |--- interfaces
-            |--- store.ts
-        |--- index.js
-        |--- processStore.js
+    |    |--- interfaces
+    |    |    |--- store.ts
+    |    |--- index.js
+    |    |--- processStore.js
 ```
-U projektu nije korišten *typescript*, međutim iskorištena je njegova mogćnost definiranja entiteta koji se koriste u komunikaciji između app i servera, te u međusobnoj komunikaciju aplikacijskih komponenata. Tako se na jednom mjestu, u datoteci ***store.ts*** nalaze definicije entiteta koji se koriste kroz aplikaciju.
+U projektu nije korišten *typescript*, međutim iskorištena je njegova mogćnost definiranja entiteta koji se koriste u komunikaciji između aplikacije i servera, te u međusobnoj komunikaciji aplikacijskih komponenata. Entiteti su definirani na jednom mjestu, u datoteci ***store.ts***.
 ```bash
     |--- styles
-        |--- ...
+    |    |--- ...
     |--- types
-        |--- StatusType.js
+    |    |--- StatusType.js
     |--- views
-        |--- ...
+    |    |--- ...
 ```
 Mapa ***view*** sadržava dijelove sučelja koji grade konkretnu stranicu. Ove komponente su izgrađene od komponenti za višekratnu upotrebu iz foldera ***components***.
 ```bash
